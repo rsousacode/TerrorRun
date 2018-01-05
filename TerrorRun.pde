@@ -1,5 +1,8 @@
 import ddf.minim.*;
 //import ptmx.*;
+
+AssetManager assetManager;
+
 Camera camera;
 Controller controller;
 Player player;
@@ -34,6 +37,7 @@ void settings() {
 
 void setup()
 {
+  assetManager = new AssetManager();
   transcursor= loadImage("data/images/transcursor.png");
   controller = new Controller();
   frameRate(100);
@@ -50,7 +54,7 @@ void setState(int state) {
     world = new World(this);
 //    player = new Player(new PVector(0, 0), new PVector(0, 0));
     player = new Player(new PVector(622, 1088), new PVector(0, 0));
-    camera = new Camera(player.position);
+    camera = new Camera(player.position());
     darkning = new Darkning();  
     hud = new HUD();
 
