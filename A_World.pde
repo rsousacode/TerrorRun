@@ -2,10 +2,8 @@ class World {
   Ptmx map;
   ArrayList<Enemy> enemies;
   ArrayList<FireTrap> firetraps;
-  ArrayList<Batery> batery;
-  ArrayList<Batery2> batery2;
-  ArrayList<ExitSpawn> exitspawns;
-  ArrayList<BackSpawn> backspawns;
+  ArrayList<LowBattery> batery;
+  ArrayList<HighBatery> batery2;
   StringDict[] exitSpawnPos;
   StringDict[] backSpawnPos;
   StringDict[] collisionMap;
@@ -15,12 +13,10 @@ class World {
   StringDict[] enemiesPos;
   World(PApplet papplet) {
     map = new Ptmx(papplet, "map0.tmx");
-    batery = new ArrayList<Batery>();
-    batery2 = new ArrayList<Batery2>();
+    batery = new ArrayList<LowBattery>();
+    batery2 = new ArrayList<HighBatery>();
     enemies = new ArrayList<Enemy>();
     firetraps = new ArrayList <FireTrap>();
-    exitspawns = new ArrayList <ExitSpawn>();
-    backspawns = new ArrayList <BackSpawn>();
     map.setDrawMode(CORNER); 
     map.setPositionMode("CANVAS");
     collisionMap = map.getObjects(1);
@@ -43,32 +39,19 @@ class World {
 
   void updateObjects()
   {
-    ArrayList<ExitSpawn> buffer0 = new ArrayList<ExitSpawn>();
-    for (ExitSpawn obj : exitspawns) {
+
+    ArrayList<LowBattery> buffer = new ArrayList<LowBattery>();
+    for (LowBattery obj : batery) {
       obj.update();
-      ExitSpawn sp = obj.collision5();
-      if (sp != null)
-        buffer0.add(sp);
-    }
-    ArrayList<BackSpawn> buffer03 = new ArrayList<BackSpawn>();
-    for (BackSpawn obj : backspawns) {
-      obj.update();
-      BackSpawn bsp = obj.collision6();
-      if (bsp != null)
-        buffer03.add(bsp);
-    }
-    ArrayList<Batery> buffer = new ArrayList<Batery>();
-    for (Batery obj : batery) {
-      obj.update();
-      Batery bg = obj.collision();
+      LowBattery bg = obj.collision();
       if (bg != null)
         buffer.add(bg);
     }
     batery.removeAll(buffer);
-    ArrayList<Batery2> buffer2 = new ArrayList<Batery2>();
-    for (Batery2 obj : batery2) {
+    ArrayList<HighBatery> buffer2 = new ArrayList<HighBatery>();
+    for (HighBatery obj : batery2) {
       obj.update();
-      Batery2 bg2 = obj.collision2();
+      HighBatery bg2 = obj.collision2();
       if (bg2 != null)
         buffer2.add(bg2);
     }
@@ -90,13 +73,9 @@ class World {
 
   void displayObjects()
   {
-    for (ExitSpawn obj : exitspawns)
+    for (LowBattery obj : batery)
       obj.display();
-    for (BackSpawn obj : backspawns)
-      obj.display();
-    for (Batery obj : batery)
-      obj.display();
-    for (Batery2 obj : batery2)
+    for (HighBatery obj : batery2)
       obj.display();
     for (FireTrap obj : firetraps)
       obj.display();
@@ -106,24 +85,14 @@ class World {
 
   void createObjects()
   {
-    for (StringDict obj : exitSpawnPos) {
-      Rectangle rect = new Rectangle(obj);
-      ExitSpawn newExitSpawn = new ExitSpawn (rect); 
-      exitspawns.add(newExitSpawn);
-    }
-    for (StringDict obj : backSpawnPos) {
-      Rectangle rect = new Rectangle(obj);
-      BackSpawn newBackSpawn = new BackSpawn (rect); 
-      backspawns.add(newBackSpawn);
-    }
     for (StringDict obj : bateriesPos) {
       Rectangle rect = new Rectangle(obj);
-      Batery newBatery = new Batery (rect.x, rect.y); 
+      LowBattery newBatery = new LowBattery (rect.x, rect.y); 
       batery.add(newBatery);
     }
     for (StringDict obj : bluebateriesPos) {
       Rectangle rect = new Rectangle(obj);
-      Batery2 newBatery2 = new Batery2 (rect.x, rect.y); 
+      HighBatery newBatery2 = new HighBatery (rect.x, rect.y); 
       batery2.add(newBatery2);
     }
     for (StringDict obj : trapPos) {

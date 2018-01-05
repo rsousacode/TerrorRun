@@ -6,7 +6,6 @@ class Menu
   boolean   OverHelp=false;
   boolean   OverPlay=false;
   boolean   OverTitle=false;
-  int playNornal=0;
   Menu ()
   {
     title = loadImage("data/images/title.png");

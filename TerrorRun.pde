@@ -2,7 +2,6 @@ import ddf.minim.*;
 //import ptmx.*;
 
 AssetManager assetManager;
-
 Camera camera;
 Controller controller;
 Player player;

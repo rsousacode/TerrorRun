@@ -1,4 +1,4 @@
-class Batery2  extends GameObject
+class HighBatery  extends GameObject
 {
   PImage image;
   float direction;
@@ -6,7 +6,7 @@ class Batery2  extends GameObject
   boolean coliding;
   float velY, velX;
   
-  Batery2 (float x, float y) {
+  HighBatery (float x, float y) {
     super(x, y);
     image = loadImage("data/images/battery2.png");
   }
@@ -19,8 +19,8 @@ class Batery2  extends GameObject
   void update() {
   }
   
-  Batery2 collision2() {
-    Batery2 bg2 = null;
+  HighBatery collision2() {
+    HighBatery bg2 = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
       bg2 = this;

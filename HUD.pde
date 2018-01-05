@@ -1,6 +1,3 @@
-
-
-
 class HUD {
 PFont font;
   float value, max, x, y, w, h;
