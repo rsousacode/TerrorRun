@@ -30,18 +30,18 @@ class World {
     enemiesPos=map.getObjects(5);
     exitSpawnPos=map.getObjects(6);
     backSpawnPos= map.getObjects(7);
-    ObjectsDisplay();
+    createObjects();
   }
   void update() {
-    ObjectsUpdate();
+    updateObjects();
   }
 
   void display() {
-    translate(0,0);
     map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
+    displayObjects();
   }
 
-  void ObjectsUpdate()
+  void updateObjects()
   {
     ArrayList<ExitSpawn> buffer0 = new ArrayList<ExitSpawn>();
     for (ExitSpawn obj : exitspawns) {
@@ -49,7 +49,6 @@ class World {
       ExitSpawn sp = obj.collision5();
       if (sp != null)
         buffer0.add(sp);
-      obj.display();
     }
     ArrayList<BackSpawn> buffer03 = new ArrayList<BackSpawn>();
     for (BackSpawn obj : backspawns) {
@@ -57,7 +56,6 @@ class World {
       BackSpawn bsp = obj.collision6();
       if (bsp != null)
         buffer03.add(bsp);
-      obj.display();
     }
     ArrayList<Batery> buffer = new ArrayList<Batery>();
     for (Batery obj : batery) {
@@ -65,7 +63,6 @@ class World {
       Batery bg = obj.collision();
       if (bg != null)
         buffer.add(bg);
-      obj.display();
     }
     batery.removeAll(buffer);
     ArrayList<Batery2> buffer2 = new ArrayList<Batery2>();
@@ -74,13 +71,11 @@ class World {
       Batery2 bg2 = obj.collision2();
       if (bg2 != null)
         buffer2.add(bg2);
-      obj.display();
     }
     batery2.removeAll(buffer2);
     ArrayList<FireTrap> buffer3 = new ArrayList<FireTrap>();
     for (FireTrap obj : firetraps) {
       obj.update();
-      obj.display();
     }
     firetraps.removeAll(buffer3);
     ArrayList<Enemy> buffer4 = new ArrayList<Enemy>();
@@ -89,12 +84,27 @@ class World {
       Enemy en = obj.collision4();
       if (en != null)
         buffer4.add(en);
-      obj.display();
     }
     enemies.removeAll(buffer4);
   }
 
-  void ObjectsDisplay()
+  void displayObjects()
+  {
+    for (ExitSpawn obj : exitspawns)
+      obj.display();
+    for (BackSpawn obj : backspawns)
+      obj.display();
+    for (Batery obj : batery)
+      obj.display();
+    for (Batery2 obj : batery2)
+      obj.display();
+    for (FireTrap obj : firetraps)
+      obj.display();
+    for (Enemy obj : enemies)
+      obj.display();
+  }
+
+  void createObjects()
   {
     for (StringDict obj : exitSpawnPos) {
       Rectangle rect = new Rectangle(obj);
@@ -137,10 +147,10 @@ class World {
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (player.position.x-player.image.width/2, objX+16);
-      float yi = Math.max (player.position.y-player.image.height/2, objY);
-      float wi = Math.min ((player.position.x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
-      float hi = Math.min ((player.position.y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
+      float xi = Math.max (player.position().x-player.image.width/2, objX+16);
+      float yi = Math.max (player.position().y-player.image.height/2, objY);
+      float wi = Math.min ((player.position().x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
+      float hi = Math.min ((player.position().y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi)

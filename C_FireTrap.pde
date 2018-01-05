@@ -1,25 +1,23 @@
-class FireTrap
+class FireTrap extends GameObject
 {
   PImage image;
-  PVector position;
   float direction;
   float minx, maxx;
   boolean coliding;
   PVector velocity;
   float getH, getW, getX, getY;
-  FireTrap (Rectangle FireArea) {
-    position = new PVector(FireArea.x, FireArea.y);
-    getH = FireArea.h;
-    getW = FireArea.w;
-    getX = FireArea.x;
-    getY=FireArea.y;
+  
+  FireTrap (Rectangle fireArea) {
+    super(fireArea.x, fireArea.y);
+    getH = fireArea.h;
+    getW = fireArea.w;
+    getX = fireArea.x;
+    getY=fireArea.y;
   }
-  void display() { 
-    pushMatrix();
-    rectMode(CORNER);
+  
+  void draw() { 
+  }
 
-    popMatrix();
-  }
   void update() {
     world.CheckCollisionTraps();
   }

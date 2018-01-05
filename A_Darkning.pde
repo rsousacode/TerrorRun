@@ -60,6 +60,6 @@ class Darkning {
   
   void apply() {
     resetMatrix();
-    apply(camera.asDisplay(player.position), smoothedDiameter / 2);
+    apply(camera.asDisplay(player.position()), smoothedDiameter / 2);
   }
 }

@@ -24,10 +24,10 @@ class BackSpawn
     }
   BackSpawn collision6() {
     BackSpawn bsp = null;
-    if (dist(player.position.x, player.position.y, position.x, position.y + player.image.height/2)< player.image.width/2+player.image.height/2)
+    if (dist(player.position().x, player.position().y, position.x, position.y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
-     player.position.x=670;
-     player.position.y=3018;
+//     player.position.x=670;
+//     player.position.y=3018;
     }
     return bsp;
   }
