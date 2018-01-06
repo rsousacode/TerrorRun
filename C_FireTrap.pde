@@ -19,6 +19,6 @@ class FireTrap extends GameObject
   }
 
   void update() {
-    world.CheckCollisionTraps();
+    map.CheckCollisionTraps();
   }
 }

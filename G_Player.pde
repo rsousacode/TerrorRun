@@ -31,7 +31,7 @@ class Player extends GameObject {
     float objY=0, objX=0;
     float objHeight=0, objWidth=0;
     coliding=false;
-    for (StringDict obj : world.collisionMap)
+    for (StringDict obj : map.collisionMap)
     {
       objX = parseFloat(obj.get("x"));
       objY = parseFloat(obj.get("y"));

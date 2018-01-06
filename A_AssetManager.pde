@@ -1,10 +1,5 @@
 class AssetManager {
-
-  private PImage enemyImage;
-  private PImage lowBateryImage;
-  private PImage highBateryImage;
-  private PImage playerImage;
-  private PImage transcursor;
+  //***//MENU's IMAGES//***//
   private PImage cursorImage;
   private PImage backgroundMenu;
   private PImage title;
@@ -13,9 +8,15 @@ class AssetManager {
   private PImage exitSys;
   private PImage play;
   private PImage helpCurrent;
-
-
+  //***//GAME IMAGES//***//
+  private PImage transcursor;
+  private PImage playerImage;
+  private PImage enemyImage;
+  private PImage lowBateryImage;
+  private PImage highBateryImage;
+ 
   AssetManager() {
+    cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/background4.jpg");
     title = loadImage("data/images/title.png");
     return2menu = loadImage("data/images/return.png");
@@ -23,8 +24,7 @@ class AssetManager {
     helpCurrent = loadImage("data/images/help.jpg");
     play=loadImage("data/images/play2.png");
     exitSys=loadImage("data/images/exit.png");
-
-    cursorImage= loadImage("data/images/cursor.png");
+    //***//GAME IMAGES//***//
     transcursor= loadImage("data/images/transcursor.png");
     playerImage =    loadImage("data/images/skeleton.png");
     enemyImage = loadImage("data/images/ghost.png");
@@ -47,16 +47,16 @@ class AssetManager {
   PImage help() {
     return helpButton;
   }
-  
-   PImage helpCurrent() {
+
+  PImage helpCurrent() {
     return helpCurrent;
   }
 
   PImage exitSys() {
     return exitSys;
   }
-  
-   PImage play() {
+
+  PImage play() {
     return play;
   }
 

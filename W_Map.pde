@@ -1,18 +1,16 @@
-class World {
+class Map {
   Ptmx map;
   ArrayList<Enemy> enemies;
   ArrayList<FireTrap> firetraps;
   ArrayList<LowBattery> batery;
   ArrayList<HighBatery> batery2;
-  StringDict[] exitSpawnPos;
-  StringDict[] backSpawnPos;
   StringDict[] collisionMap;
   StringDict[] bateriesPos;
   StringDict[] bluebateriesPos;
   StringDict[] trapPos;
   StringDict[] enemiesPos;
   int collisionOffset = 10;
-  World(PApplet papplet) {
+  Map(PApplet papplet) {
     map = new Ptmx(papplet, "map0.tmx");
     batery = new ArrayList<LowBattery>();
     batery2 = new ArrayList<HighBatery>();
@@ -25,8 +23,6 @@ class World {
     bateriesPos = map.getObjects(2);
     trapPos=map.getObjects(4);
     enemiesPos=map.getObjects(5);
-    exitSpawnPos=map.getObjects(6);
-    backSpawnPos= map.getObjects(7);
     createObjects();
   }
   void update() {
@@ -111,7 +107,7 @@ class World {
   {
     float objY=0, objX=0;
     float objHeight=0, objWidth=0;
-    for (StringDict obj : world.trapPos)
+    for (StringDict obj : trapPos)
     {
       objX = parseFloat(obj.get("x"));
       objY = parseFloat(obj.get("y"));

@@ -10,7 +10,7 @@ Darkning darkning;
 HUD hud;
 Rectangle rectangle;
 End end;
-World world;
+Map map;
 Minim minim;
 AudioPlayer music;     
 AudioPlayer menumusic; //intent to have menu music and gameplay music
@@ -46,7 +46,7 @@ void setState(int state) {
   this.state = state;
   switch(state) {
   case STATE_GAME:
-    world = new World(this);
+    map = new Map(this);
     player = new Player(new PVector(622, 1088), new PVector(0, 0));
     camera = new Camera(player.position());
     darkning = new Darkning();  
@@ -71,12 +71,12 @@ void draw()
     background(#FF0000);
     controller.apply();
     player.update();
-    world.update();
+    map.update();
     darkning.update(); 
     hud.update();
     camera.update();
     camera.apply();
-    world.display();
+    map.display();
     player.display();
     darkning.apply(); 
     hud.display();
