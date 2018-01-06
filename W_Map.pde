@@ -53,11 +53,9 @@ class Map {
         buffer2.add(bg2);
     }
     batery2.removeAll(buffer2);
-    ArrayList<FireTrap> buffer3 = new ArrayList<FireTrap>();
     for (FireTrap obj : firetraps) {
       obj.update();
     }
-    firetraps.removeAll(buffer3);
     ArrayList<Enemy> buffer4 = new ArrayList<Enemy>();
     for (Enemy obj : enemies) {
       obj.update();

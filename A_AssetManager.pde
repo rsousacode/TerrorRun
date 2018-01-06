@@ -1,4 +1,5 @@
 class AssetManager {
+
   //***//MENU's IMAGES//***//
   private PImage cursorImage;
   private PImage backgroundMenu;
@@ -14,7 +15,13 @@ class AssetManager {
   private PImage enemyImage;
   private PImage lowBateryImage;
   private PImage highBateryImage;
- 
+  String path;
+
+
+
+  //put your audio file name here
+
+
   AssetManager() {
     cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/background4.jpg");
@@ -31,6 +38,7 @@ class AssetManager {
     lowBateryImage =   loadImage("data/images/battery.png");
     highBateryImage= loadImage("data/images/battery2.png");
   }
+
 
   PImage backgroundMenu() {
     return backgroundMenu.copy();
@@ -91,6 +99,8 @@ class AssetManager {
   PImage highBateryImage() {
     return highBateryImage;
   }
+
+
 
   void Cursordisplay() {
     if (state!=STATE_GAME ) {
