@@ -1,5 +1,5 @@
 class HUD {
-PFont font;
+  PFont font;
   float value, max, x, y, w, h;
   color  bar;
   private int lives = 3; 
@@ -26,6 +26,7 @@ PFont font;
 
     text("Lives: " + lives, 60, 100);
     text("Score: " + score, 60, 120);
+    assetManager.Cursordisplay();
   }
   public int lives() {
     return lives;

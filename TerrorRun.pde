@@ -24,8 +24,7 @@ final int STATE_END=4;
 final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
-PImage cursor;
-PImage transcursor;
+
 
 void settings() {
   smooth(33);
@@ -36,11 +35,9 @@ void settings() {
 void setup()
 {
   assetManager = new AssetManager();
-  transcursor= loadImage("data/images/transcursor.png");
+
   controller = new Controller();
   frameRate(100);
-  background_menu = loadImage("data/images/background4.jpg");
-  //setState(STATE_MENU);
   setState(STATE_MENU);
 }
 
@@ -50,13 +47,10 @@ void setState(int state) {
   switch(state) {
   case STATE_GAME:
     world = new World(this);
-//    player = new Player(new PVector(0, 0), new PVector(0, 0));
     player = new Player(new PVector(622, 1088), new PVector(0, 0));
     camera = new Camera(player.position());
     darkning = new Darkning();  
     hud = new HUD();
-
-    //tilled_get_map
   case STATE_END:
     end = new End();
   case STATE_MENU:
@@ -71,11 +65,7 @@ void draw()
   if (state== STATE_MENU ) {
     menu.display();
     menu.update();
-    cursor= loadImage("data/images/cursor.png");
-    Cursordisplay();
   } else if (state== STATE_HELP ) {
-    cursor= loadImage("data/images/cursor.png");
-    Cursordisplay();
     help.display();
   } else if ( state== STATE_GAME) {
     background(#FF0000);
@@ -85,19 +75,12 @@ void draw()
     darkning.update(); 
     hud.update();
     camera.update();
-
-    Cursordisplay();
-
     camera.apply();
-    
     world.display();
     player.display();
-
     darkning.apply(); 
     hud.display();
   } else if (state== STATE_END ) {
-    cursor= loadImage("data/images/cursor.png");
-    Cursordisplay();
     end.display();
   }
 }
@@ -152,23 +135,13 @@ void StatesInter() {
 }
 
 void keyPressed() {
-  //  if (state == STATE_GAME)
   controller.keyPressed(key);
 }
 
 void keyReleased() {
-  //    if (state == STATE_GAME)
   controller.keyReleased(key);
 }
 
 void mousePressed() {
   StatesInter();
-}
-
-void Cursordisplay() {
-  if (state!=STATE_GAME ) {
-    cursor(cursor);
-  } else if (state==STATE_GAME) {
-    cursor(transcursor);
-  }
 }

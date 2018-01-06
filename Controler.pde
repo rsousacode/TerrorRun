@@ -28,8 +28,8 @@ class Controller {
       player.direction= 1;
     }
   }
-  
-  
+
+
   void keyPressed(char key) {
     if (key == 'W' || key == 'w'  ) {
       up = true;

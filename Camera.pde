@@ -37,7 +37,6 @@ class Camera {
     return PVector.add(display, originInWorld());
   }
 
-  // Not correct. Should account for rotation.
   PVector asDisplay(PVector world) {
     return PVector.sub(world, originInWorld());
   }

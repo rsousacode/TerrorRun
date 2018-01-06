@@ -7,17 +7,17 @@ class LowBattery extends GameObject
   float velY, velX;
   LowBattery (float x, float y) {
     super(x, y);
-  image = loadImage("data/images/battery.png");
+    image = assetManager.lowBateryImage();
   }
-  
+
   void draw() { 
     imageMode(CENTER);
     image(image, 0, 0);
   }
-  
+
   void update() {
   }
-  
+
   LowBattery collision() {
     LowBattery bg = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2 ) 

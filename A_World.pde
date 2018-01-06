@@ -11,6 +11,7 @@ class World {
   StringDict[] bluebateriesPos;
   StringDict[] trapPos;
   StringDict[] enemiesPos;
+  int collisionOffset = 10;
   World(PApplet papplet) {
     map = new Ptmx(papplet, "map0.tmx");
     batery = new ArrayList<LowBattery>();
@@ -106,7 +107,7 @@ class World {
       enemies.add(newEnemy);
     }
   }
- void CheckCollisionTraps()
+  void CheckCollisionTraps()
   {
     float objY=0, objX=0;
     float objHeight=0, objWidth=0;
@@ -116,9 +117,9 @@ class World {
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (player.position().x-player.image.width/2, objX+16);
+      float xi = Math.max (player.position().x-player.image.width/2+collisionOffset, objX);
       float yi = Math.max (player.position().y-player.image.height/2, objY);
-      float wi = Math.min ((player.position().x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
+      float wi = Math.min ((player.position().x-player.image.width/2-collisionOffset)+ player.image.width, objX + objWidth) - xi;
       float hi = Math.min ((player.position().y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {

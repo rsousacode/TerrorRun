@@ -8,8 +8,8 @@ class Player extends GameObject {
 
   Player(PVector position, PVector velocity) {
     super(position);
-    image = loadImage("data/images/skeleton.png");
     this.velocity = velocity.copy();
+    image = assetManager.playerImage();
     direction = 1;
   }
 
@@ -80,7 +80,7 @@ class Player extends GameObject {
 
     else
       velocity = new PVector(0, 0);
-      
+
     CheckCollisionWorld();
     // println("X:",player.position.x,"Y:",player.position.y);
     //println(player.position.x, player.position.y);

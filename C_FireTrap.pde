@@ -6,7 +6,7 @@ class FireTrap extends GameObject
   boolean coliding;
   PVector velocity;
   float getH, getW, getX, getY;
-  
+
   FireTrap (Rectangle fireArea) {
     super(fireArea.x, fireArea.y);
     getH = fireArea.h;
@@ -14,8 +14,8 @@ class FireTrap extends GameObject
     getX = fireArea.x;
     getY=fireArea.y;
   }
-  
-  void draw() { 
+
+  void draw() {
   }
 
   void update() {

@@ -17,11 +17,11 @@ abstract class GameObject {
   void setPositionXTo(float x) {
     position.x = x;
   }
-  
+
   void setPositionYTo(float y) {
     position.y = y;
   }
-  
+
   void moveBy(PVector displacement) {
     position.add(displacement);
   }

@@ -5,7 +5,7 @@ class Darkning {
   private float smoothedDiameter;
   boolean CollidingWithBateries;
   PGraphics darkning;
-  
+
   Darkning() {
     diameter = 2 * height;
     smoothedDiameter = 2 * height;
@@ -26,7 +26,7 @@ class Darkning {
     diameter = max(width, height);
     position = new PVector(width / 2, height / 2);
   }
-  
+
   void apply(PVector center, float radius) {
     pushStyle();
 
@@ -47,7 +47,7 @@ class Darkning {
     image(darkning, center.x, center.y, 2 * radius, 2 * radius);
     popStyle();
   }
-  
+
   void update() {
     diameter-=0.7;
     diameter = constrain(diameter, 0, height*2);
@@ -57,7 +57,7 @@ class Darkning {
       diameter = 2 * height;
     }
   }
-  
+
   void apply() {
     resetMatrix();
     apply(camera.asDisplay(player.position()), smoothedDiameter / 2);
