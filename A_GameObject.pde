@@ -47,8 +47,11 @@ abstract class GameObject {
     }
   }
   //
-  void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth, float pObjW, float pObjH)
+ 
+
+  void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth)
   {
+
     player.coliding=false;
     for (StringDict obj : map.collisionMap)
     {
@@ -56,10 +59,10 @@ abstract class GameObject {
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (position().x-pObjW, objX);
-      float yi = Math.max (position().y-pObjH/2, objY);
-      float wi = Math.min ((position().x-pObjW/2)+ pObjW, objX + objWidth) - xi;
-      float hi = Math.min ((position().y-pObjH/2)+ pObjH, objY + objHeight) - yi;
+      float xi = Math.max (position().x-player.image.width/2, objX);
+      float yi = Math.max (position().y-player.image.height/2, objY);
+      float wi = Math.min ((position().x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
+      float hi = Math.min ((position().y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi)
@@ -69,6 +72,7 @@ abstract class GameObject {
       }
     }
   }
+
   void CheckVertical(float objY, float yi, float objHeight)
   {
     if (yi==objY )

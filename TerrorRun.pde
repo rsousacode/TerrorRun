@@ -1,4 +1,4 @@
-//import processing.sound.*;
+import processing.sound.*;
 AssetManager assetManager;
 Camera camera;
 Controller controller;
@@ -11,7 +11,7 @@ Rectangle rectangle;
 End end;
 Map map;
 //SoundFile file;
-String path;
+//String path;
 
 int state;
 final int STATE_MENU=1;
@@ -68,7 +68,7 @@ void draw()
   } else if (state== STATE_HELP ) {
     help.display();
   } else if ( state== STATE_GAME) {
-    background(12,12,12);
+    background(12, 12, 12);
     controller.apply();
     player.update();
     map.update();
@@ -158,5 +158,4 @@ void keyReleased() {
 
 void mousePressed() {
   StatesInter();
-
 }
