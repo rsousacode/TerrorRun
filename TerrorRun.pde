@@ -1,5 +1,4 @@
-import processing.sound.*;
-
+//import processing.sound.*;
 AssetManager assetManager;
 Camera camera;
 Controller controller;
@@ -11,7 +10,7 @@ HUD hud;
 Rectangle rectangle;
 End end;
 Map map;
-SoundFile file;
+//SoundFile file;
 String path;
 
 int state;
@@ -32,8 +31,8 @@ void settings() {
 
 void setup()
 {
-  path = sketchPath("sample.mp3");
-  file = new SoundFile(this, path);
+  //path = sketchPath("sample.mp3");
+  //file = new SoundFile(this, path);
   assetManager = new AssetManager();
   controller = new Controller();
   frameRate(100);
@@ -47,18 +46,17 @@ void setState(int state) {
   case STATE_GAME:
     map = new Map(this);
     player = new Player(new PVector(622, 1088), new PVector(0, 0));
+
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();
   case STATE_END:
-    stopAudio();
 
     end = new End();
   case STATE_MENU:
     menu = new Menu();
   case STATE_HELP:
     help = new Help();
-
   }
 }
 
@@ -70,7 +68,7 @@ void draw()
   } else if (state== STATE_HELP ) {
     help.display();
   } else if ( state== STATE_GAME) {
-    background(#FF0000);
+    background(12,12,12);
     controller.apply();
     player.update();
     map.update();
@@ -81,6 +79,8 @@ void draw()
     map.display();
     player.display();
     darkning.apply(); 
+
+
     hud.display();
   } else if (state== STATE_END ) {
 
@@ -94,6 +94,7 @@ float sqr(float value) {
 }
 
 void StatesInter() {
+
 
   if (state == STATE_MENU ) {
     String result = menu.checkButtons();
@@ -137,14 +138,14 @@ void StatesInter() {
   }
 }
 
-void PlayAudio() {
-  file.play();
-}
+//void PlayAudio() {
+//  file.play();
+//}
 
-void stopAudio() {
+//void stopAudio() {
 
-  file.stop();
-}
+//  file.stop();
+//}
 
 
 void keyPressed() {
@@ -157,4 +158,5 @@ void keyReleased() {
 
 void mousePressed() {
   StatesInter();
+
 }

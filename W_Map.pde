@@ -4,6 +4,7 @@ class Map {
   ArrayList<FireTrap> firetraps;
   ArrayList<LowBattery> batery;
   ArrayList<HighBatery> batery2;
+
   StringDict[] collisionMap;
   StringDict[] bateriesPos;
   StringDict[] bluebateriesPos;
@@ -16,6 +17,8 @@ class Map {
     batery2 = new ArrayList<HighBatery>();
     enemies = new ArrayList<Enemy>();
     firetraps = new ArrayList <FireTrap>();
+
+
     map.setDrawMode(CORNER); 
     map.setPositionMode("CANVAS");
     collisionMap = map.getObjects(1);

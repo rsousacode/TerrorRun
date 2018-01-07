@@ -32,7 +32,7 @@ class Player extends GameObject {
     else
       velocity = new PVector(0, 0);
 
-    CheckCollisionWorld();
+    CheckCollisionWorld(0,0,0,0,player.image.width,player.image.height);
     // println("X:",player.position.x,"Y:",player.position.y);
     //println(player.position.x, player.position.y);
     //println(isOnGround);

@@ -38,7 +38,7 @@ abstract class GameObject {
     player.velocity.x=0;
     if (xi==objX)
     {
-     player. velocity.x=0;
+     player.velocity.x=0;
       setPositionXTo(objX-player.image.width/2);
     } else
     {
@@ -46,10 +46,9 @@ abstract class GameObject {
       setPositionXTo(objX+objWidth+player.image.width/2);
     }
   }
-  void CheckCollisionWorld()
+  //
+  void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth, float pObjW, float pObjH)
   {
-    float objY=0, objX=0;
-    float objHeight=0, objWidth=0;
     player.coliding=false;
     for (StringDict obj : map.collisionMap)
     {
@@ -57,10 +56,10 @@ abstract class GameObject {
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (position().x-player.image.width/2, objX);
-      float yi = Math.max (position().y-player.image.height/2, objY);
-      float wi = Math.min ((position().x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
-      float hi = Math.min ((position().y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
+      float xi = Math.max (position().x-pObjW, objX);
+      float yi = Math.max (position().y-pObjH/2, objY);
+      float wi = Math.min ((position().x-pObjW/2)+ pObjW, objX + objWidth) - xi;
+      float hi = Math.min ((position().y-pObjH/2)+ pObjH, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi)
