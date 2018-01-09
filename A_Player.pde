@@ -22,7 +22,7 @@ class Player extends GameObject {
 
   void update()
   {
-    velocity.add( new PVector(0, 1.2).mult(0.999)); //JUMP Velocity
+    velocity.add( new PVector(0, 1.2).mult(0.999)); 
 
     moveBy(velocity);
 
@@ -33,8 +33,6 @@ class Player extends GameObject {
       velocity = new PVector(0, 0);
 
     CheckCollisionWorld(0,0,0,0);
-    // println("X:",player.position.x,"Y:",player.position.y);
-    //println(player.position.x, player.position.y);
-    //println(isOnGround);
+
   }
 }

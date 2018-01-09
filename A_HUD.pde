@@ -2,7 +2,7 @@ class HUD {
   PFont font;
   float value, max, x, y, w, h;
   color  bar;
-  private int lives = 3; 
+  private int lanterns = 3; 
   int bateries =0;
   int score=0;
   HUD() {
@@ -24,15 +24,15 @@ class HUD {
     fill(255);
     textAlign(LEFT);
 
-    text("Lives: " + lives, 60, 100);
+    text("Lanterns " + lanterns, 60, 100);
     text("Score: " + score, 60, 120);
     assetManager.Cursordisplay();
   }
   public int lives() {
-    return lives;
+    return lanterns;
   }
   public void setLives (int lives) {
-    this.lives =lives;
+    this.lanterns =lives;
   }
   public int getScore() {
     return score;
