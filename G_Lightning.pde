@@ -5,6 +5,7 @@ class Darkning {
   private float smoothedDiameter;
   boolean CollidingWithBateries;
   PGraphics darkning;
+  float DiameterRate = (float)width/2500;
 
   Darkning() {
     diameter = 2 * height;
@@ -47,15 +48,22 @@ class Darkning {
     image(darkning, center.x, center.y, 2 * radius, 2 * radius);
     popStyle();
   }
+  
+  float getDiameterRate() {
+    return DiameterRate;
+    
+  }
 
   void update() {
-    diameter-=0.7;
+    diameter-=getDiameterRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
     if ( smoothedDiameter<=70) {
       hud.setLives(hud.lives()-1);
       diameter = 2 * height;
     }
+          //println(getDiameterRate());
+
   }
 
   void apply() {

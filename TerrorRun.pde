@@ -25,8 +25,8 @@ PImage background_help;
 
 void settings() {
   smooth(33);
-  fullScreen(P2D);
-  //size(800, 600, P2D);
+  //fullScreen(P2D);
+  size(800, 600, P2D);
 }
 
 void setup()
@@ -45,7 +45,7 @@ void setState(int state) {
   switch(state) {
   case STATE_GAME:
     map = new Map(this);
-    player = new Player(new PVector(622, 1088), new PVector(0, 0));
+    player = new Player(new PVector(624, 1056), new PVector(0, 0));
 
     camera = new Camera(player.position());
     darkning = new Darkning();
@@ -68,7 +68,7 @@ void draw()
   } else if (state== STATE_HELP ) {
     help.display();
   } else if ( state== STATE_GAME) {
-    background(12, 12, 12);
+    background(0);
     controller.apply();
     player.update();
     map.update();

@@ -12,7 +12,7 @@ class Map {
   StringDict[] enemiesPos;
   int collisionOffset = 10;
   Map(PApplet papplet) {
-    map = new Ptmx(papplet, "map0.tmx");
+    map = new Ptmx(papplet, "tr.tmx");
     batery = new ArrayList<LowBattery>();
     batery2 = new ArrayList<HighBatery>();
     enemies = new ArrayList<Enemy>();
@@ -21,11 +21,11 @@ class Map {
 
     map.setDrawMode(CORNER); 
     map.setPositionMode("CANVAS");
-    collisionMap = map.getObjects(1);
-    bluebateriesPos=map.getObjects(3);
-    bateriesPos = map.getObjects(2);
-    trapPos=map.getObjects(4);
-    enemiesPos=map.getObjects(5);
+    collisionMap = map.getObjects(2);
+    bateriesPos = map.getObjects(3);
+    bluebateriesPos=map.getObjects(4);
+    trapPos=map.getObjects(5);
+    enemiesPos=map.getObjects(6);
     createObjects();
   }
   void update() {
@@ -33,7 +33,9 @@ class Map {
   }
 
   void display() {
-    map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
+        map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
+
+    map.draw(1, camera.position.x - width / 2, camera.position.y - height / 2);
     displayObjects();
   }
 
