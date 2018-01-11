@@ -3,19 +3,17 @@ class Player  extends GameObject {
   PImage image;
   private  float direction;
   private PVector velocity;
-
-
   boolean coliding;
+  float jumpSpeed= -18;
+  float WalkSpeed = 9;
 
   Player(float x, float y, PVector velocity) {
-    super(x,y,assetManager.playerImage().width,assetManager.playerImage().height,1,1);
-    
+    super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1);
+
     this.velocity = velocity.copy();
     image = assetManager.playerImage();
     direction = 1;
   }
-
-  
 
   void draw() { 
     scale(player.direction, 1);
@@ -35,7 +33,6 @@ class Player  extends GameObject {
     else
       moveBy(new PVector (0, 0));
 
-    CheckCollisionWorld(0,0,0,0);
-
+    CheckCollisionWorld(0, 0, 0, 0);
   }
 }

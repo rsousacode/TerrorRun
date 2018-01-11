@@ -14,17 +14,17 @@ class Controller {
   {    
     if ( player.coliding==true && up==true )
     {
-      player.velocity.add(new PVector(0, -20));
+      player.velocity.add(new PVector(0, player.jumpSpeed));
       player.coliding = false;
     }
     if (left==true && state == STATE_GAME )
     {
-      player.moveBy(-6, 0);        
+      player.moveBy(-player.WalkSpeed, 0);        
       player.direction= -1;
     }
     if (right==true && state == STATE_GAME )
     {
-      player.moveBy(6, 0);             
+      player.moveBy(player.WalkSpeed, 0);             
       player.direction= 1;
     }
   }

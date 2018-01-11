@@ -25,7 +25,7 @@ PImage background_help;
 
 void settings() {
   smooth(33);
-  //fullScreen(P2D);
+  fullScreen(P2D);
   size(800, 600, P2D);
 }
 
@@ -78,11 +78,8 @@ void draw()
     map.display();
     player.display();
     darkning.apply(); 
-
-
     hud.display();
   } else if (state== STATE_END ) {
-
     end.display();
   }
 }
@@ -93,9 +90,7 @@ float sqr(float value) {
 }
 
 void StatesInter() {
-
-
-  if (state == STATE_MENU ) {
+ if (state == STATE_MENU ) {
     String result = menu.checkButtons();
     switch(result)
     {
