@@ -6,7 +6,7 @@ class LowBattery extends GameObject
   boolean coliding;
   float velY, velX;
   LowBattery (float x, float y) {
-    super(x, y,assetManager.lowBateryImage().width,assetManager.lowBateryImage().height);
+    super(x, y,assetManager.lowBateryImage().width,assetManager.lowBateryImage().height,0,0);
     image = assetManager.lowBateryImage();
   }
 

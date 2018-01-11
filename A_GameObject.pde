@@ -1,24 +1,37 @@
 abstract class GameObject {
 
   private PVector position;
+  private PVector velocity;
   private float w;
   private float h;
   protected ID id;
 
   GameObject(PVector position) {
     this.position = position.copy();
-    this.w = w;
-    this.h = h;
+    this.velocity = velocity.copy();
+  
   }
 
-  GameObject(float x, float y, float w, float h) {
+  GameObject(float x, float y, float w, float h,float velX, float velY) {
     this.position = new PVector(x, y);
+    this.velocity = new PVector(velX,velY);
     this.w =w;
     this.h=h;
   }
 
   PVector position() {
     return position.copy();
+  }
+    PVector velocity() {
+    return velocity.copy();
+  }
+  
+  void setVelocityXTo(float velX) {
+    velocity.x = velX;
+  }
+
+  void setVelocityYTo(float velY) {
+    position.y = velY;
   }
 
   void setPositionXTo(float x) {
@@ -103,8 +116,6 @@ abstract class GameObject {
   }
   
   
-
-
   abstract void update();
 
 
