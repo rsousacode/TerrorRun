@@ -1,7 +1,7 @@
 public enum ID {
   
-  Player(),
-  Ghost(),
+  Player,
+  Ghost,
   LowBattery,
   MediumBattery,
   HighBattery,
