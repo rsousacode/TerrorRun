@@ -1,14 +1,14 @@
 class FireTrap extends GameObject
 {
   PImage image;
-  float direction;
-  float minx, maxx;
+  int direction;
+  int minx, maxx;
   boolean coliding;
   PVector velocity;
-  float getH, getW, getX, getY;
+  int getH, getW, getX, getY;
 
-  FireTrap (Rectangle fireArea) {
-    super(fireArea.x, fireArea.y, fireArea.h,fireArea.x,0,0);
+  FireTrap (Rectangle fireArea, ID id) {
+    super(fireArea.x, fireArea.y, fireArea.h,fireArea.x,0,0,id);
     getH = fireArea.h;
     getW = fireArea.w;
     getX = fireArea.x;

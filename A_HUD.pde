@@ -1,6 +1,6 @@
 class HUD {
   PFont font;
-  float value, max, x, y, w, h;
+  int value, max, x, y, w, h;
   color  bar;
   private int lanterns = 3; 
   int bateries =0;

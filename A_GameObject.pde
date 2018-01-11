@@ -12,11 +12,12 @@ abstract class GameObject {
   
   }
 
-  GameObject(float x, float y, float w, float h,float velX, float velY) {
+  GameObject(int x, int y, int w, int h,int velX, int velY, ID id) {
     this.position = new PVector(x, y);
     this.velocity = new PVector(velX,velY);
     this.w =w;
     this.h=h;
+    this.id = id;
   }
 
   PVector position() {

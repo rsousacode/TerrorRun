@@ -3,18 +3,18 @@ class Map {
   ArrayList<Enemy> enemies;
   ArrayList<FireTrap> firetraps;
   ArrayList<LowBattery> batery;
-  ArrayList<HighBatery> batery2;
+  ArrayList<HighBattery> batery2;
 
   StringDict[] collisionMap;
-  StringDict[] bateriesPos;
-  StringDict[] bluebateriesPos;
-  StringDict[] trapPos;
-  StringDict[] enemiesPos;
+  StringDict[] lowbatteriesPos;
+  StringDict[] highbatteriesPos;
+  StringDict[] trapsPos;
+  StringDict[] GhostsPos;
   int collisionOffset = 10;
   Map(PApplet papplet) {
     map = new Ptmx(papplet, "tr.tmx");
     batery = new ArrayList<LowBattery>();
-    batery2 = new ArrayList<HighBatery>();
+    batery2 = new ArrayList<HighBattery>();
     enemies = new ArrayList<Enemy>();
     firetraps = new ArrayList <FireTrap>();
 
@@ -22,10 +22,10 @@ class Map {
     map.setDrawMode(CORNER); 
     map.setPositionMode("CANVAS");
     collisionMap = map.getObjects(2);
-    bateriesPos = map.getObjects(3);
-    bluebateriesPos=map.getObjects(4);
-    trapPos=map.getObjects(5);
-    enemiesPos=map.getObjects(6);
+    lowbatteriesPos = map.getObjects(3);
+    highbatteriesPos=map.getObjects(4);
+    trapsPos=map.getObjects(5);
+    GhostsPos=map.getObjects(6);
     createObjects();
   }
   void update() {
@@ -50,10 +50,10 @@ class Map {
         buffer.add(bg);
     }
     batery.removeAll(buffer);
-    ArrayList<HighBatery> buffer2 = new ArrayList<HighBatery>();
-    for (HighBatery obj : batery2) {
+    ArrayList<HighBattery> buffer2 = new ArrayList<HighBattery>();
+    for (HighBattery obj : batery2) {
       obj.update();
-      HighBatery bg2 = obj.collision2();
+      HighBattery bg2 = obj.collision2();
       if (bg2 != null)
         buffer2.add(bg2);
     }
@@ -75,7 +75,7 @@ class Map {
   {
     for (LowBattery obj : batery)
       obj.display();
-    for (HighBatery obj : batery2)
+    for (HighBattery obj : batery2)
       obj.display();
     for (FireTrap obj : firetraps)
       obj.display();
@@ -85,22 +85,22 @@ class Map {
 
   void createObjects()
   {
-    for (StringDict obj : bateriesPos) {
+    for (StringDict obj : lowbatteriesPos) {
       Rectangle rect = new Rectangle(obj);
-      LowBattery newBatery = new LowBattery (rect.x, rect.y); 
-      batery.add(newBatery);
+      LowBattery newBattery = new LowBattery (rect.x, rect.y, ID.LowBattery); 
+      batery.add(newBattery);
     }
-    for (StringDict obj : bluebateriesPos) {
+    for (StringDict obj : highbatteriesPos) {
       Rectangle rect = new Rectangle(obj);
-      HighBatery newBatery2 = new HighBatery (rect.x, rect.y); 
+      HighBattery newBatery2 = new HighBattery (rect.x, rect.y); 
       batery2.add(newBatery2);
     }
-    for (StringDict obj : trapPos) {
+    for (StringDict obj : trapsPos) {
       Rectangle rect = new Rectangle(obj);
-      FireTrap newFireTrap = new FireTrap (rect); 
+      FireTrap newFireTrap = new FireTrap (rect, ID.Traps); 
       firetraps.add(newFireTrap);
     }
-    for (StringDict obj : enemiesPos) {
+    for (StringDict obj : GhostsPos) {
       Rectangle rect = new Rectangle(obj);
       Enemy newEnemy = new Enemy (rect); 
       enemies.add(newEnemy);
@@ -110,7 +110,7 @@ class Map {
   {
     float objY=0, objX=0;
     float objHeight=0, objWidth=0;
-    for (StringDict obj : trapPos)
+    for (StringDict obj : trapsPos)
     {
       objX = parseFloat(obj.get("x"));
       objY = parseFloat(obj.get("y"));

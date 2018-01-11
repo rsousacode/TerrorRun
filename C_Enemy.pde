@@ -5,7 +5,7 @@ class Enemy extends GameObject
   private float minx, maxx;
 
   Enemy (Rectangle livingSpace) {
-    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width, assetManager.enemyImage().height, 1, 0);
+    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width, assetManager.enemyImage().height, 1, 0, ID.Ghost);
     image = assetManager.enemyImage();
     minx = livingSpace.x;
     maxx = livingSpace.x + livingSpace.w - image.width;

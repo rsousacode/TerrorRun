@@ -45,7 +45,7 @@ void setState(int state) {
   switch(state) {
   case STATE_GAME:
     map = new Map(this);
-    player = new Player(624, 1056, new PVector(0, 0));
+    player = new Player(624, 1056, new PVector(0, 0), ID.Player);
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();

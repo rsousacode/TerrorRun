@@ -1,6 +1,10 @@
 public enum ID {
   
   Player(),
-  Enemy()
+  Ghost(),
+  LowBattery,
+  MediumBattery,
+  HighBattery,
+  Traps
   
 }

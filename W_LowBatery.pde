@@ -1,12 +1,12 @@
 class LowBattery extends GameObject
 {
   PImage image;
-  float direction;
-  float lastx, lasty;
+  int direction;
+  int lastx, lasty;
   boolean coliding;
-  float velY, velX;
-  LowBattery (float x, float y) {
-    super(x, y,assetManager.lowBateryImage().width,assetManager.lowBateryImage().height,0,0);
+  int velY, velX;
+  LowBattery (int x, int y, ID id) {
+    super(x, y,assetManager.lowBateryImage().width,assetManager.lowBateryImage().height,0,0, id);
     image = assetManager.lowBateryImage();
   }
 

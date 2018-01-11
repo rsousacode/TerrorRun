@@ -4,11 +4,11 @@ class Player  extends GameObject {
   private  float direction;
   private PVector velocity;
   boolean coliding;
-  float jumpSpeed= -18;
-  float WalkSpeed = 9;
+  int jumpSpeed= -19;
+  int WalkSpeed = 7;
 
-  Player(float x, float y, PVector velocity) {
-    super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1);
+  Player(int x, int y, PVector velocity, ID id) {
+    super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1,id);
 
     this.velocity = velocity.copy();
     image = assetManager.playerImage();

@@ -1,7 +1,7 @@
 class Darkning {
   PVector position;
-  private float diameter;
-  public float acceltime = 128/2;
+  private int diameter;
+  public int acceltime = 128/2;
   private float smoothedDiameter;
   boolean CollidingWithBateries;
   PGraphics darkning;
