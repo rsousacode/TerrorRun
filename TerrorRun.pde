@@ -1,4 +1,5 @@
 //import processing.sound.*;
+Handler handler;
 AssetManager assetManager;
 Camera camera;
 Controller controller;
@@ -45,6 +46,8 @@ void setState(int state) {
   switch(state) {
   case STATE_GAME:
     map = new Map(this);
+      handler = new Handler();
+
     player = new Player(624, 1056, new PVector(0, 0), ID.Player);
     camera = new Camera(player.position());
     darkning = new Darkning();
@@ -71,11 +74,13 @@ void draw()
     controller.apply();
     player.update();
     map.update();
+    handler.update();
     darkning.update(); 
     hud.update();
     camera.update();
     camera.apply();
     map.display();
+    handler.display();
     player.display();
     darkning.apply(); 
     hud.display();
