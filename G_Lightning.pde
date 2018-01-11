@@ -5,7 +5,7 @@ class Darkning {
   private float smoothedDiameter;
   boolean CollidingWithBateries;
   PGraphics darkning;
-  float DiameterRate = (float)width/2500;
+  float DecreaseRate = (float)width/2500;
 
   Darkning() {
     diameter = 2 * height;
@@ -49,13 +49,13 @@ class Darkning {
     popStyle();
   }
   
-  float getDiameterRate() {
-    return DiameterRate;
+  float DecreaseRate() {
+    return DecreaseRate;
     
   }
 
   void update() {
-    //diameter-=getDiameterRate();
+    diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
     if ( smoothedDiameter<=70) {
