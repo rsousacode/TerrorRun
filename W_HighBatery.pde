@@ -6,7 +6,7 @@ class HighBatery  extends GameObject
   boolean coliding;
   float velY, velX;
   HighBatery (float x, float y) {
-    super(x, y);
+    super(x, y, assetManager.highBateryImage().width,assetManager.highBateryImage().height);
     image = assetManager.highBateryImage();
   }
 

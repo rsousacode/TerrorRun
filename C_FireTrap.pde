@@ -8,7 +8,7 @@ class FireTrap extends GameObject
   float getH, getW, getX, getY;
 
   FireTrap (Rectangle fireArea) {
-    super(fireArea.x, fireArea.y);
+    super(fireArea.x, fireArea.y, fireArea.h,fireArea.x);
     getH = fireArea.h;
     getW = fireArea.w;
     getX = fireArea.x;

@@ -6,7 +6,7 @@ class Enemy extends GameObject
   PVector velocity;
 
   Enemy (Rectangle livingSpace) {
-    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height);
+    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width,  assetManager.enemyImage().height);
     image = assetManager.enemyImage();
     minx = livingSpace.x;
     maxx = livingSpace.x + livingSpace.w - image.width;
@@ -23,6 +23,11 @@ class Enemy extends GameObject
     if (position().x <= minx || position().x >= maxx)
       velocity.x = -velocity.x;
   }
+  
+  
+  
+  
+  
   
   Enemy collision4() {
     Enemy en = null;

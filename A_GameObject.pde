@@ -1,13 +1,20 @@
 abstract class GameObject {
 
   private PVector position;
+  private float w;
+  private float h;
+  protected ID id;
 
   GameObject(PVector position) {
     this.position = position.copy();
+    this.w = w;
+    this.h = h;
   }
 
-  GameObject(float x, float y) {
+  GameObject(float x, float y, float w, float h) {
     this.position = new PVector(x, y);
+    this.w =w;
+    this.h=h;
   }
 
   PVector position() {
@@ -29,26 +36,34 @@ abstract class GameObject {
   void moveBy(float dx, float dy) {
     position.add(dx, dy);
   }
-  
 
-  abstract void update();
+  void setSizeTo(float w, float h) {
+    this.w=w;
+    this.h=h;
+  }
+
+  float width() {
+    return w;
+  }
   
-  void CheckHorizontal(float xi, float objX, float objWidth)
+  float height() {
+    return h;
+  }
+  
+    void CheckHorizontal(float xi, float objX, float objWidth)
   {
     player.velocity.x=0;
     if (xi==objX)
     {
-     player.velocity.x=0;
-      setPositionXTo(objX-player.image.width/2);
+      player.velocity.x=0;
+      setPositionXTo(objX-w/2);
     } else
     {
       player.velocity.x=0;
-      setPositionXTo(objX+objWidth+player.image.width/2);
+      setPositionXTo(objX+objWidth+w/2);
     }
   }
-  //
- 
-
+  
   void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth)
   {
 
@@ -59,10 +74,10 @@ abstract class GameObject {
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (position().x-player.image.width/2, objX);
-      float yi = Math.max (position().y-player.image.height/2, objY);
-      float wi = Math.min ((position().x-player.image.width/2)+ player.image.width, objX + objWidth) - xi;
-      float hi = Math.min ((position().y-player.image.height/2)+ player.image.height, objY + objHeight) - yi;
+      float xi = Math.max (position().x-w/2, objX);
+      float yi = Math.max (position().y-h/2, objY);
+      float wi = Math.min ((position().x-w/2)+ w, objX + objWidth) - xi;
+      float hi = Math.min ((position().y-h/2)+ h, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi)
@@ -77,15 +92,21 @@ abstract class GameObject {
   {
     if (yi==objY )
     {
-      setPositionYTo(objY-player.image.height/2);
+      setPositionYTo(objY-h/2);
       player.velocity.y=0;
       player.coliding=true;
     } else
     {
-      setPositionYTo(objY+objHeight+player.image.height/2);
+      setPositionYTo(objY+objHeight+h/2);
       player.velocity.y=0;
     }
   }
+  
+  
+
+
+  abstract void update();
+
 
   void display() {
     pushMatrix();
