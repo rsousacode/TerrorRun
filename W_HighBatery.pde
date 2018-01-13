@@ -6,7 +6,7 @@ class HighBattery  extends GameObject
   boolean coliding;
   float velY, velX;
   HighBattery (int x, int y) {
-    super(x, y, assetManager.highBateryImage().width,assetManager.highBateryImage().height,0,0, ID.HighBattery);
+    super(x, y, assetManager.highBateryImage().width, assetManager.highBateryImage().height, 0, 0, ID.HighBattery);
     image = assetManager.highBateryImage();
   }
 
@@ -22,9 +22,10 @@ class HighBattery  extends GameObject
     HighBattery bg2 = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
+      coinEffect.rewind();
+      coinEffect.play();
       bg2 = this;
       hud.setScore(hud.getScore()+1500);
-      //sndCoin.trigger();
       darkning.diameter+=150;
     }
     return bg2;

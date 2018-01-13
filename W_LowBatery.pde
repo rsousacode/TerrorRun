@@ -6,7 +6,7 @@ class LowBattery extends GameObject
   boolean coliding;
   int velY, velX;
   LowBattery (int x, int y, ID id) {
-    super(x, y,assetManager.lowBateryImage().width,assetManager.lowBateryImage().height,0,0, id);
+    super(x, y, assetManager.lowBateryImage().width, assetManager.lowBateryImage().height, 0, 0, id);
     image = assetManager.lowBateryImage();
   }
 
@@ -22,7 +22,10 @@ class LowBattery extends GameObject
     LowBattery bg = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2 ) 
     {
+      coinEffect.rewind();
+      coinEffect.play();
       bg = this;
+
       hud.setScore(hud.getScore()+500);
 
       darkning.diameter+=80;

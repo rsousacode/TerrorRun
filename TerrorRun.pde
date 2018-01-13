@@ -1,4 +1,19 @@
-//import processing.sound.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+int state;
+final int STATE_MENU=1;
+final int STATE_GAMEOVER=2;
+final int STATE_HELP=3;
+final int STATE_END=4;
+final int STATE_GAME=0;
+PImage background_menu;
+PImage background_help;
+
 Handler handler;
 AssetManager assetManager;
 Camera camera;
@@ -11,18 +26,10 @@ HUD hud;
 Rectangle rectangle;
 End end;
 Map map;
-//SoundFile file;
-//String path;
-
-int state;
-final int STATE_MENU=1;
-final int STATE_GAMEOVER=2;
-final int STATE_HELP=3;
-final int STATE_END=4;
-final int STATE_GAME=0;
-PImage background_menu;
-PImage background_help;
-
+Minim audio;
+AudioPlayer backgroundmusic;
+AudioPlayer jumpEffect;
+AudioPlayer coinEffect;
 
 void settings() {
   smooth(33);
@@ -34,6 +41,11 @@ void setup()
 {
   //path = sketchPath("sample.mp3");
   //file = new SoundFile(this, path);
+  audio = new Minim(this);
+  backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
+  coinEffect=audio.loadFile("data/sounds/pop.mp3");
+
+  backgroundmusic.loop();
   assetManager = new AssetManager();
   controller = new Controller();
   frameRate(100);
@@ -46,7 +58,8 @@ void setState(int state) {
   switch(state) {
   case STATE_GAME:
     map = new Map(this);
-      handler = new Handler();
+    handler = new Handler();
+
 
     player = new Player(624, 1056, new PVector(0, 0), ID.Player);
     camera = new Camera(player.position());
@@ -95,7 +108,7 @@ float sqr(float value) {
 }
 
 void StatesInter() {
- if (state == STATE_MENU ) {
+  if (state == STATE_MENU ) {
     String result = menu.checkButtons();
     switch(result)
     {
@@ -145,6 +158,14 @@ void StatesInter() {
 
 //  file.stop();
 //}
+
+void stop() {
+
+  backgroundmusic.close();
+  coinEffect.close();
+  audio.stop();
+  super.stop();
+}
 
 
 void keyPressed() {

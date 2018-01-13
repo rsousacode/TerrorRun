@@ -8,13 +8,15 @@ class Darkning {
   float DecreaseRate = (float)width/2500;
 
   Darkning() {
-    diameter = 2 * height;
+    //diameter = 2 * height;
+        diameter = 2 * height;
+
     smoothedDiameter = 2 * height;
     int size = min(width, height) / 9;
     darkning = createGraphics(size, size);
     darkning.beginDraw();
     darkning.loadPixels();
-    float radius = size / 4.0;
+    float radius = size / 5.0;
     for (int line = 0; line != darkning.height; line++)
       for (int column = 0; column != darkning.width; column++) {
         int pixel = line * darkning.width + column;
@@ -54,10 +56,10 @@ class Darkning {
   }
 
   void update() {
-    //diameter-=DecreaseRate();
+    diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
-    if ( smoothedDiameter<=70) {
+    if ( smoothedDiameter<=100) {
       hud.setLives(hud.lives()-1);
       diameter = 2 * height;
     }

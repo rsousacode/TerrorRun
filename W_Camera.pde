@@ -24,7 +24,7 @@ class Camera {
       position.y = playerPosition.y - followMargin;
 
     printLinesArchive();
-    println(originInWorld());
+    
   }
 
   void mpfmftr() { //playing wallking "to-right" case of teleportation
@@ -63,6 +63,7 @@ class Camera {
   }
 
   void printLinesArchive() {
-    println("CameraPosition ", position.copy());
+    //println("CameraPosition ", position.copy());
+    //println(originInWorld());
   }
 }
