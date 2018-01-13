@@ -2,7 +2,6 @@ class Camera {
   private final PVector positionInDisplay;
   private PVector position;
   private final float followMargin = 100.0;
-  public  float Margin;
   float Xmargin;
 
   Camera(PVector position) {
