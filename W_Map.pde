@@ -65,7 +65,7 @@ class Map {
       {
         playerIsAt++;
 
-        player.setPositionTo(entriesRight.get(casas[playerIsAt]).x-32, entriesRight.get(casas[playerIsAt]).y+exitsLeft.get(0).w/2);
+        player.setPositionTo(entriesRight.get(casas[playerIsAt]).x-16, entriesRight.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2);
                 camera.mpfmftr();
 
       }
@@ -77,7 +77,7 @@ class Map {
       if (rec != null) {
         playerIsAt--;
 
-        player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+32, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).w/2);
+        player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+64, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2);
                 camera.mpfmftl();
 
       }
