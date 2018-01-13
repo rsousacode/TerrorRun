@@ -37,6 +37,10 @@ class AssetManager {
     enemyImage = loadImage("data/images/ghost.png");
     lowBateryImage =   loadImage("data/images/battery.png");
     highBateryImage= loadImage("data/images/battery2.png");
+    backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
+    coinEffect=audio.loadFile("data/sounds/pop.mp3");
+      backgroundmusic.loop();
+
   }
 
 
@@ -109,4 +113,11 @@ class AssetManager {
       cursor((assetManager.transcursor.copy()));
     }
   }
+  
+  void stop() {
+
+  backgroundmusic.close();
+  coinEffect.close();
+  audio.stop();
+}
 }

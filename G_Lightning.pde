@@ -8,9 +8,7 @@ class Darkning {
   float DecreaseRate = (float)width/2500;
 
   Darkning() {
-    //diameter = 2 * height;
-        diameter = 2 * height;
-
+    diameter = 2 * height;
     smoothedDiameter = 2 * height;
     int size = min(width, height) / 9;
     darkning = createGraphics(size, size);
@@ -50,7 +48,7 @@ class Darkning {
     image(darkning, center.x, center.y, 2 * radius, 2 * radius);
     popStyle();
   }
-  
+
   float DecreaseRate() {
     return DecreaseRate;
   }
@@ -63,8 +61,6 @@ class Darkning {
       hud.setLives(hud.lives()-1);
       diameter = 2 * height;
     }
-          //println(getDiameterRate());
-
   }
 
   void apply() {

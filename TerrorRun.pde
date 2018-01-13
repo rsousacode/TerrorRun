@@ -39,13 +39,7 @@ void settings() {
 
 void setup()
 {
-  //path = sketchPath("sample.mp3");
-  //file = new SoundFile(this, path);
   audio = new Minim(this);
-  backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
-  coinEffect=audio.loadFile("data/sounds/pop.mp3");
-
-  backgroundmusic.loop();
   assetManager = new AssetManager();
   controller = new Controller();
   frameRate(100);
@@ -59,8 +53,6 @@ void setState(int state) {
   case STATE_GAME:
     map = new Map(this);
     handler = new Handler();
-
-
     player = new Player(624, 1056, new PVector(0, 0), ID.Player);
     camera = new Camera(player.position());
     darkning = new Darkning();
@@ -149,24 +141,6 @@ void StatesInter() {
     }
   }
 }
-
-//void PlayAudio() {
-//  file.play();
-//}
-
-//void stopAudio() {
-
-//  file.stop();
-//}
-
-void stop() {
-
-  backgroundmusic.close();
-  coinEffect.close();
-  audio.stop();
-  super.stop();
-}
-
 
 void keyPressed() {
   controller.keyPressed(key);
