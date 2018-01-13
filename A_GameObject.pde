@@ -81,14 +81,14 @@ abstract class GameObject {
     }
   }
 
-  void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth)
+  void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
   {
 
     player.coliding=false;
     for (StringDict obj : map.collisionMap)
     {
-      objX = parseFloat(obj.get("x"));
-      objY = parseFloat(obj.get("y"));
+      objX = int(obj.get("x"));
+      objY = int(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
       float xi = Math.max (position().x-w/2, objX);
