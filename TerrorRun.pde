@@ -27,7 +27,7 @@ PImage background_help;
 void settings() {
   smooth(33);
   fullScreen(P2D);
-  size(800, 600, P2D);
+  //size(800, 600, P2D);
 }
 
 void setup()

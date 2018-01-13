@@ -51,11 +51,10 @@ class Darkning {
   
   float DecreaseRate() {
     return DecreaseRate;
-    
   }
 
   void update() {
-    diameter-=DecreaseRate();
+    //diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
     if ( smoothedDiameter<=70) {

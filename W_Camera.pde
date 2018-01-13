@@ -22,6 +22,19 @@ class Camera {
       position.y = playerPosition.y + followMargin;
     else if (position.y < playerPosition.y - followMargin)
       position.y = playerPosition.y - followMargin;
+
+    printLinesArchive();
+    println(originInWorld());
+  }
+
+  void mpfmftr() { //playing wallking "to-right" case of teleportation
+    PVector playerPosition = player.position();
+    position = new PVector(playerPosition.x-followMargin, playerPosition.y-followMargin);
+  }
+
+  void mpfmftl() { //playing wallking "to-left" case of teleportation
+    PVector playerPosition = player.position();
+    position = new PVector( playerPosition.x+followMargin,playerPosition.y-followMargin);
   }
 
   void apply() {
@@ -47,5 +60,9 @@ class Camera {
 
   PVector mouse() {
     return asWorld(mouseInDisplay());
+  }
+
+  void printLinesArchive() {
+    println("CameraPosition ", position.copy());
   }
 }

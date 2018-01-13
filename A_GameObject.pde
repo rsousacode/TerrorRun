@@ -9,12 +9,11 @@ abstract class GameObject {
   GameObject(PVector position) {
     this.position = position.copy();
     this.velocity = velocity.copy();
-  
   }
 
-  GameObject(int x, int y, int w, int h,int velX, int velY, ID id) {
+  GameObject(int x, int y, int w, int h, int velX, int velY, ID id) {
     this.position = new PVector(x, y);
-    this.velocity = new PVector(velX,velY);
+    this.velocity = new PVector(velX, velY);
     this.w =w;
     this.h=h;
     this.id = id;
@@ -23,10 +22,10 @@ abstract class GameObject {
   PVector position() {
     return position.copy();
   }
-    PVector velocity() {
+  PVector velocity() {
     return velocity.copy();
   }
-  
+
   void setVelocityXTo(float velX) {
     velocity.x = velX;
   }
@@ -41,6 +40,10 @@ abstract class GameObject {
 
   void setPositionYTo(float y) {
     position.y = y;
+  }
+
+  void setPositionTo(float x, float y) {
+    position = new PVector(x, y);
   }
 
   void moveBy(PVector displacement) {
@@ -59,12 +62,12 @@ abstract class GameObject {
   float width() {
     return w;
   }
-  
+
   float height() {
     return h;
   }
-  
-    void CheckHorizontal(float xi, float objX, float objWidth)
+
+  void CheckHorizontal(float xi, float objX, float objWidth)
   {
     player.velocity.x=0;
     if (xi==objX)
@@ -77,7 +80,7 @@ abstract class GameObject {
       setPositionXTo(objX+objWidth+w/2);
     }
   }
-  
+
   void CheckCollisionWorld(float objX, float objY, float objHeight, float objWidth)
   {
 
@@ -115,8 +118,8 @@ abstract class GameObject {
       player.velocity.y=0;
     }
   }
-  
-  
+
+
   abstract void update();
 
 

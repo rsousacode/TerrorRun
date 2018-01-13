@@ -1,12 +1,12 @@
 class Handler {
   ArrayList<Enemy> enemies;
   ArrayList<FireTrap> firetraps;
-  ArrayList<LowBattery> batery;
-  ArrayList<HighBattery> batery2;
+  ArrayList<LowBattery> lowBatteries;
+  ArrayList<HighBattery> highBatteries;
   int collisionOffset = 10;
   Handler() {
-    batery = new ArrayList<LowBattery>();
-    batery2 = new ArrayList<HighBattery>();
+    lowBatteries = new ArrayList<LowBattery>();
+    highBatteries = new ArrayList<HighBattery>();
     enemies = new ArrayList<Enemy>();
     firetraps = new ArrayList <FireTrap>();
 
@@ -14,18 +14,17 @@ class Handler {
     createObjects();
   }
 
-
   void createObjects()
   {
     for (StringDict obj : map.lowbatteriesPos) {
       Rectangle rect = new Rectangle(obj);
       LowBattery newBattery = new LowBattery (rect.x, rect.y, ID.LowBattery); 
-      batery.add(newBattery);
+      lowBatteries.add(newBattery);
     }
     for (StringDict obj : map.highbatteriesPos) {
       Rectangle rect = new Rectangle(obj);
       HighBattery newBatery2 = new HighBattery (rect.x, rect.y); 
-      batery2.add(newBatery2);
+      highBatteries.add(newBatery2);
     }
     for (StringDict obj : map.trapsPos) {
       Rectangle rect = new Rectangle(obj);
@@ -40,21 +39,21 @@ class Handler {
   }
   void update() {
     ArrayList<LowBattery> buffer = new ArrayList<LowBattery>();
-    for (LowBattery obj : batery) {
+    for (LowBattery obj : lowBatteries) {
       obj.update();
       LowBattery bg = obj.collision();
       if (bg != null)
         buffer.add(bg);
     }
-    batery.removeAll(buffer);
+    lowBatteries.removeAll(buffer);
     ArrayList<HighBattery> buffer2 = new ArrayList<HighBattery>();
-    for (HighBattery obj : batery2) {
+    for (HighBattery obj : highBatteries) {
       obj.update();
       HighBattery bg2 = obj.collision2();
       if (bg2 != null)
         buffer2.add(bg2);
     }
-    batery2.removeAll(buffer2);
+    highBatteries.removeAll(buffer2);
     for (FireTrap obj : firetraps) {
       obj.update();
     }
@@ -70,9 +69,9 @@ class Handler {
 
   void display() {
 
-    for (LowBattery obj : batery)
+    for (LowBattery obj : lowBatteries)
       obj.display();
-    for (HighBattery obj : batery2)
+    for (HighBattery obj : highBatteries)
       obj.display();
     for (FireTrap obj : firetraps)
       obj.display();
