@@ -7,13 +7,13 @@ class Handler {
   ArrayList<Rectangle> exitsRight;
   ArrayList<Rectangle> entriesLeft;
   ArrayList<Rectangle> entriesRight;
-  final int casasn = 1000;
-  int[] casas = new int[casasn]; 
+  final int ncasas = 200;
+  int[] casas = new int[ncasas]; 
   int playerIsAt =0;
   int collisionOffset = 10;
-  ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[1000];
-  ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[1000];
-  ArrayList<Enemy>[] inimigos = (ArrayList<Enemy>[])new ArrayList[1000];
+  ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[ncasas];
+  ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[ncasas];
+  ArrayList<Enemy>[] inimigos = (ArrayList<Enemy>[])new ArrayList[ncasas];
 
   Handler() {
 
@@ -61,7 +61,7 @@ class Handler {
       lowBatteries.add(newBattery);
     }
 
-    for (int d = 0; d != casasn; d++) {
+    for (int d = 0; d != ncasas; d++) {
       lowbatteries[d] = new ArrayList<LowBattery>(lowBatteries);
     }
 
@@ -71,7 +71,7 @@ class Handler {
       highBatteries.add(newBatery2);
     }
 
-    for (int e = 0; e != casasn; e++) {
+    for (int e = 0; e != ncasas; e++) {
       highbatteries[e] = new ArrayList<HighBattery>(highBatteries);
     }
   }
@@ -84,7 +84,7 @@ class Handler {
       enemies.add(newEnemy);
     }
 
-    for (int g = 0; g != casasn; g++) {
+    for (int g = 0; g != ncasas; g++) {
       inimigos[g] = new ArrayList<Enemy>(enemies);
     }
   }
