@@ -7,21 +7,18 @@ class Handler {
   ArrayList<Rectangle> exitsRight;
   ArrayList<Rectangle> entriesLeft;
   ArrayList<Rectangle> entriesRight;
-  int[] casas = new int[40000]; 
+  final int casasn = 1000;
+  int[] casas = new int[casasn]; 
   int playerIsAt =0;
   int collisionOffset = 10;
+  ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[1000];
+  ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[1000];
+  ArrayList<Enemy>[] inimigos = (ArrayList<Enemy>[])new ArrayList[1000];
 
   Handler() {
 
-    for (int i = 0; i < casas.length; i++) {
-      float r = random(1, 3);
-      casas[0]=0;
-      //if (i == 0)
-      //r=0;
+    randomFunction();
 
-      casas[i] = (int)r;
-    }
-    
     lowBatteries = new ArrayList<LowBattery>();
     highBatteries = new ArrayList<HighBattery>();
     enemies = new ArrayList<Enemy>();
@@ -34,6 +31,17 @@ class Handler {
     spawnBatteries();
     spawnEnemies();
     spawnTelle();
+  }
+
+  void randomFunction() {
+
+    for (int i = 0; i < casas.length; i++) {
+      float r = random(1, 3);
+      casas[0]=0;
+      //if (i == 0)
+      //r=0;
+      casas[i] = (int)r;
+    }
   }
 
   void spawnTraps()
@@ -52,10 +60,19 @@ class Handler {
       LowBattery newBattery = new LowBattery (rect.x, rect.y, ID.LowBattery); 
       lowBatteries.add(newBattery);
     }
+
+    for (int d = 0; d != casasn; d++) {
+      lowbatteries[d] = new ArrayList<LowBattery>(lowBatteries);
+    }
+
     for (StringDict obj : map.highbatteriesPos) {
       Rectangle rect = new Rectangle(obj);
       HighBattery newBatery2 = new HighBattery (rect.x, rect.y); 
       highBatteries.add(newBatery2);
+    }
+
+    for (int e = 0; e != casasn; e++) {
+      highbatteries[e] = new ArrayList<HighBattery>(highBatteries);
     }
   }
 
@@ -65,6 +82,10 @@ class Handler {
       Rectangle rect = new Rectangle(obj);
       Enemy newEnemy = new Enemy (rect); 
       enemies.add(newEnemy);
+    }
+
+    for (int g = 0; g != casasn; g++) {
+      inimigos[g] = new ArrayList<Enemy>(enemies);
     }
   }
 
@@ -95,24 +116,30 @@ class Handler {
 
     for (Rectangle obj : entriesLeft) {
       Rectangle rec = obj.collision();
+
       if (rec != null) {
         playerIsAt--;
+
         player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+64+16, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2);
+
         camera.mpfmftl();
       }
     }
   }
 
   void displayBatteries() {
-    for (LowBattery obj : lowBatteries)
+
+    for (LowBattery obj : lowbatteries[playerIsAt]) {
       obj.display();
-    for (HighBattery obj : highBatteries)
+    }
+
+    for (HighBattery obj : highbatteries[playerIsAt])
       obj.display();
   }
 
   void displayEnemies() {
 
-    for (Enemy obj : enemies)
+    for (Enemy obj : inimigos[playerIsAt])
       obj.display();
   }
 
@@ -135,34 +162,34 @@ class Handler {
 
   void objectsCemitery() {
     ArrayList<LowBattery> buffer = new ArrayList<LowBattery>();
-    for (LowBattery obj : lowBatteries) {
+    for (LowBattery obj : lowbatteries[playerIsAt]) {
       obj.update();
       LowBattery bg = obj.collision();
       if (bg != null)
         buffer.add(bg);
     }
-    lowBatteries.removeAll(buffer);
+    lowbatteries[playerIsAt].removeAll(buffer);
 
     ArrayList<HighBattery> buffer2 = new ArrayList<HighBattery>();
-    for (HighBattery obj : highBatteries) {
+    for (HighBattery obj : highbatteries[playerIsAt]) {
       obj.update();
       HighBattery bg2 = obj.collision2();
       if (bg2 != null)
         buffer2.add(bg2);
     }
-    highBatteries.removeAll(buffer2);
+    highbatteries[playerIsAt].removeAll(buffer2);
     for (FireTrap obj : firetraps) {
       obj.update();
     }
 
     ArrayList<Enemy> buffer4 = new ArrayList<Enemy>();
-    for (Enemy obj : enemies) {
+    for (Enemy obj : inimigos[playerIsAt]) {
       obj.update();
       Enemy en = obj.collision4();
       if (en != null)
         buffer4.add(en);
     }
-    enemies.removeAll(buffer4);
+    inimigos[playerIsAt].removeAll(buffer4);
   }
 
 
