@@ -11,21 +11,24 @@ class Controller {
     right = false;
   }
   void apply()
-  {    
-    if ( player.coliding==true && up==true )
-    {
-      player.velocity.add(new PVector(0, player.jumpSpeed));
-      player.coliding = false;
-    }
-    if (left==true && state == STATE_GAME )
-    {
-      player.moveBy(-player.WalkSpeed, 0);        
-      player.direction= -1;
-    }
-    if (right==true && state == STATE_GAME )
-    {
-      player.moveBy(player.WalkSpeed, 0);             
-      player.direction= 1;
+  {
+    if (state == STATE_GAME) {
+      
+      if ( player.coliding==true && up==true )
+      {
+        player.velocity.add(new PVector(0, player.jumpSpeed));
+        player.coliding = false;
+      }
+      if (left==true  )
+      {
+        player.moveBy(-player.WalkSpeed, 0);        
+        player.direction= -1;
+      }
+      if (right==true  )
+      {
+        player.moveBy(player.WalkSpeed, 0);             
+        player.direction= 1;
+      }
     }
   }
 
@@ -38,7 +41,6 @@ class Controller {
     } else if (key == 'D' || key == 'd'  ) {
       right = true;
     } else if (key == 'A' || key == 'a') {
-      player.direction = -1;
       left = true;
     }
   }
