@@ -1,7 +1,7 @@
 
 class Player  extends GameObject {
   PImage image;
-  private  float direction;
+    int direction;
   private PVector velocity;
   boolean coliding;
   int jumpSpeed= -19;

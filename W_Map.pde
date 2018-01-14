@@ -25,8 +25,6 @@ class Map {
     entryLeftObjects = map.getObjects(7);
     entryRightObjects = map.getObjects(8);
 
-
-
   }
   void update() {
   }
