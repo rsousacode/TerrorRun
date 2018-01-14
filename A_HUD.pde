@@ -2,7 +2,7 @@ class HUD {
   PFont newFont;
   int value, max, x, y, w, h;
   color  bar, backgroundbar;
-  private int lanterns = 3; 
+  private int lanterns = 4; 
   int bateries =0;
   int score=0;
   final int marginLantern = width/50;
@@ -15,7 +15,7 @@ class HUD {
     y = height/12;
     h = 25;
     bar = color(255, 255, 0, 50);
-    backgroundbar=color(255,255,0,50);
+    backgroundbar=color(255, 255, 0, 50);
     hudlantern=loadImage("data/images/hud-flash.png");
     newFont= createFont("data/Lycanthrope.ttf", 14, true);
   }
@@ -23,9 +23,9 @@ class HUD {
     stroke(0);
     resetMatrix();
     rectMode(CORNER);
-        fill(backgroundbar);
+    fill(backgroundbar);
 
-     rect(x, y-h/2, 400, h);
+    rect(x, y-h/2, 400, h);
     fill(bar);
 
     rect(x, y-h/2, darkning.smoothedDiameter/5-7, h);
@@ -35,14 +35,18 @@ class HUD {
 
     if (lanterns==1)
     {
+    }
+
+    if (lanterns==2)
+    {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
     }
-    if (lanterns==2)
+    if (lanterns==3)
     {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
     }
-    if (lanterns==3)
+    if (lanterns==4)
     {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
@@ -65,7 +69,7 @@ class HUD {
   }
   void update() {
     score++;
-    if (hud.lives() == 0) {
+    if (hud.lives() < 0) {
       setState(STATE_END);
     }
   }
