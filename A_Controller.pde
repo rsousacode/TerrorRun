@@ -29,12 +29,6 @@ class Controller {
         player.moveBy(player.WalkSpeed, 0);             
         player.direction= 1;
       }
-      if (key == 'K' || key == 'k' ) {
-        if (hud.lanterns <= 4 && hud.lanterns!=1) {
-          hud.setLanterns(hud.lanterns()-1);
-          darkning.diameter = 2 * height;
-        }
-      }
     }
   }
 
@@ -48,6 +42,12 @@ class Controller {
       right = true;
     } else if (key == 'A' || key == 'a') {
       left = true;
+    }
+    if (key == 'K' || key == 'k' ) {
+      if (hud.lanterns <= 4 && hud.lanterns!=1) {
+        hud.setLanterns(hud.lanterns()-1);
+        darkning.diameter = 2 * height;
+      }
     }
   }
   void keyReleased(char key)

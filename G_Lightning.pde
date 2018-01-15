@@ -57,10 +57,10 @@ class Darkning {
     diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
-    if ( smoothedDiameter<=100) {
-      hud.setLanterns(hud.lanterns()-1);
-      diameter = 2 * height;
-    }
+    //if ( smoothedDiameter<=100) {
+    //  hud.setLanterns(hud.lanterns()-1);
+    //  diameter = 2 * height;
+    //}
   }
 
   void apply() {

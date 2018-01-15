@@ -70,8 +70,8 @@ class HUD {
   public int lanterns() {
     return lanterns;
   }
-  public void setLanterns (int lives) {
-    this.lanterns =lives;
+  public void setLanterns (int lanterns) {
+    this.lanterns =lanterns;
   }
   public int getScore() {
     return score;
@@ -84,5 +84,6 @@ class HUD {
     if (hud.lanterns() < 0) {
       setState(STATE_END);
     }
+    println(hud.lanterns());
   }
 }
