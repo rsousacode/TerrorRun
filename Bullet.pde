@@ -3,14 +3,14 @@ class Bullet {
   PVector position;
   PVector acceleration;
   PVector velocity;
-  PImage img;
+  PImage image;
   boolean colliding=false;
 
   Bullet() {
     position = new PVector();
     velocity = new PVector();
     acceleration = new PVector();
-    img = loadImage("data/images/bone.png");
+    image = assetManager.ghostBullet();
   }
 
   void update(float delta) {
@@ -30,7 +30,7 @@ class Bullet {
     translate(position.x, position.y);
     pushStyle();
     rotate(atan2(velocity.y, velocity.x));
-    image(img, 0, 0);
+    image(image, 0, 0);
     popStyle();
     popMatrix();
   }

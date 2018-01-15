@@ -14,10 +14,11 @@ class HUD {
     x = 60;
     y = height/12;
     h = 25;
-    bar = color(255, 255, 0, 50);
+    bar = color(255, 255, 0, 100);
     backgroundbar=color(255, 255, 0, 50);
     hudlantern=loadImage("data/images/hud-flash.png");
     newFont= createFont("data/Lycanthrope.ttf", 14, true);
+    assetManager.Cursordisplay();
   }
   void display() {
     stroke(0);
@@ -25,10 +26,10 @@ class HUD {
     rectMode(CORNER);
     fill(backgroundbar);
 
-    rect(x, y-h/2, 400, h);
+   // rect(x, y-h/2, 400, h);
     fill(bar);
 
-    rect(x, y-h/2, darkning.smoothedDiameter/5-7, h);
+    rect(x, y-h/2, darkning.smoothedDiameter/8, h);
     textFont(newFont, 16);
     fill(255);
     textAlign(LEFT);
@@ -70,10 +71,10 @@ class HUD {
       image(hudlantern, width-marginLantern-hudlantern.height*5, y, 32, 32);
     }
 
-    if (darkning.diameter < 700 && hud.lanterns!=0) {
+    if (darkning.diameter < 700 && hud.lanterns!=1) {
       textSize(32);
       textAlign(CENTER);
-      text("Press 'K' to use a lantern", width/2, height-height/15);
+      text("Press 'K' to equip a new lantern", width/2, height-height/15);
     }
 
 

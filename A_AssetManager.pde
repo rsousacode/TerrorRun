@@ -9,18 +9,16 @@ class AssetManager {
   private PImage exitSys;
   private PImage play;
   private PImage helpCurrent;
-  //***//GAME IMAGES//***//
   private PImage transcursor;
   private PImage playerImage;
   private PImage enemyImage;
   private PImage lowBateryImage;
   private PImage highBateryImage;
   private PImage flashlightImage;
+  private PImage scarygirlImage;
+  private PImage ghostBullet;
   String path;
 
-
-
-  //put your audio file name here
 
 
   AssetManager() {
@@ -39,10 +37,14 @@ class AssetManager {
     lowBateryImage =   loadImage("data/images/battery.png");
     highBateryImage= loadImage("data/images/battery2.png");
     flashlightImage= loadImage("data/images/flashlight.png");
+    scarygirlImage= loadImage("data/images/scarygirl.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
-    coinEffect=audio.loadFile("data/sounds/pop.mp3");
-      backgroundmusic.loop();
-
+    coinEffect=audio.loadFile("data/sounds/pop.wav");
+    scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
+    catchlantern = audio.loadFile("data/sounds/catchlantern.wav");
+    vannish = audio.loadFile("data/sounds/vannish.wav");
+    ghostBullet = loadImage("data/images/bone.png");
+    backgroundmusic.loop();
   }
 
 
@@ -98,16 +100,24 @@ class AssetManager {
     return enemyImage;
   }
 
+  PImage ghostBullet() {
+    return ghostBullet;
+  }
+
   PImage lowBateryImage() {
     return lowBateryImage;
   }
-  
-    PImage flashlightImage() {
+
+  PImage flashlightImage() {
     return flashlightImage;
   }
 
   PImage highBateryImage() {
     return highBateryImage;
+  }
+
+  PImage scarygirlImage() {
+    return scarygirlImage;
   }
 
 
@@ -118,11 +128,11 @@ class AssetManager {
       cursor((assetManager.transcursor.copy()));
     }
   }
-  
+
   void stop() {
 
-  backgroundmusic.close();
-  coinEffect.close();
-  audio.stop();
-}
+    backgroundmusic.close();
+    coinEffect.close();
+    audio.stop();
+  }
 }

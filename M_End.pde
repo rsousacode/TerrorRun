@@ -16,6 +16,8 @@ class End
   }
   void display()
   {
+    assetManager.Cursordisplay();
+
     pushMatrix();
 
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);

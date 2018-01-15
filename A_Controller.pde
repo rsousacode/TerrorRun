@@ -43,11 +43,11 @@ class Controller {
     } else if (key == 'A' || key == 'a') {
       left = true;
     } else  if (key == 'K' || key == 'k' ) {
-      if (hud.lanterns <= 4 && hud.lanterns!=1) {
+      if (hud.lanterns <= 6 && hud.lanterns!=1) {
         hud.setLanterns(hud.lanterns()-1);
         darkning.diameter = 2 * height;
       }
-    } else if (key == 'F' || key == 'f') {
+    } else if (key == 'X' || key == 'x') {
       canon.fire();
     }
   }

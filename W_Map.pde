@@ -4,6 +4,7 @@ class Map {
   StringDict[] lowbatteriesPos;
   StringDict[] highbatteriesPos;
   StringDict[] flashlightPos;
+  StringDict[] scarygirlPos;
   StringDict[] trapsPos;
   StringDict[] GhostsPos;
   StringDict[] exitLeftObjects;
@@ -26,6 +27,7 @@ class Map {
     entryLeftObjects = map.getObjects(7);
     entryRightObjects = map.getObjects(8);
     flashlightPos = map.getObjects(11);
+    scarygirlPos= map.getObjects(12);
   }
   void update() {
   }
@@ -34,7 +36,6 @@ class Map {
 
   void display() {
     map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
-
     map.draw(1, camera.position.x - width / 2, camera.position.y - height / 2);
   }
 }

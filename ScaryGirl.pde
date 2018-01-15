@@ -1,12 +1,12 @@
-class Ghost extends GameObject
+class Scarygirl extends GameObject
 {
   PImage image;
   float direction;
   private float minx, maxx;
 
-  Ghost (Rectangle livingSpace) {
-    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width, assetManager.enemyImage().height, 1, 0, ID.Ghost);
-    image = assetManager.enemyImage();
+  Scarygirl (Rectangle livingSpace) {
+    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.scarygirlImage().height, assetManager.scarygirlImage().width, assetManager.scarygirlImage().height, 1, 0, ID.Scarygirl);
+    image = assetManager.scarygirlImage();
     minx = livingSpace.x;
     maxx = livingSpace.x + livingSpace.w - image.width;
   }
@@ -25,21 +25,23 @@ class Ghost extends GameObject
   }
 
 
-  Ghost collision4() {
-    Ghost en = null;
+  Scarygirl collision4() {
+    Scarygirl sg = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
+      scarygirlLaugh.rewind();
+      scarygirlLaugh.play();
       state=STATE_END;
     }
 
     for (Bullet b : handler.bullets) {
 
-      if (dist(b.position.x, b.position.y, position().x, position().y +assetManager.ghostBullet().height/2 )< assetManager.ghostBullet().height/2+assetManager.ghostBullet().width/2) {
-        en = this;
+      if (dist(b.position.x, b.position.y, position().x, position().y +assetManager.ghostBullet().height/2 )< assetManager.ghostBullet().height) {
         vannish.rewind();
         vannish.play();
+        sg = this;
       }
     }
-    return en;
+    return sg;
   }
 }

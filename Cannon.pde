@@ -18,7 +18,7 @@ public class Canon {
 
   public void fire() {
     if (controller.left || controller.right)
-      fireForce=600;
+      fireForce=400;
     else 
     fireForce=350;
 

@@ -6,6 +6,7 @@ public enum ID {
   MediumBattery,
   HighBattery,
   Traps,
-  Flashlight
+  Flashlight,
+  Scarygirl
   
 }

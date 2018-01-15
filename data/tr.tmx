@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="666" height="1536" tilewidth="64" tileheight="64" nextobjectid="144">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="666" height="1536" tilewidth="64" tileheight="64" nextobjectid="151">
  <tileset firstgid="1" source="trtsx.tsx"/>
  <tileset firstgid="13" source="trtsx.tsx"/>
  <layer name="O que fica atras (paredes)" width="666" height="1536" visible="0">
@@ -3154,8 +3154,14 @@
  <objectgroup name="FireTrap" visible="0">
   <object id="31" x="4672" y="1170.67" width="128" height="44"/>
  </objectgroup>
- <objectgroup name="Enemies" visible="0">
+ <objectgroup name="Enemies">
   <object id="34" x="704" y="1152" width="512" height="64"/>
+  <object id="145" x="3776" y="3392" width="384" height="64"/>
+  <object id="146" x="1856" y="3392" width="512" height="64"/>
+  <object id="147" x="4928" y="5632" width="384" height="64"/>
+  <object id="148" x="3008" y="5632" width="512" height="64"/>
+  <object id="149" x="3584" y="7872" width="384" height="64"/>
+  <object id="150" x="1664" y="7872" width="512" height="64"/>
  </objectgroup>
  <objectgroup name="EntriesLeft" visible="0">
   <object id="59" x="704" y="640" width="64" height="64"/>
@@ -3181,7 +3187,10 @@
   <object id="70" x="9728" y="5632" width="64" height="64"/>
   <object id="75" x="9792" y="7872" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="Flashlights">
+ <objectgroup name="Flashlights" visible="0">
   <object id="143" x="1472" y="1024" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="Scarygirl">
+  <object id="144" x="2624" y="1152" width="384" height="64"/>
  </objectgroup>
 </map>

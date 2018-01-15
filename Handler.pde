@@ -1,5 +1,6 @@
 class Handler {
-  ArrayList<Ghost> enemies;
+  ArrayList<Ghost> ghosts;
+  ArrayList<Scarygirl> scarygirls;
   ArrayList<FireTrap> firetraps;
   ArrayList<LowBattery> lowBatteries;
   ArrayList<HighBattery> highBatteries;
@@ -17,8 +18,10 @@ class Handler {
   int collisionOffset = 10;
   ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[ncasas];
   ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[ncasas];
-  ArrayList<Ghost>[] inimigos = (ArrayList<Ghost>[])new ArrayList[ncasas];
+  ArrayList<Ghost>[] ghostss = (ArrayList<Ghost>[])new ArrayList[ncasas];
   ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[ncasas];
+  ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[ncasas];
+
 
 
   Handler() {
@@ -28,7 +31,8 @@ class Handler {
     lowBatteries = new ArrayList<LowBattery>();
     highBatteries = new ArrayList<HighBattery>();
     flashlights = new ArrayList <Flashlight>();
-    enemies = new ArrayList<Ghost>();
+    scarygirls = new ArrayList <Scarygirl>();
+    ghosts = new ArrayList<Ghost>();
     firetraps = new ArrayList <FireTrap>();
     exitsLeft = new ArrayList <Rectangle>();
     exitsRight = new ArrayList <Rectangle>();
@@ -100,11 +104,21 @@ class Handler {
     for (StringDict obj : map.GhostsPos) {
       Rectangle rect = new Rectangle(obj);
       Ghost newEnemy = new Ghost (rect); 
-      enemies.add(newEnemy);
+      ghosts.add(newEnemy);
     }
 
     for (int g = 0; g != ncasas; g++) {
-      inimigos[g] = new ArrayList<Ghost>(enemies);
+      ghostss[g] = new ArrayList<Ghost>(ghosts);
+    }
+
+    for (StringDict obj : map.scarygirlPos) {
+      Rectangle rect = new Rectangle(obj);
+      Scarygirl newgirl = new Scarygirl (rect); 
+      scarygirls.add(newgirl);
+    }
+
+    for (int f = 0; f != ncasas; f++) {
+      scarygirlss[f] = new ArrayList<Scarygirl>(scarygirls);
     }
   }
 
@@ -161,8 +175,12 @@ class Handler {
 
   void displayEnemies() {
 
-    for (Ghost obj : inimigos[playerIsAt])
+    for (Ghost obj : ghostss[playerIsAt])
       obj.display();
+    for (Scarygirl obj : scarygirlss[playerIsAt])
+      obj.display();
+
+
 
     for (Bullet obj : bullets) {
       obj.display();
@@ -215,20 +233,29 @@ class Handler {
       if (fl != null)
         buffer7.add(fl);
     }
-    
+
     flashlightss[playerIsAt].removeAll(buffer7);
     for (FireTrap obj : firetraps) {
       obj.update();
     }
 
     ArrayList<Ghost> buffer4 = new ArrayList<Ghost>();
-    for (Ghost obj : inimigos[playerIsAt]) {
+    for (Ghost obj : ghostss[playerIsAt]) {
       obj.update();
       Ghost en = obj.collision4();
       if (en != null)
         buffer4.add(en);
     }
-    inimigos[playerIsAt].removeAll(buffer4);
+    ghostss[playerIsAt].removeAll(buffer4);
+
+    ArrayList<Scarygirl> buffer9 = new ArrayList<Scarygirl>();
+    for (Scarygirl obj : scarygirlss[playerIsAt]) {
+      obj.update();
+      Scarygirl sg = obj.collision4();
+      if (sg != null)
+        buffer9.add(sg);
+    }
+    scarygirlss[playerIsAt].removeAll(buffer9);
 
     ArrayList<Bullet> nextMyBullets = new ArrayList <Bullet>();
     for (Bullet obj : bullets) {
@@ -245,8 +272,7 @@ class Handler {
 
   void CheckCollisionTraps(float objX, float objY, float objWidth, float objHeight)
   {
-    //float objY=0, objX=0;
-    //float objHeight=0, objWidth=0;
+
     float objId=0;
     for (StringDict obj : map.trapsPos)
     {

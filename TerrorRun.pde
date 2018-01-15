@@ -31,6 +31,11 @@ Minim audio;
 AudioPlayer backgroundmusic;
 AudioPlayer jumpEffect;
 AudioPlayer coinEffect;
+AudioPlayer scarygirlLaugh;
+AudioPlayer catchlantern;
+AudioPlayer vannish;
+
+
 
 void settings() {
   smooth(33);
@@ -60,7 +65,6 @@ void setState(int state) {
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();
-    assetManager.Cursordisplay();
   case STATE_END:
 
     end = new End();
@@ -86,14 +90,14 @@ void draw()
 
     map.update();
     handler.update();
-    darkning.update(); 
+    //darkning.update(); 
     hud.update();
     camera.update();
     camera.apply();
     map.display();
     handler.display();
     player.display();
-    darkning.apply(); 
+    //darkning.apply(); 
     hud.display();
   } else if (state== STATE_END ) {
     end.display();
@@ -145,9 +149,7 @@ void StatesInter() {
 
       break;
     }
-  } else if (state == STATE_GAME) {
-    canon.fire();
-  }
+  } 
 }
 
 void keyPressed() {
