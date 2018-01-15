@@ -215,11 +215,11 @@ class Handler {
       {
         if (wi > hi) {
           println(objId);
-          hud.setLives(0);
+          hud.setLanterns(0);
         } else {
           println(objId);
 
-          hud.setLives(0);
+          hud.setLanterns(0);
         }
       }
     }

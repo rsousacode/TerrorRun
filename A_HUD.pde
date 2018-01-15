@@ -52,13 +52,25 @@ class HUD {
       image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*3, y, 32, 32);
     }
+    
+       if (darkning.diameter < 700 && hud.lanterns!=0) {
+      textSize(32);
+      textAlign(CENTER);
+      text("Press 'K' to use a lantern", width/2, height-height/15);
+    }
+
+
+    textAlign(LEFT);
+    textSize(16);
 
     text("Score: " + score, 60, y+h*1.5);
   }
-  public int lives() {
+
+
+  public int lanterns() {
     return lanterns;
   }
-  public void setLives (int lives) {
+  public void setLanterns (int lives) {
     this.lanterns =lives;
   }
   public int getScore() {
@@ -69,7 +81,7 @@ class HUD {
   }
   void update() {
     score++;
-    if (hud.lives() < 0) {
+    if (hud.lanterns() < 0) {
       setState(STATE_END);
     }
   }

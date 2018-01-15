@@ -13,7 +13,7 @@ class Controller {
   void apply()
   {
     if (state == STATE_GAME) {
-      
+
       if ( player.coliding==true && up==true )
       {
         player.velocity.add(new PVector(0, player.jumpSpeed));
@@ -28,6 +28,12 @@ class Controller {
       {
         player.moveBy(player.WalkSpeed, 0);             
         player.direction= 1;
+      }
+      if (key == 'K' || key == 'k' ) {
+        if (hud.lanterns <= 4 && hud.lanterns!=1) {
+          hud.setLanterns(hud.lanterns()-1);
+          darkning.diameter = 2 * height;
+        }
       }
     }
   }
