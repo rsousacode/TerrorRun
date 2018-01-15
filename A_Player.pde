@@ -5,7 +5,7 @@ class Player  extends GameObject {
   private PVector velocity;
   boolean coliding;
   int jumpSpeed= -19;
-  int WalkSpeed = (int)5.3;
+  int WalkSpeed = 7;
 
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1,id);
