@@ -13,7 +13,7 @@ final int STATE_END=4;
 final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
-
+Bullet bullet;
 Handler handler;
 AssetManager assetManager;
 Camera camera;
@@ -57,7 +57,6 @@ void setState(int state) {
     handler = new Handler();
     player = new Player(624, 1056, new PVector(0, 0), ID.Player);
     canon = new Canon();
-
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();

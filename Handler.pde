@@ -204,6 +204,9 @@ class Handler {
     for (Bullet obj : bullets) {
       obj.update(0.016);
       obj.applyForce(gravity);
+      Bullet bl = obj.collision1();
+      if (bl != null)
+        nextMyBullets.add(bl);
     }
     bullets.removeAll(nextMyBullets);
   }

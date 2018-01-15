@@ -1,19 +1,17 @@
 public class Canon {
 
   float fireForce;
-  float dir;
-  float rot;
+  float direction;
+  float rotation;
   int TILE_SIZE = 32;
 
   public Canon() {
-
     fireForce=350;
   }
 
   public void render() {
 
     pushMatrix();
-    //translate(TILE_SIZE/2, height - 64 - 8);
     rotate(getDir());
     popMatrix();
   }
@@ -28,12 +26,12 @@ public class Canon {
     s.position.x = player.position().x;
     s.position.y = player.position().y;
     if (player.direction==1)
-      dir = getDir();
+      direction = getDir();
     else 
-    dir = getOpDir();
-    rot = dir + PI/2;
-    float x = sin(rot) * fireForce;
-    float y = -cos(rot) * fireForce;
+    direction = getOpDir();
+    rotation = direction + PI/2;
+    float x = sin(rotation) * fireForce;
+    float y = -cos(rotation) * fireForce;
     s.applyForce( new PVector(x, y));
     handler.bullets.add(s);
   }

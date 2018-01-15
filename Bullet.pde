@@ -5,14 +5,11 @@ class Bullet {
   PVector velocity;
   PImage img;
   boolean colliding=false;
-  boolean isDead;
 
   Bullet() {
     position = new PVector();
     velocity = new PVector();
     acceleration = new PVector();
-
-
     img = loadImage("data/images/bone.png");
   }
 
@@ -28,7 +25,6 @@ class Bullet {
     acceleration.add(force);
   }
 
-
   void display() {
     pushMatrix();
     translate(position.x, position.y);
@@ -37,5 +33,14 @@ class Bullet {
     image(img, 0, 0);
     popStyle();
     popMatrix();
+  }
+
+  Bullet collision1() {
+    Bullet bl = null;
+    if ( position.y > camera.position.y+height/2)
+    {
+      bl = this;
+    }
+    return bl;
   }
 }
