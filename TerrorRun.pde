@@ -5,6 +5,7 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+
 int state;
 final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
@@ -28,6 +29,12 @@ Rectangle rectangle;
 End end;
 Map map;
 Minim audio;
+
+AudioPlayer dieghost;
+AudioPlayer ghostbullet;
+AudioPlayer vannishgirl;
+AudioPlayer malelaugh;
+AudioPlayer lightson;
 AudioPlayer backgroundmusic;
 AudioPlayer jumpEffect;
 AudioPlayer coinEffect;
@@ -39,8 +46,8 @@ AudioPlayer vannish;
 
 void settings() {
   smooth(33);
-  //fullScreen(P2D);
-  size(800, 600, P2D);
+  fullScreen(P2D);
+  //size(800, 600, P2D);
   //size(400,300);
 }
 
@@ -90,14 +97,14 @@ void draw()
 
     map.update();
     handler.update();
-    //darkning.update(); 
+    darkning.update(); 
     hud.update();
     camera.update();
     camera.apply();
     map.display();
     handler.display();
     player.display();
-    //darkning.apply(); 
+    darkning.apply(); 
     hud.display();
   } else if (state== STATE_END ) {
     end.display();
@@ -149,7 +156,7 @@ void StatesInter() {
 
       break;
     }
-  } 
+  }
 }
 
 void keyPressed() {

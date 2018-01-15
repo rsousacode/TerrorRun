@@ -17,9 +17,8 @@ class AssetManager {
   private PImage flashlightImage;
   private PImage scarygirlImage;
   private PImage ghostBullet;
+  private PImage bullethudImage;
   String path;
-
-
 
   AssetManager() {
     cursorImage= loadImage("data/images/cursor.png");
@@ -38,12 +37,23 @@ class AssetManager {
     highBateryImage= loadImage("data/images/battery2.png");
     flashlightImage= loadImage("data/images/flashlight.png");
     scarygirlImage= loadImage("data/images/scarygirl.png");
+    ghostBullet = loadImage("data/images/bone.png");
+    bullethudImage = loadImage("data/images/bullhd.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
     coinEffect=audio.loadFile("data/sounds/pop.wav");
     scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
     catchlantern = audio.loadFile("data/sounds/catchlantern.wav");
     vannish = audio.loadFile("data/sounds/vannish.wav");
-    ghostBullet = loadImage("data/images/bone.png");
+    vannishgirl = audio.loadFile (  "data/sounds/vannishgirl.wav");
+    backgroundmusic=audio.loadFile(  "data/sounds/sample.mp3");
+    coinEffect=audio.loadFile(  "data/sounds/pop.wav");
+    scarygirlLaugh = audio.loadFile(  "sdata/ounds/scgl.wav");
+    catchlantern = audio.loadFile(  "data/sounds/catchlantern.wav");
+    vannish = audio.loadFile(  "data/sounds/vannish.wav");
+    dieghost = audio.loadFile(  "data/sounds/dieghost.wav");
+    ghostbullet = audio.loadFile(  "data/sounds/ghostbullet.wav");
+    malelaugh = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
+    lightson = audio.loadFile(  "data/sounds/lightson.wav"); 
     backgroundmusic.loop();
   }
 
@@ -120,6 +130,10 @@ class AssetManager {
     return scarygirlImage;
   }
 
+  PImage bullethud() {
+    return bullethudImage;
+  }
+
 
   void Cursordisplay() {
     if (state!=STATE_GAME ) {
@@ -129,10 +143,10 @@ class AssetManager {
     }
   }
 
-  void stop() {
+  //void stop() {
 
-    backgroundmusic.close();
-    coinEffect.close();
-    audio.stop();
-  }
+  //  backgroundmusic.close();
+  //  coinEffect.close();
+  //  audio.stop();
+  //}
 }
