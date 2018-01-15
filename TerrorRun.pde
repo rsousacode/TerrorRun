@@ -19,6 +19,7 @@ AssetManager assetManager;
 Camera camera;
 Controller controller;
 Player player;
+Canon canon;
 Menu menu;
 Help help;
 Darkning darkning;
@@ -55,6 +56,8 @@ void setState(int state) {
     map = new Map(this);
     handler = new Handler();
     player = new Player(624, 1056, new PVector(0, 0), ID.Player);
+    canon = new Canon();
+
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();
@@ -79,6 +82,8 @@ void draw()
     background(0);
     controller.apply();
     player.update();
+    canon.render();
+
     map.update();
     handler.update();
     darkning.update(); 
@@ -140,6 +145,8 @@ void StatesInter() {
 
       break;
     }
+  } else if (state == STATE_GAME) {
+    canon.fire();
   }
 }
 

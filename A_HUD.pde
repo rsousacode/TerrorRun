@@ -84,6 +84,5 @@ class HUD {
     if (hud.lanterns() < 0) {
       setState(STATE_END);
     }
-    println(hud.lanterns());
   }
 }

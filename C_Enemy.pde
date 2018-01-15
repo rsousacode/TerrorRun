@@ -32,6 +32,14 @@ class Enemy extends GameObject
       en = this;
       //darkning.diameter-=77;
     }
+
+    for (Bullet b : handler.bullets) {
+
+      if (dist(b.position.x, b.position.y, position().x, position().y )< 10) {
+        println("colliding");
+        en = this;
+      }
+    }
     return en;
   }
 }

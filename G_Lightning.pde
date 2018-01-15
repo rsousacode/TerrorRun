@@ -10,7 +10,7 @@ class Darkning {
   Darkning() {
     diameter = 2 * height;
     smoothedDiameter = 2 * height;
-    int size = min(width, height) / 9;
+    int size = min(width, height) / 5;
     darkning = createGraphics(size, size);
     darkning.beginDraw();
     darkning.loadPixels();

@@ -7,6 +7,9 @@ class Handler {
   ArrayList<Rectangle> exitsRight;
   ArrayList<Rectangle> entriesLeft;
   ArrayList<Rectangle> entriesRight;
+  ArrayList<Bullet> bullets;
+  PVector gravity = new PVector(0, 10);
+
   final int ncasas = 200;
   int[] casas = new int[ncasas]; 
   int playerIsAt =0;
@@ -27,6 +30,8 @@ class Handler {
     exitsRight = new ArrayList <Rectangle>();
     entriesRight = new ArrayList<Rectangle>();
     entriesLeft = new ArrayList<Rectangle>();
+    bullets = new ArrayList<Bullet>();
+
     spawnTraps();
     spawnBatteries();
     spawnEnemies();
@@ -141,6 +146,10 @@ class Handler {
 
     for (Enemy obj : inimigos[playerIsAt])
       obj.display();
+
+    for (Bullet obj : bullets) {
+      obj.display();
+    }
   }
 
   void displayTraps() {
@@ -190,6 +199,13 @@ class Handler {
         buffer4.add(en);
     }
     inimigos[playerIsAt].removeAll(buffer4);
+
+    ArrayList<Bullet> nextMyBullets = new ArrayList <Bullet>();
+    for (Bullet obj : bullets) {
+      obj.update(0.016);
+      obj.applyForce(gravity);
+    }
+    bullets.removeAll(nextMyBullets);
   }
 
 
