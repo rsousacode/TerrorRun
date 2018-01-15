@@ -35,7 +35,7 @@ class Ghost extends GameObject
 
     for (Bullet b : handler.bullets) {
 
-      if (dist(b.position.x, b.position.y, position().x+15, position().y + 15)< 5) {
+      if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
         en = this;
         vannish.rewind();
         vannish.play();
