@@ -22,8 +22,6 @@ class Handler {
   ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[ncasas];
   ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[ncasas];
 
-
-
   Handler() {
 
     randomFunction();
@@ -273,14 +271,12 @@ class Handler {
   void CheckCollisionTraps(float objX, float objY, float objWidth, float objHeight)
   {
 
-    float objId=0;
     for (StringDict obj : map.trapsPos)
     {
       objX = parseFloat(obj.get("x"));
       objY = parseFloat(obj.get("y"));
       objWidth = parseFloat(obj.get("width"));
       objHeight = parseFloat(obj.get("height"));
-      objId = parseFloat(obj.get("id"));
 
       float xi = Math.max (player.position().x-player.image.width/2+collisionOffset, objX);
       float yi = Math.max (player.position().y-player.image.height/2, objY);
@@ -289,12 +285,9 @@ class Handler {
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi) {
-          println(objId);
-          hud.setLanterns(0);
+          state=STATE_END;
         } else {
-          println(objId);
-
-          hud.setLanterns(0);
+          state=STATE_END;
         }
       }
     }

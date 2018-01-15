@@ -4,11 +4,13 @@ class HUD {
   color  bar, backgroundbar;
   private int lanterns = 4; 
   int bateries =0;
+  int bullets = 10;
   int score=0;
   final int marginLantern = width/50;
   PImage hudlantern;
-  ArrayList <PImage> lanternsi;
-  HUD() {
+PImage hudbullet;
+
+HUD() {
     value = 50;
     max = 100;
     x = 60;
@@ -82,8 +84,22 @@ class HUD {
     textSize(16);
 
     text("Score: " + score, 60, y+h*1.5);
+    image(assetManager.bullethud(), 80,height/5);
+    textAlign(LEFT);
+    textSize(30);
+    text(+ bullets, 80, height/4);
+    
   }
 
+int bullets() {
+  return bullets;
+  
+}
+
+void setBullets(int bullets) {
+  this.bullets = bullets;
+  
+}
 
   public int lanterns() {
     return lanterns;

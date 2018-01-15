@@ -34,6 +34,7 @@ public class Canon {
     float y = -cos(rotation) * fireForce;
     s.applyForce( new PVector(x, y));
     handler.bullets.add(s);
+    ghostbullet.play();
   }
 
   float getDir() {

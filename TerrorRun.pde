@@ -1,9 +1,5 @@
-import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
-import ddf.minim.signals.*;
-import ddf.minim.spi.*;
-import ddf.minim.ugens.*;
+import processing.sound.*;
+
 
 int state;
 final int STATE_MENU=1;
@@ -27,13 +23,17 @@ HUD hud;
 Rectangle rectangle;
 End end;
 Map map;
-Minim audio;
-AudioPlayer backgroundmusic;
-AudioPlayer jumpEffect;
-AudioPlayer coinEffect;
-AudioPlayer scarygirlLaugh;
-AudioPlayer catchlantern;
-AudioPlayer vannish;
+SoundFile backgroundmusic;
+SoundFile jumpEffect;
+SoundFile coinEffect;
+SoundFile scarygirlLaugh;
+SoundFile catchlantern;
+SoundFile vannish;
+SoundFile dieghost;
+SoundFile ghostbullet;
+SoundFile vannishgirl;
+SoundFile malelaugh;
+SoundFile lightson;
 
 
 
@@ -46,7 +46,16 @@ void settings() {
 
 void setup()
 {
-  audio = new Minim(this);
+  vannishgirl = new SoundFile (this,"sounds/vannishgirl.wav");
+  backgroundmusic=new SoundFile(this,"sounds/sample.mp3");
+  coinEffect=new SoundFile(this,"sounds/pop.wav");
+  scarygirlLaugh = new SoundFile(this,"sounds/scgl.wav");
+  catchlantern = new SoundFile(this,"sounds/catchlantern.wav");
+  vannish = new SoundFile(this,"sounds/vannish.wav");
+  dieghost = new SoundFile(this,"sounds/dieghost.wav");
+  ghostbullet = new SoundFile(this,"sounds/ghostbullet.wav");
+  malelaugh = new SoundFile(this,"sounds/malelaughsc.wav"); 
+  lightson = new SoundFile(this,"sounds/lightson.wav"); 
   assetManager = new AssetManager();
   controller = new Controller();
   frameRate(100);
@@ -90,14 +99,14 @@ void draw()
 
     map.update();
     handler.update();
-    //darkning.update(); 
+    darkning.update(); 
     hud.update();
     camera.update();
     camera.apply();
     map.display();
     handler.display();
     player.display();
-    //darkning.apply(); 
+    darkning.apply(); 
     hud.display();
   } else if (state== STATE_END ) {
     end.display();
@@ -149,7 +158,7 @@ void StatesInter() {
 
       break;
     }
-  } 
+  }
 }
 
 void keyPressed() {

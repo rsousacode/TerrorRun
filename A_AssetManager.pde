@@ -17,9 +17,8 @@ class AssetManager {
   private PImage flashlightImage;
   private PImage scarygirlImage;
   private PImage ghostBullet;
+  private PImage bullethudImage;
   String path;
-
-
 
   AssetManager() {
     cursorImage= loadImage("data/images/cursor.png");
@@ -38,12 +37,8 @@ class AssetManager {
     highBateryImage= loadImage("data/images/battery2.png");
     flashlightImage= loadImage("data/images/flashlight.png");
     scarygirlImage= loadImage("data/images/scarygirl.png");
-    backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
-    coinEffect=audio.loadFile("data/sounds/pop.wav");
-    scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
-    catchlantern = audio.loadFile("data/sounds/catchlantern.wav");
-    vannish = audio.loadFile("data/sounds/vannish.wav");
     ghostBullet = loadImage("data/images/bone.png");
+    bullethudImage = loadImage("data/images/bullhd.png");
     backgroundmusic.loop();
   }
 
@@ -119,6 +114,11 @@ class AssetManager {
   PImage scarygirlImage() {
     return scarygirlImage;
   }
+  
+  PImage bullethud() {
+    return bullethudImage;
+    
+  }
 
 
   void Cursordisplay() {
@@ -129,10 +129,10 @@ class AssetManager {
     }
   }
 
-  void stop() {
+  //void stop() {
 
-    backgroundmusic.close();
-    coinEffect.close();
-    audio.stop();
-  }
+  //  backgroundmusic.close();
+  //  coinEffect.close();
+  //  audio.stop();
+  //}
 }

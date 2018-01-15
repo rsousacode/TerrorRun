@@ -29,14 +29,14 @@ class Ghost extends GameObject
     Ghost en = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
+      malelaugh.play();
       state=STATE_END;
     }
 
     for (Bullet b : handler.bullets) {
 
-      if (dist(b.position.x, b.position.y, position().x, position().y +assetManager.ghostBullet().height/2 )< assetManager.ghostBullet().height/2+assetManager.ghostBullet().width/2) {
+      if (dist(b.position.x, b.position.y, position().x, position().y +5 )< 10) {
         en = this;
-        vannish.rewind();
         vannish.play();
       }
     }
