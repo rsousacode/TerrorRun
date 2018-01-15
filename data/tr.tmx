@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="666" height="1536" tilewidth="64" tileheight="64" nextobjectid="156">
+=======
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="666" height="1536" tilewidth="64" tileheight="64" nextobjectid="151">
+>>>>>>> parent of 78c9cca... Sounds improoved
  <tileset firstgid="1" source="trtsx.tsx"/>
  <tileset firstgid="13" source="trtsx.tsx"/>
  <layer name="O que fica atras (paredes)" width="666" height="1536" visible="0">
@@ -3082,7 +3086,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="MapColliders" visible="0">
+ <objectgroup name="MapColliders">
   <object id="1" x="0" y="0" width="448" height="1216"/>
   <object id="12" x="0" y="1216" width="9536" height="256"/>
   <object id="23" x="4160" y="1088" width="128" height="128"/>
@@ -3118,7 +3122,7 @@
   <object id="93" x="9408" y="7744" width="640" height="64"/>
   <object id="96" x="704" y="7744" width="640" height="64"/>
  </objectgroup>
- <objectgroup name="BateriesBlue" visible="0">
+ <objectgroup name="BateriesBlue">
   <object id="19" x="1920" y="1152" width="64" height="64"/>
   <object id="20" x="1024" y="1152" width="64" height="64"/>
   <object id="21" x="3264" y="1152" width="64" height="64"/>
@@ -3136,7 +3140,7 @@
   <object id="128" x="3904" y="7744" width="64" height="64"/>
   <object id="129" x="1664" y="7744" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="BateriesRed" visible="0">
+ <objectgroup name="BateriesRed">
   <object id="130" x="3328" y="3328" width="64" height="64"/>
   <object id="131" x="8000" y="5568" width="128" height="64"/>
   <object id="132" x="6656" y="3264" width="64" height="64"/>
@@ -3151,15 +3155,18 @@
   <object id="141" x="7616" y="5568" width="64" height="64"/>
   <object id="142" x="6784" y="5568" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="FireTrap">
+ <objectgroup name="FireTrap" visible="0">
   <object id="31" x="4672" y="1170.67" width="128" height="44"/>
+<<<<<<< HEAD
   <object id="151" x="1600" y="3422.3" width="128" height="33.697"/>
   <object id="152" x="4672" y="3422.3" width="128" height="33.697"/>
   <object id="153" x="1600" y="5656.24" width="128" height="39.7576"/>
   <object id="154" x="4672" y="7900" width="128" height="40"/>
   <object id="155" x="1604" y="1180" width="124" height="38"/>
+=======
+>>>>>>> parent of 78c9cca... Sounds improoved
  </objectgroup>
- <objectgroup name="Enemies" visible="0">
+ <objectgroup name="Enemies">
   <object id="34" x="704" y="1152" width="512" height="64"/>
   <object id="145" x="3776" y="3392" width="384" height="64"/>
   <object id="146" x="1856" y="3392" width="512" height="64"/>
@@ -3195,7 +3202,7 @@
  <objectgroup name="Flashlights" visible="0">
   <object id="143" x="1472" y="1024" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="Scarygirl" visible="0">
+ <objectgroup name="Scarygirl">
   <object id="144" x="2624" y="1152" width="384" height="64"/>
  </objectgroup>
 </map>

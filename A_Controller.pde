@@ -46,13 +46,9 @@ class Controller {
       if (hud.lanterns <= 6 && hud.lanterns!=1) {
         hud.setLanterns(hud.lanterns()-1);
         darkning.diameter = 2 * height;
-        lightson.play();
       }
     } else if (key == 'X' || key == 'x') {
-      if (hud.bullets() > 0) {
-        hud.setBullets(hud.bullets()-1);
-        canon.fire();
-      }
+      canon.fire();
     }
   }
   void keyReleased(char key)

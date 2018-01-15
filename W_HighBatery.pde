@@ -22,6 +22,7 @@ class HighBattery  extends GameObject
     HighBattery bg2 = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     { 
+      coinEffect.rewind();
       coinEffect.play();
       bg2 = this;
       hud.setScore(hud.getScore()+1500);
