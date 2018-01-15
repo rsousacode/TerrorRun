@@ -89,7 +89,7 @@ class Handler {
     }
   }
 
-  void spawnTelle() {
+  void spawnTelle() { //spawning telleports
 
     for (StringDict exitLeftObject : map.exitLeftObjects)
       exitsLeft.add(new Rectangle(exitLeftObject));
@@ -101,7 +101,7 @@ class Handler {
       entriesRight.add(new Rectangle(entryRightObject));
   }
 
-  void telleCollision() {
+  void telleCollision() { // telleports collisions 
 
     for (Rectangle obj : exitsRight) {
       Rectangle rec = obj.collision();
@@ -196,8 +196,6 @@ class Handler {
 
   void CheckCollisionTraps(float objX, float objY, float objWidth, float objHeight)
   {
-    //float objY=0, objX=0;
-    //float objHeight=0, objWidth=0;
     float objId=0;
     for (StringDict obj : map.trapsPos)
     {
@@ -214,12 +212,9 @@ class Handler {
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi) {
-          println(objId);
-          hud.setLives(0);
+          hud.setLanterns(0);
         } else {
-          println(objId);
-
-          hud.setLives(0);
+          hud.setLanterns(0);
         }
       }
     }
