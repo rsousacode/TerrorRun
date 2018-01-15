@@ -47,7 +47,7 @@ class AssetManager {
     vannishgirl = audio.loadFile (  "data/sounds/vannishgirl.wav");
     backgroundmusic=audio.loadFile(  "data/sounds/sample.mp3");
     coinEffect=audio.loadFile(  "data/sounds/pop.wav");
-    scarygirlLaugh = audio.loadFile(  "sdata/ounds/scgl.wav");
+    scarygirlLaugh = audio.loadFile(  "data/sounds/scgl.wav");
     catchlantern = audio.loadFile(  "data/sounds/catchlantern.wav");
     vannish = audio.loadFile(  "data/sounds/vannish.wav");
     dieghost = audio.loadFile(  "data/sounds/dieghost.wav");
