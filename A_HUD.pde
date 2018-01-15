@@ -33,27 +33,44 @@ class HUD {
     fill(255);
     textAlign(LEFT);
 
-    if (lanterns==1)
+    if (lanterns==1) // actually it's 0 lanterns
     {
     }
 
-    if (lanterns==2)
+    if (lanterns==2) // actually it's 1 lanterns
     {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
     }
-    if (lanterns==3)
+    if (lanterns==3) // actually it's 2 lanterns
     {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
     }
-    if (lanterns==4)
+    if (lanterns==4) // actually it's 3 lanterns
     {
       image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
       image(hudlantern, width-marginLantern-hudlantern.height*3, y, 32, 32);
     }
-    
-       if (darkning.diameter < 700 && hud.lanterns!=0) {
+
+    if (lanterns==5) // actually it's 4 lanterns
+    {
+      image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*3, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*4, y, 32, 32);
+    }
+
+    if (lanterns==6) // actually it's 5 lanterns
+    {
+      image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*3, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*4, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*5, y, 32, 32);
+    }
+
+    if (darkning.diameter < 700 && hud.lanterns!=0) {
       textSize(32);
       textAlign(CENTER);
       text("Press 'K' to use a lantern", width/2, height-height/15);

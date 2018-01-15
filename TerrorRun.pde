@@ -60,6 +60,7 @@ void setState(int state) {
     camera = new Camera(player.position());
     darkning = new Darkning();
     hud = new HUD();
+    assetManager.Cursordisplay();
   case STATE_END:
 
     end = new End();

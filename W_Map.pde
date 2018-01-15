@@ -3,6 +3,7 @@ class Map {
   StringDict[] collisionMap;
   StringDict[] lowbatteriesPos;
   StringDict[] highbatteriesPos;
+  StringDict[] flashlightPos;
   StringDict[] trapsPos;
   StringDict[] GhostsPos;
   StringDict[] exitLeftObjects;
@@ -24,7 +25,7 @@ class Map {
     exitRightObjects = map.getObjects(10);
     entryLeftObjects = map.getObjects(7);
     entryRightObjects = map.getObjects(8);
-
+    flashlightPos = map.getObjects(11);
   }
   void update() {
   }

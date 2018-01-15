@@ -1,10 +1,10 @@
-class Enemy extends GameObject
+class Ghost extends GameObject
 {
   PImage image;
   float direction;
   private float minx, maxx;
 
-  Enemy (Rectangle livingSpace) {
+  Ghost (Rectangle livingSpace) {
     super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width, assetManager.enemyImage().height, 1, 0, ID.Ghost);
     image = assetManager.enemyImage();
     minx = livingSpace.x;
@@ -25,8 +25,8 @@ class Enemy extends GameObject
   }
 
 
-  Enemy collision4() {
-    Enemy en = null;
+  Ghost collision4() {
+    Ghost en = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
       state=STATE_END;

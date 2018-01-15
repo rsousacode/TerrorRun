@@ -5,6 +5,7 @@ public enum ID {
   LowBattery,
   MediumBattery,
   HighBattery,
-  Traps
+  Traps,
+  Flashlight
   
 }

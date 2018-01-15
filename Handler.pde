@@ -1,8 +1,9 @@
 class Handler {
-  ArrayList<Enemy> enemies;
+  ArrayList<Ghost> enemies;
   ArrayList<FireTrap> firetraps;
   ArrayList<LowBattery> lowBatteries;
   ArrayList<HighBattery> highBatteries;
+  ArrayList <Flashlight> flashlights;
   ArrayList<Rectangle> exitsLeft;
   ArrayList<Rectangle> exitsRight;
   ArrayList<Rectangle> entriesLeft;
@@ -16,7 +17,9 @@ class Handler {
   int collisionOffset = 10;
   ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[ncasas];
   ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[ncasas];
-  ArrayList<Enemy>[] inimigos = (ArrayList<Enemy>[])new ArrayList[ncasas];
+  ArrayList<Ghost>[] inimigos = (ArrayList<Ghost>[])new ArrayList[ncasas];
+  ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[ncasas];
+
 
   Handler() {
 
@@ -24,7 +27,8 @@ class Handler {
 
     lowBatteries = new ArrayList<LowBattery>();
     highBatteries = new ArrayList<HighBattery>();
-    enemies = new ArrayList<Enemy>();
+    flashlights = new ArrayList <Flashlight>();
+    enemies = new ArrayList<Ghost>();
     firetraps = new ArrayList <FireTrap>();
     exitsLeft = new ArrayList <Rectangle>();
     exitsRight = new ArrayList <Rectangle>();
@@ -79,18 +83,28 @@ class Handler {
     for (int e = 0; e != ncasas; e++) {
       highbatteries[e] = new ArrayList<HighBattery>(highBatteries);
     }
+
+    for (StringDict obj : map.flashlightPos) {
+      Rectangle rect = new Rectangle(obj);
+      Flashlight newflashlight = new Flashlight (rect.x, rect.y); 
+      flashlights.add(newflashlight);
+    }
+
+    for (int c = 0; c!= ncasas; c++) {
+      flashlightss[c] = new ArrayList <Flashlight>(flashlights);
+    }
   }
 
   void spawnEnemies() {
 
     for (StringDict obj : map.GhostsPos) {
       Rectangle rect = new Rectangle(obj);
-      Enemy newEnemy = new Enemy (rect); 
+      Ghost newEnemy = new Ghost (rect); 
       enemies.add(newEnemy);
     }
 
     for (int g = 0; g != ncasas; g++) {
-      inimigos[g] = new ArrayList<Enemy>(enemies);
+      inimigos[g] = new ArrayList<Ghost>(enemies);
     }
   }
 
@@ -140,11 +154,14 @@ class Handler {
 
     for (HighBattery obj : highbatteries[playerIsAt])
       obj.display();
+
+    for (Flashlight obj : flashlightss[playerIsAt])
+      obj.display();
   }
 
   void displayEnemies() {
 
-    for (Enemy obj : inimigos[playerIsAt])
+    for (Ghost obj : inimigos[playerIsAt])
       obj.display();
 
     for (Bullet obj : bullets) {
@@ -191,10 +208,23 @@ class Handler {
       obj.update();
     }
 
-    ArrayList<Enemy> buffer4 = new ArrayList<Enemy>();
-    for (Enemy obj : inimigos[playerIsAt]) {
+    ArrayList<Flashlight> buffer7 = new ArrayList<Flashlight>();
+    for (Flashlight obj : flashlightss[playerIsAt]) {
       obj.update();
-      Enemy en = obj.collision4();
+      Flashlight fl = obj.collision2();
+      if (fl != null)
+        buffer7.add(fl);
+    }
+    
+    flashlightss[playerIsAt].removeAll(buffer7);
+    for (FireTrap obj : firetraps) {
+      obj.update();
+    }
+
+    ArrayList<Ghost> buffer4 = new ArrayList<Ghost>();
+    for (Ghost obj : inimigos[playerIsAt]) {
+      obj.update();
+      Ghost en = obj.collision4();
       if (en != null)
         buffer4.add(en);
     }

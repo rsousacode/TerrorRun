@@ -15,6 +15,7 @@ class AssetManager {
   private PImage enemyImage;
   private PImage lowBateryImage;
   private PImage highBateryImage;
+  private PImage flashlightImage;
   String path;
 
 
@@ -37,6 +38,7 @@ class AssetManager {
     enemyImage = loadImage("data/images/ghost.png");
     lowBateryImage =   loadImage("data/images/battery.png");
     highBateryImage= loadImage("data/images/battery2.png");
+    flashlightImage= loadImage("data/images/flashlight.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
     coinEffect=audio.loadFile("data/sounds/pop.mp3");
       backgroundmusic.loop();
@@ -99,11 +101,14 @@ class AssetManager {
   PImage lowBateryImage() {
     return lowBateryImage;
   }
+  
+    PImage flashlightImage() {
+    return flashlightImage;
+  }
 
   PImage highBateryImage() {
     return highBateryImage;
   }
-
 
 
   void Cursordisplay() {
