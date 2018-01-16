@@ -23,7 +23,7 @@ class Player  extends GameObject {
 
   void update()
   {
-    velocity.add( new PVector(0, .9).mult(0.999)); 
+    velocity.add( new PVector(0, 1.2).mult(0.999)); 
 
     moveBy(velocity);
 

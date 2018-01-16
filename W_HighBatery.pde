@@ -26,7 +26,7 @@ class HighBattery  extends GameObject
       coinEffect.play();
       bg2 = this;
       hud.setScore(hud.getScore()+1500);
-      darkning.diameter+=300;
+      darkning.diameter+=400;
     }
     return bg2;
   }
