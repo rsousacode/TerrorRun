@@ -7,6 +7,7 @@ public enum ID {
   HighBattery,
   Traps,
   Flashlight,
-  Scarygirl
+  Scarygirl,
+  Packfivebullets
   
 }

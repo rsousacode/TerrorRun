@@ -5,6 +5,7 @@ class Map {
   StringDict[] highbatteriesPos;
   StringDict[] flashlightPos;
   StringDict[] scarygirlPos;
+  StringDict[] ghostbulletsPos;
   StringDict[] trapsPos;
   StringDict[] GhostsPos;
   StringDict[] exitLeftObjects;
@@ -28,6 +29,7 @@ class Map {
     entryRightObjects = map.getObjects(8);
     flashlightPos = map.getObjects(11);
     scarygirlPos= map.getObjects(12);
+    ghostbulletsPos = map.getObjects(13);
   }
   void update() {
   }

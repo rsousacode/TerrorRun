@@ -4,7 +4,7 @@ class HUD {
   color  bar, backgroundbar;
   private int lanterns = 4; 
   int bateries =0;
-  int bullets = 1022;
+  int bullets = 10;
   int score=0;
   final int marginLantern = width/50;
   PImage hudlantern;

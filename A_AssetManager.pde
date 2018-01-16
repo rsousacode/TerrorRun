@@ -18,6 +18,7 @@ class AssetManager {
   private PImage scarygirlImage;
   private PImage ghostBullet;
   private PImage bullethudImage;
+  private PImage packfiveImage;
   String path;
 
   AssetManager() {
@@ -39,6 +40,7 @@ class AssetManager {
     scarygirlImage= loadImage("data/images/scarygirl.png");
     ghostBullet = loadImage("data/images/bone.png");
     bullethudImage = loadImage("data/images/bullhd.png");
+    packfiveImage = loadImage("data/images/packfive.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
     coinEffect=audio.loadFile("data/sounds/pop.wav");
     scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
@@ -128,6 +130,11 @@ class AssetManager {
 
   PImage scarygirlImage() {
     return scarygirlImage;
+  }
+  
+  PImage packfiveImage() {
+    return packfiveImage;
+    
   }
 
   PImage bullethud() {
