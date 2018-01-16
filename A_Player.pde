@@ -4,7 +4,7 @@ class Player  extends GameObject {
   int direction;
   private PVector velocity;
   boolean coliding;
-  int jumpSpeed= -19;
+  int jumpSpeed= -14;
   int WalkSpeed = (int)5.3;
   int numFrames = 38;  // The number of frames in the animation
   long currentFrame;
@@ -33,28 +33,14 @@ class Player  extends GameObject {
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
-      if(controller.right && !controller.left && !controller.up || controller.left && !controller.right && !controller.up){
+    if (controller.right && !controller.left && !controller.up || controller.left && !controller.right && !controller.up) {
       image(images[counter], 0, 0);
     }
-    //if (controller.right && controller.left) {
-    //  image(images[3], 0, 0);
-    //}
-    
 
-    //if (controller.left==false && controller.right==false )
-    //  image(images[3], 0, 0);
-      if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right
-      
-      ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up)
+    if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right
+
+      ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
       image(images[3], 0, 0);
-
-
-
-
-
-
-
-
 
     if (System.currentTimeMillis() - currentFrame >= 5) {
       counter ++;
@@ -67,7 +53,7 @@ class Player  extends GameObject {
 
   void update()
   {
-    velocity.add( new PVector(0, .9).mult(0.999)); 
+    velocity.add( new PVector(0, .5).mult(0.999)); 
 
     moveBy(velocity);
 
