@@ -8,9 +8,9 @@ class HUD {
   int score=0;
   final int marginLantern = width/50;
   PImage hudlantern;
-PImage hudbullet;
+  PImage hudbullet;
 
-HUD() {
+  HUD() {
     value = 50;
     max = 100;
     x = 60;
@@ -28,7 +28,7 @@ HUD() {
     rectMode(CORNER);
     fill(backgroundbar);
 
-   // rect(x, y-h/2, 400, h);
+    // rect(x, y-h/2, 400, h);
     fill(bar);
 
     rect(x, y-h/2, darkning.smoothedDiameter/8, h);
@@ -73,6 +73,16 @@ HUD() {
       image(hudlantern, width-marginLantern-hudlantern.height*5, y, 32, 32);
     }
 
+    if (lanterns==7) // actually it's 5 lanterns
+    {
+      image(hudlantern, width-marginLantern-hudlantern.height, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*2, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*3, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*4, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*5, y, 32, 32);
+      image(hudlantern, width-marginLantern-hudlantern.height*6, y, 32, 32);
+    }
+
     if (darkning.diameter < 700 && hud.lanterns!=1) {
       textSize(32);
       textAlign(CENTER);
@@ -84,22 +94,19 @@ HUD() {
     textSize(16);
 
     text("Score: " + score, 60, y+h*1.5);
-    image(assetManager.bullethud(), 80,height/5);
+    image(assetManager.bullethud(), 80, height/5);
     textAlign(LEFT);
     textSize(30);
     text(+ bullets, 80, height/4);
-    
   }
 
-int bullets() {
-  return bullets;
-  
-}
+  int bullets() {
+    return bullets;
+  }
 
-void setBullets(int bullets) {
-  this.bullets = bullets;
-  
-}
+  void setBullets(int bullets) {
+    this.bullets = bullets;
+  }
 
   public int lanterns() {
     return lanterns;

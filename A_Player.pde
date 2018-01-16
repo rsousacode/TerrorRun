@@ -33,17 +33,22 @@ class Player  extends GameObject {
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
-    if (controller.left || controller.right) {
+      if(controller.right && !controller.left && !controller.up || controller.left && !controller.right && !controller.up){
       image(images[counter], 0, 0);
-      animatingright=true;
     }
-    if (controller.right && controller.left) {
-      image(images[0], 0, 0);
-      animatingleft=true;
-    }
+    //if (controller.right && controller.left) {
+    //  image(images[3], 0, 0);
+    //}
+    
 
-    if (controller.left==false && controller.right==false)
-    image(images[3], 0, 0);
+    //if (controller.left==false && controller.right==false )
+    //  image(images[3], 0, 0);
+      if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right
+      
+      ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up)
+      image(images[3], 0, 0);
+
+
 
 
 
