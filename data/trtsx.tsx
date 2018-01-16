@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="TiledMixTR" tilewidth="64" tileheight="64" tilecount="11" columns="0">
+<tileset name="TiledMixTR" tilewidth="64" tileheight="64" tilecount="20" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="64" height="64" source="../data/images/sprites/slice03_03.png"/>
@@ -42,5 +42,32 @@
  </tile>
     <tile id="11">
   <image width="64" height="64" source="../data/images/sprites/slice09_09.png"/>
+ </tile>
+     <tile id="12">
+  <image width="254" height="128" source="../data/images/sprites/Lantern.png"/>
+ </tile>
+    <tile id="13">
+  <image width="254" height="128" source="../data/images/sprites/Walk.png"/>
+ </tile>
+    <tile id="14">
+  <image width="254" height="128" source="../data/images/sprites/Enemy.png"/>
+ </tile>
+   <tile id="15">
+  <image width="254" height="128" source="../data/images/sprites/BlueBattery.png"/>
+ </tile>
+   <tile id="16">
+  <image width="254" height="128" source="../data/images/sprites/RedBattery.png"/>
+ </tile>
+   <tile id="17">
+  <image width="254" height="128" source="../data/images/sprites/Enemy.png"/>
+ </tile>
+   <tile id="18">
+  <image width="254" height="128" source="../data/images/sprites/shoot.png"/>
+ </tile>
+    <tile id="19">
+  <image width="254" height="128" source="../data/images/sprites/Hazard.png"/>
+ </tile>
+    <tile id="20">
+  <image width="254" height="128" source="../data/images/sprites/Lightl.png"/>
  </tile>
 </tileset>
