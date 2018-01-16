@@ -27,7 +27,7 @@ class AssetManager {
     title = loadImage("data/images/title.png");
     return2menu = loadImage("data/images/return.png");
     helpButton = loadImage("data/images/help21.png");
-    helpCurrent = loadImage("data/images/help.jpg");
+    helpCurrent = loadImage("data/images/help.png");
     play=loadImage("data/images/play2.png");
     exitSys=loadImage("data/images/exit.png");
     //***//GAME IMAGES//***//
