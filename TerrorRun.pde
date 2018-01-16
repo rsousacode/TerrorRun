@@ -42,8 +42,6 @@ AudioPlayer scarygirlLaugh;
 AudioPlayer catchlantern;
 AudioPlayer vannish;
 
-
-
 void settings() {
   smooth(33);
   fullScreen(P2D);

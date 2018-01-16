@@ -35,7 +35,7 @@ class Scarygirl extends GameObject
 
     for (Bullet b : handler.bullets) {
 
-      if (dist(b.position.x, b.position.y, position().x+30, position().y + assetManager.scarygirlImage().height/2)< 10) {
+      if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
         vannishgirl.rewind();
         vannishgirl.play();
         sg = this;
