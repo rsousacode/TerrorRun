@@ -1,13 +1,13 @@
-class HighBattery  extends GameObject
+class BulletsPackFive  extends GameObject
 {
   PImage image;
   float direction;
   float lastx, lasty;
   boolean coliding;
   float velY, velX;
-  HighBattery (int x, int y) {
-    super(x, y, assetManager.highBateryImage().width, assetManager.highBateryImage().height, 0, 0, ID.HighBattery);
-    image = assetManager.highBateryImage();
+  BulletsPackFive (int x, int y) {
+    super(x, y, assetManager.packfiveImage().width, assetManager.packfiveImage().height, 0, 0, ID.Packfivebullets);
+    image = assetManager.packfiveImage();
   }
 
   void draw() { 
@@ -18,16 +18,15 @@ class HighBattery  extends GameObject
   void update() {
   }
 
-  HighBattery collision2() {
-    HighBattery bg2 = null;
+  BulletsPackFive collision2() {
+    BulletsPackFive bp = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     { 
       coinEffect.rewind();
       coinEffect.play();
-      bg2 = this;
-      hud.setScore(hud.getScore()+1500);
-      darkning.diameter+=400;
+      bp = this;
+      hud.setBullets(hud.bullets()+5);
     }
-    return bg2;
+    return bp;
   }
 }

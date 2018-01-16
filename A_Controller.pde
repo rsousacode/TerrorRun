@@ -49,7 +49,7 @@ class Controller {
         lightson.rewind();
         lightson.play();
       }
-    } else if (key == 'X' || key == 'x') {
+    } else if (key == ' ' || key == ' ') {
       if (hud.bullets() > 0) {
         hud.setBullets(hud.bullets()-1);
         canon.fire();

@@ -26,7 +26,7 @@ class LowBattery extends GameObject
       coinEffect.play();
       bg = this;
       hud.setScore(hud.getScore()+500);
-      darkning.diameter+=150;
+      darkning.diameter+=250;
     }
     return bg;
   }

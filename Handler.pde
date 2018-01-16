@@ -10,6 +10,7 @@ class Handler {
   ArrayList<Rectangle> entriesLeft;
   ArrayList<Rectangle> entriesRight;
   ArrayList<Bullet> bullets;
+  ArrayList<BulletsPackFive> packfive;
   PVector gravity = new PVector(0, 10);
 
   final int ncasas = 200;
@@ -21,6 +22,7 @@ class Handler {
   ArrayList<Ghost>[] ghostss = (ArrayList<Ghost>[])new ArrayList[ncasas];
   ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[ncasas];
   ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[ncasas];
+  ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[ncasas];
 
   Handler() {
 
@@ -37,6 +39,7 @@ class Handler {
     entriesRight = new ArrayList<Rectangle>();
     entriesLeft = new ArrayList<Rectangle>();
     bullets = new ArrayList<Bullet>();
+    packfive = new ArrayList<BulletsPackFive>();
 
     spawnTraps();
     spawnBatteries();
@@ -94,6 +97,16 @@ class Handler {
 
     for (int c = 0; c!= ncasas; c++) {
       flashlightss[c] = new ArrayList <Flashlight>(flashlights);
+    }
+
+    for (StringDict obj : map.ghostbulletsPos) {
+      Rectangle rect = new Rectangle(obj);
+      BulletsPackFive newpack = new BulletsPackFive (rect.x, rect.y); 
+      packfive.add(newpack);
+    }
+
+    for (int l = 0; l!= ncasas; l++) {
+      packfives[l] = new ArrayList <BulletsPackFive>(packfive);
     }
   }
 
@@ -168,6 +181,9 @@ class Handler {
 
     for (Flashlight obj : flashlightss[playerIsAt])
       obj.display();
+      
+      for(BulletsPackFive obj : packfives[playerIsAt])
+      obj.display();
   }
 
   void displayEnemies() {
@@ -219,6 +235,9 @@ class Handler {
         buffer2.add(bg2);
     }
     highbatteries[playerIsAt].removeAll(buffer2);
+
+
+
     for (FireTrap obj : firetraps) {
       obj.update();
     }
@@ -232,9 +251,21 @@ class Handler {
     }
 
     flashlightss[playerIsAt].removeAll(buffer7);
-    for (FireTrap obj : firetraps) {
+
+    ///
+
+    ArrayList<BulletsPackFive> buffer13 = new ArrayList<BulletsPackFive>();
+    for (BulletsPackFive obj : packfives[playerIsAt]) {
       obj.update();
+      BulletsPackFive bp = obj.collision2();
+      if (bp != null)
+        buffer13.add(bp);
     }
+
+    packfives[playerIsAt].removeAll(buffer13);
+
+    //
+
 
     ArrayList<Ghost> buffer4 = new ArrayList<Ghost>();
     for (Ghost obj : ghostss[playerIsAt]) {
@@ -245,14 +276,14 @@ class Handler {
     }
     ghostss[playerIsAt].removeAll(buffer4);
 
-    ArrayList<Scarygirl> buffer9 = new ArrayList<Scarygirl>();
+    ArrayList<Scarygirl> buffer11 = new ArrayList<Scarygirl>();
     for (Scarygirl obj : scarygirlss[playerIsAt]) {
       obj.update();
       Scarygirl sg = obj.collision4();
       if (sg != null)
-        buffer9.add(sg);
+        buffer11.add(sg);
     }
-    scarygirlss[playerIsAt].removeAll(buffer9);
+    scarygirlss[playerIsAt].removeAll(buffer11);
 
     ArrayList<Bullet> nextMyBullets = new ArrayList <Bullet>();
     for (Bullet obj : bullets) {
