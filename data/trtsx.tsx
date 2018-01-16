@@ -65,7 +65,7 @@
   <image width="254" height="128" source="../data/images/sprites/shoot.png"/>
  </tile>
     <tile id="19">
-  <image width="254" height="128" source="../data/images/sprites/Hazard.png"/>
+  <image width="254" height="128" source="../data/images/sprites/Hazards.png"/>
  </tile>
     <tile id="20">
   <image width="254" height="128" source="../data/images/sprites/Lightl.png"/>
