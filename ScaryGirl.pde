@@ -27,7 +27,7 @@ class Scarygirl extends GameObject
 
   Scarygirl collision4() {
     Scarygirl sg = null;
-    if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
+    if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width)
     {
       scarygirlLaugh.play();
       if(!godmode)

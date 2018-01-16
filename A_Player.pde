@@ -5,7 +5,7 @@ class Player  extends GameObject {
   private PVector velocity;
   boolean coliding;
   int jumpSpeed= -14;
-  int WalkSpeed = (int)5.3;
+  int WalkSpeed = (int)3.8;
   int numFrames = 38;  // The number of frames in the animation
   long currentFrame;
   PImage[] images = new PImage[numFrames];
