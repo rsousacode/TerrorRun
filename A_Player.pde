@@ -13,8 +13,6 @@ class Player  extends GameObject {
   boolean animatingleft = false;
   boolean animatingright = false;
 
-
-
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
 
@@ -37,9 +35,7 @@ class Player  extends GameObject {
       image(images[counter], 0, 0);
     }
 
-    if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right
-
-      ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
+    if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
       image(images[3], 0, 0);
 
     if (System.currentTimeMillis() - currentFrame >= 5) {

@@ -30,7 +30,8 @@ class Ghost extends GameObject
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
       malelaugh.play();
-      state=STATE_END;
+      if (!godmode)
+        state=STATE_END;
     }
 
     for (Bullet b : handler.bullets) {

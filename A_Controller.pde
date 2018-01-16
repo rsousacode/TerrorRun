@@ -54,9 +54,10 @@ class Controller {
         hud.setBullets(hud.bullets()-1);
         canon.fire();
         ghostbullet.rewind();
-            ghostbullet.play();
-
+        ghostbullet.play();
       }
+    } else if (key =='o' || key == 'O') {
+      godmode=!godmode;
     }
   }
   void keyReleased(char key)

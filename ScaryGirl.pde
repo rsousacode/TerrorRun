@@ -30,6 +30,7 @@ class Scarygirl extends GameObject
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     {
       scarygirlLaugh.play();
+      if(!godmode)
       state=STATE_END;
     }
 

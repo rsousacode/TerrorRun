@@ -5,7 +5,7 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-
+boolean godmode = false;
 int state;
 final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
