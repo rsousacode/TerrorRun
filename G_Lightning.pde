@@ -54,6 +54,7 @@ class Darkning {
   }
 
   void update() {
+    if(!godmode)
     diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;

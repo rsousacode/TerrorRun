@@ -50,11 +50,19 @@ class Handler {
   void randomFunction() {
 
     for (int i = 0; i < casas.length; i++) {
-      float r = random(1, 3);
+      float r = random(4, 6);
       casas[0]=0;
-      //if (i == 0)
-      //r=0;
+      if (i < 3)
+      r= random(1,3);
+      else if(i < 6 )
+      r =random(2,4);
+      else if (i >= 6)
+      r = random(4,7);
+      
+      
+        
       casas[i] = (int)r;
+     // println(casas[0], casas[1], casas[2], casas[3], casas[4], casas[5], casas[6],casas[7], casas[8], casas[9]);
     }
   }
 
@@ -181,8 +189,8 @@ class Handler {
 
     for (Flashlight obj : flashlightss[playerIsAt])
       obj.display();
-      
-      for(BulletsPackFive obj : packfives[playerIsAt])
+
+    for (BulletsPackFive obj : packfives[playerIsAt])
       obj.display();
   }
 
@@ -315,9 +323,11 @@ class Handler {
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi) {
-          state=STATE_END;
+          if (!godmode)
+            state=STATE_END;
         } else {
-          state=STATE_END;
+          if (!godmode)
+            state=STATE_END;
         }
       }
     }
