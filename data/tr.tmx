@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1209">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1212">
  <tileset firstgid="1" source="trtsx.tsx"/>
  <layer name="O que fica atras (paredes)" width="300" height="600" offsetx="2" offsety="0">
   <data encoding="csv">
@@ -1209,7 +1209,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="MapColliders">
+ <objectgroup name="MapColliders" visible="0">
   <object id="1" x="0" y="0" width="448" height="1216"/>
   <object id="52" x="0" y="7936" width="9984" height="256"/>
   <object id="76" x="9600" y="3264" width="640" height="64"/>
@@ -1736,7 +1736,7 @@
   <object id="1199" x="6656" y="17152" width="3776" height="256"/>
   <object id="1200" x="6080" y="17216" width="576" height="192"/>
  </objectgroup>
- <objectgroup name="BateriesBlue">
+ <objectgroup name="BateriesBlue" visible="0">
   <object id="198" x="2304" y="830.667" width="64" height="64"/>
   <object id="200" x="3584" y="1344" width="64" height="64"/>
   <object id="278" x="4672" y="1088" width="70.6667" height="60"/>
@@ -1779,7 +1779,7 @@
   <object id="1205" x="3584" y="7744" width="64" height="64"/>
   <object id="1206" x="2496" y="7808" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="BateriesRed">
+ <objectgroup name="BateriesRed" visible="0">
   <object id="433" x="7744" y="768" width="64" height="64"/>
   <object id="837" x="2433.33" y="832" width="62.6667" height="61.3333"/>
   <object id="1178" x="6976" y="16832" width="64" height="64"/>
@@ -1903,7 +1903,7 @@
   <object id="1160" x="9984" y="12608" width="64" height="64"/>
   <object id="1164" x="9728" y="14848" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="Lantern" visible="0">
+ <objectgroup name="Lantern">
   <object id="818" x="6344" y="10128" width="64" height="56"/>
   <object id="861" x="4544" y="1088" width="64" height="64"/>
   <object id="867" x="3712" y="3200" width="64" height="64"/>
@@ -1912,6 +1912,9 @@
   <object id="1204" x="6336" y="7680" width="64" height="64"/>
   <object id="1207" x="7552" y="14784" width="64" height="64"/>
   <object id="1208" x="7680" y="11392" width="64" height="64"/>
+  <object id="1209" x="2624" y="7808" width="64" height="64"/>
+  <object id="1210" x="5376" y="16960" width="64" height="64"/>
+  <object id="1211" x="1856" y="17024" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="gaja feita" visible="0">
   <object id="815" x="4267.82" y="10365.7" width="254.545" height="63.6364"/>
@@ -1924,7 +1927,7 @@
   <object id="991" x="6087.88" y="17100" width="548.485" height="51.5152"/>
   <object id="1177" x="3520" y="16896" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="pack  balas">
+ <objectgroup name="pack  balas" visible="0">
   <object id="318" x="8512.12" y="1145.45" width="69.697" height="72.7273"/>
   <object id="811" x="8519.52" y="10313.6" width="69.697" height="72.7273"/>
   <object id="814" x="8911.52" y="12313.6" width="69.697" height="72.7273"/>
