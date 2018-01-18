@@ -1,5 +1,5 @@
 class AssetManager {
-
+  boolean removeCursor = false;
   //***//MENU's IMAGES//***//
   private PImage cursorImage;
   private PImage backgroundMenu;
@@ -21,6 +21,7 @@ class AssetManager {
   private PImage packfiveImage;
   String path;
 
+
   AssetManager() {
     cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/background4.jpg");
@@ -30,7 +31,6 @@ class AssetManager {
     helpCurrent = loadImage("data/images/help.png");
     play=loadImage("data/images/play2.png");
     exitSys=loadImage("data/images/exit.png");
-    //***//GAME IMAGES//***//
     transcursor= loadImage("data/images/transcursor.png");
     playerImage =    loadImage("data/images/skeleton.png");
     enemyImage = loadImage("data/images/ghost.png");
@@ -131,10 +131,9 @@ class AssetManager {
   PImage scarygirlImage() {
     return scarygirlImage;
   }
-  
+
   PImage packfiveImage() {
     return packfiveImage;
-    
   }
 
   PImage bullethud() {
@@ -143,12 +142,25 @@ class AssetManager {
 
 
   void Cursordisplay() {
-    if (state!=STATE_GAME ) {
-      cursor((assetManager.cursorImage.copy()));
-    } else if (state==STATE_GAME) {
-      cursor((assetManager.transcursor.copy()));
+    if (state==STATE_GAME) {
+      removeCursor =true;
+    } else {
+      removeCursor =false;
     }
+
+    if (removeCursor)
+      cursor((assetManager.transcursor.copy()));
+    else {
+      cursor((assetManager.cursorImage.copy()));
+    }
+    println(removeCursor);
   }
+
+  void removeCursor() {
+    noCursor();
+    
+  }
+
 
   //void stop() {
 

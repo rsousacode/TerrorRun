@@ -27,19 +27,22 @@ class Ghost extends GameObject
 
   Ghost collision4() {
     Ghost en = null;
-    if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+10)
+    if (!devmode)
     {
-      malelaugh.play();
-      if (!godmode)
-        state=STATE_END;
-    }
+      if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+10)
+      {
+        malelaugh.play();
+        if (!devmode)
+          state=STATE_END;
+      }
 
-    for (Bullet b : handler.bullets) {
+      for (Bullet b : handler.bullets) {
 
-      if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
-        en = this;
-        vannish.rewind();
-        vannish.play();
+        if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
+          en = this;
+          vannish.rewind();
+          vannish.play();
+        }
       }
     }
     return en;

@@ -3,11 +3,11 @@ class Darkning {
   private int diameter;
   public int acceltime = 128/2;
   private float smoothedDiameter;
-  boolean CollidingWithBateries;
   PGraphics darkning;
-  float DecreaseRate = (float)width/2500;
+  private float DecreaseRate;
 
   Darkning() {
+    DecreaseRate = (float)width/2500;
     diameter = 2 * height;
     smoothedDiameter = 2 * height;
     int size = min(width, height) / 5;
@@ -54,7 +54,7 @@ class Darkning {
   }
 
   void update() {
-    if(!godmode)
+    if(!devmode)
     diameter-=DecreaseRate();
     diameter = constrain(diameter, 0, height*2);
     smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;

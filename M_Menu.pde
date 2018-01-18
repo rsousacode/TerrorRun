@@ -21,7 +21,6 @@ class Menu
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     popMatrix();
     image(assetManager.exitSys(), exitVector.x, exitVector.y);
-    assetManager.Cursordisplay();
   }
 
   String checkButtons()

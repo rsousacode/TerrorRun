@@ -1,11 +1,11 @@
-import ddf.minim.*;
+import ddf.minim.*; //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-
-boolean godmode = false;
+boolean turnOffDarkning = false;
+boolean devmode = false;
 int state;
 final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
@@ -14,20 +14,6 @@ final int STATE_END=4;
 final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
-Bullet bullet;
-Handler handler;
-AssetManager assetManager;
-Camera camera;
-Controller controller;
-Player player;
-Canon canon;
-Menu menu;
-Help help;
-Darkning darkning;
-HUD hud;
-Rectangle rectangle;
-End end;
-Map map;
 Minim audio;
 
 AudioPlayer dieghost;
@@ -42,9 +28,24 @@ AudioPlayer scarygirlLaugh;
 AudioPlayer catchlantern;
 AudioPlayer vannish;
 
+Bullet bullet;
+Handler handler;
+AssetManager assetManager;
+Camera camera;
+Controller controller;
+Player player;
+Canon canon;
+Menu menu;
+Help help;
+Darkning darkning;
+HUD hud;
+Rectangle rectangle;
+End end;
+Map map;
+
 void settings() {
   smooth(33);
-  fullScreen(P2D);
+  //fullScreen(P2D);
   size(800, 600, P2D);
   //size(400,300);
 }
@@ -95,18 +96,26 @@ void draw()
 
     map.update();
     handler.update();
-    darkning.update(); 
+    if (!turnOffDarkning) {
+      darkning.update();
+    }
+
     hud.update();
     camera.update();
     camera.apply();
     map.display();
     handler.display();
     player.display();
-    darkning.apply(); 
+
+    if (!turnOffDarkning) {
+      darkning.apply();
+    }
+
     hud.display();
   } else if (state== STATE_END ) {
     end.display();
   }
+  assetManager.Cursordisplay();
 }
 
 

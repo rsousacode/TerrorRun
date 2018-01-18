@@ -43,7 +43,7 @@ class Controller {
     } else if (key == 'A' || key == 'a') {
       left = true;
     } else  if (key == 'K' || key == 'k' ) {
-      if (hud.lanterns <= 6 && hud.lanterns!=1) {
+      if ( hud.lanterns!=1) {
         hud.setLanterns(hud.lanterns()-1);
         darkning.diameter = 2 * height;
         lightson.rewind();
@@ -57,7 +57,13 @@ class Controller {
         ghostbullet.play();
       }
     } else if (key =='o' || key == 'O') {
-      godmode=!godmode;
+      if (turnOffDarkning) {
+        turnOffDarkning=!turnOffDarkning;
+        devmode=!devmode;
+      } else  devmode=!devmode;
+    } else if (key =='l' || key == 'L') {
+      if (devmode)
+        turnOffDarkning=!turnOffDarkning;
     }
   }
   void keyReleased(char key)

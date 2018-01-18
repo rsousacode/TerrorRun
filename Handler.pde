@@ -323,10 +323,10 @@ class Handler {
       if (wi >= 0 && hi >= 0)
       {
         if (wi > hi) {
-          if (!godmode)
+          if (!devmode)
             state=STATE_END;
         } else {
-          if (!godmode)
+          if (!devmode)
             state=STATE_END;
         }
       }

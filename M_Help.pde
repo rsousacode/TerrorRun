@@ -19,7 +19,6 @@ class Help
     image(assetManager.return2menu(), return2menuPos.x, return2menuPos.y);
     image(assetManager.helpCurrent(), helpPos.x, helpPos.y, width/3, height/1.5);
     popMatrix();
-    assetManager.Cursordisplay();
   }
   String checkButtons()
   {
