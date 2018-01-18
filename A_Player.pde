@@ -4,6 +4,7 @@ class Player  extends GameObject {
   int direction;
   private PVector velocity;
   boolean coliding;
+  boolean isFalling = false;
   int jumpSpeed= -14;
   int WalkSpeed = (int)3.8;
   //int WalkSpeed = (int)8;
@@ -33,16 +34,13 @@ class Player  extends GameObject {
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
-    if (controller.right && !controller.left && !controller.up || controller.left && !controller.right && !controller.up) {
-      image(images[counter], 0, 0);
-    }
 
-    if (!controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
+
+    if (!coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
       image(images[3], 0, 0);
-
+    else image(images[counter], 0, 0);
     if (System.currentTimeMillis() - currentFrame >= 5) {
       counter ++;
-
       currentFrame = System.currentTimeMillis();
       if (counter > 37)
         counter=0;
@@ -55,12 +53,13 @@ class Player  extends GameObject {
 
     moveBy(velocity);
 
-    if (!coliding)
-      moveBy(new PVector (0, 1));
-
-    else
+    if (!coliding) {
+      moveBy(new PVector (0, 0.001));
+    } else
       moveBy(new PVector (0, 0));
 
+
     CheckCollisionWorld(0, 0, 0, 0);
+    println(isFalling);
   }
 }
