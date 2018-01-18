@@ -81,29 +81,7 @@ abstract class GameObject {
     }
   }
 
-  void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
-  {
 
-    player.coliding=false;
-    for (StringDict obj : map.collisionMap)
-    {
-      objX = int(obj.get("x"));
-      objY = int(obj.get("y"));
-      objWidth = parseFloat(obj.get("width"));
-      objHeight = parseFloat(obj.get("height"));
-      float xi = Math.max (position().x-w/2, objX);
-      float yi = Math.max (position().y-h/2, objY);
-      float wi = Math.min ((position().x-w/2)+ w, objX + objWidth) - xi;
-      float hi = Math.min ((position().y-h/2)+ h, objY + objHeight) - yi;
-      if (wi >= 0 && hi >= 0)
-      {
-        if (wi > hi)
-          CheckVertical(objY, yi, objHeight);
-        else
-          CheckHorizontal(xi, objX, objWidth);
-      }
-    }
-  }
 
   void CheckVertical(float objY, float yi, float objHeight)
   {
