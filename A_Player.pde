@@ -4,8 +4,8 @@ class Player  extends GameObject {
   int direction;
   private PVector velocity;
   boolean coliding;
-  int jumpSpeed= -13;
-  int WalkSpeed = (int)3.8;
+  int jumpSpeed;
+  int WalkSpeed;
   private int Pheight;
   private int Pwidth;
   boolean collidingHorizontal;
@@ -18,7 +18,8 @@ class Player  extends GameObject {
   int counter;
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
-
+    WalkSpeed = (int)3.8;
+    jumpSpeed= -13;
     this.velocity = velocity.copy();
     image = assetManager.playerImage();
     direction = 1;

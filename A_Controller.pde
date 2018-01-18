@@ -65,6 +65,20 @@ class Controller {
       if (devmode)
         turnOffDarkning=!turnOffDarkning;
     }
+    if (devmode) {
+
+      if (key =='r' || key =='R') {
+        player.setPositionTo(624, 1184);
+      }
+      if (key == 'X' || key == 'x')
+        player.WalkSpeed++;
+      if (key == 'Y' || key == 'y')
+        player.jumpSpeed--;
+      if (key == 'M' || key == 'm') {
+        player.jumpSpeed=-13;
+        player.WalkSpeed=(int)3.8;
+      }
+    }
   }
   void keyReleased(char key)
   {  

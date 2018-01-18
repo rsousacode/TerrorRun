@@ -28,74 +28,80 @@ class HUD {
     rectMode(CORNER);
     fill(backgroundbar);
     fill(bar);
-    rect(leftMargin, upperMargin-h/2, darkning.smoothedDiameter/8, barHeight);
+    if (!turnOffDarkning)
+      rect(leftMargin, upperMargin-h/2, darkning.smoothedDiameter/8, barHeight);
     textFont(newFont, 16);
     fill(255);
     textAlign(LEFT);
-    if (lanterns==2) // actually it's 1 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-    }
-    if (lanterns==3) // actually it's 2 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-    }
-    if (lanterns==4) // actually it's 3 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-    }
+    if(!turnOffDarkning) {
+      if (lanterns==2) // actually it's 1 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+      }
+      if (lanterns==3) // actually it's 2 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+      }
+      if (lanterns==4) // actually it's 3 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
+      }
 
-    if (lanterns==5) // actually it's 4 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
-    }
+      if (lanterns==5) // actually it's 4 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
+      }
 
-    if (lanterns==6) // actually it's 5 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
-    }
+      if (lanterns==6) // actually it's 5 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
+      }
 
-    if (lanterns==7) // actually it's 6 lanterns
-    {
-      image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
-      image(hudlantern, width-marginLantern-hudlantern.height*6, upperMargin, 32, 32);
+      if (lanterns==7) // actually it's 6 lanterns
+      {
+        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
+        image(hudlantern, width-marginLantern-hudlantern.height*6, upperMargin, 32, 32);
+      }
     }
 
     if (darkning.diameter < 700 && hud.lanterns!=1) 
     {
       textSize(32);
       textAlign(CENTER);
-      text("Press 'K' to equip a new lantern", width/2, height-height/15);
+      if (!devmode)
+
+        text("Press 'K' to equip a new lantern", width/2, height-height/15);
     }
     textAlign(LEFT);
     textSize(16);
-    text("Score: " + score, leftMargin, upperMargin+h*1.5);
+    text("Score: " + score, leftMargin, height/20);
+    imageMode(CORNER);
     image(assetManager.bullethud(), leftMargin, height/5.33);
     textAlign(LEFT);
     textSize(30);
     if (height < 1000)
-      fill(0, 55, 255);
+      fill(0, 255, 0);
     text(+ bullets, leftMargin, height/4);
     if (devmode) 
     {
       textAlign(LEFT);
       textSize(20);
       fill(255);
-      text("Levels passed: " +handler.playerIsAt, 80, height - height/25);
+      text("Levels passed: " +handler.playerIsAt, height/10, height - height/25);
       text(" " +handler.casas[0] +handler.casas[1] +handler.casas[2] +handler.casas[3] +handler.casas[4] +handler.casas[5] +handler.casas[6]+handler.casas[7]+handler.casas[8]+handler.casas[9] 
         +handler.casas[10]
         +handler.casas[11]
@@ -120,11 +126,16 @@ class HUD {
         +handler.casas[30]
         +handler.casas[31]
         +handler.casas[32]
-        , 80, height - height/10);
+        , height/10, height - height/10);
       fill(0, 255, 0);
-      text("Dev mode", leftMargin, height -height/6);
+      text("Dev mode", height/10, height -height/6);
       textAlign(RIGHT);
-      text("Press 'L' to turn Off Lights", width-width/50, height -(height-height/25));
+      textSize(18);
+      text("Press 'L' to turn Off Lights", width-width/50, height-height/12);
+      text("Press 'R' to respawn", width- width/50, height-height/4);
+      text("Press 'X' to increase X velocity", width- width/50, height-height/8);
+      text("Press 'Y' to increase Y velocity", width- width/50, height-height/6);
+      text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
   }
 
@@ -160,7 +171,8 @@ class HUD {
 
   void update() 
   {
-    score++;
+    if (!devmode)
+      score++;
     if (hud.lanterns() < 0) {
       setState(STATE_END);
     }

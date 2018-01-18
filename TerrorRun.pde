@@ -45,8 +45,8 @@ Map map;
 
 void settings() {
   smooth(33);
-  //fullScreen(P2D);
-  size(800, 600, P2D);
+  fullScreen(P2D);
+  //size(800, 600, P2D);
   //size(400,300);
 }
 
@@ -66,7 +66,7 @@ void setState(int state) {
   case STATE_GAME:
     map = new Map(this);
     handler = new Handler();
-    player = new Player(624, 1056, new PVector(0, 0), ID.Player);
+    player = new Player(624, 1184, new PVector(0, 0), ID.Player);
     canon = new Canon();
     camera = new Camera(player.position());
     darkning = new Darkning();

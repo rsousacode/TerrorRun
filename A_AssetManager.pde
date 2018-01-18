@@ -153,7 +153,6 @@ class AssetManager {
     else {
       cursor((assetManager.cursorImage.copy()));
     }
-    println(removeCursor);
   }
 
   void removeCursor() {

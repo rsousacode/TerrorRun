@@ -58,11 +58,7 @@ class Handler {
       r =random(2,4);
       else if (i >= 6)
       r = random(4,7);
-      
-      
-        
       casas[i] = (int)r;
-     // println(casas[0], casas[1], casas[2], casas[3], casas[4], casas[5], casas[6],casas[7], casas[8], casas[9]);
     }
   }
 
