@@ -84,7 +84,7 @@ class HUD {
       textAlign(CENTER);
       if (!devmode)
 
-        text("Press 'K' to equip a new lantern", width/2, height-height/15);
+        text("Press 'Q' to equip a new lantern", width/2, height-height/15);
     }
     textAlign(LEFT);
     textSize(16);

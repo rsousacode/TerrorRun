@@ -42,14 +42,14 @@ class Controller {
       right = true;
     } else if (key == 'A' || key == 'a') {
       left = true;
-    } else  if (key == 'K' || key == 'k' ) {
+    } else  if (key == 'Q' || key == 'q' ) {
       if ( hud.lanterns!=1) {
         hud.setLanterns(hud.lanterns()-1);
         darkning.diameter = 2 * height;
         lightson.rewind();
         lightson.play();
       }
-    } else if (key == ' ' || key == ' ') {
+    } else if (key == ' ') {
       if (hud.bullets() > 0) {
         hud.setBullets(hud.bullets()-1);
         canon.fire();

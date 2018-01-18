@@ -158,7 +158,7 @@ class Handler {
       {
         playerIsAt++;
         player.setPositionTo(entriesRight.get(casas[playerIsAt]).x-16, entriesRight.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2);
-        camera.mpfmftr();
+        camera.reColocar();
       }
     }
 
@@ -169,7 +169,7 @@ class Handler {
         playerIsAt--;
 
         player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+64+16, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2);
-        camera.mpfmftl();
+        camera.reColocar();
       }
     }
   }

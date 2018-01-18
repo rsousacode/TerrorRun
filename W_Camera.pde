@@ -3,6 +3,7 @@ class Camera {
   private PVector position;
   private final float followMargin = 100.0;
   float Xmargin;
+  float Ymargin;
 
   Camera(PVector position) {
     positionInDisplay = new PVector(width / 2, height / 2);
@@ -14,9 +15,11 @@ class Camera {
   }
 
   void update() {
-    Xmargin= position.x-player.position().x;
-
     PVector playerPosition = player.position();
+
+    Xmargin= position.x-playerPosition.x;
+    Ymargin = position.y -playerPosition.y;
+
     if (position.x > playerPosition.x + followMargin) {
       position.x = playerPosition.x + followMargin;
     } else if (position.x < playerPosition.x - followMargin) {
@@ -32,15 +35,11 @@ class Camera {
     printLinesArchive();
   }
 
-  void mpfmftr() { //playing wallking "to-right" case of teleportation
+  void reColocar() { //playing wallking "to-right" case of teleportation
     PVector playerPosition = player.position();
-    position = new PVector(playerPosition.x+Xmargin, playerPosition.y-followMargin);
+    position = new PVector(playerPosition.x+Xmargin, playerPosition.y+Ymargin);
   }
 
-  void mpfmftl() { //playing wallking "to-left" case of teleportation
-    PVector playerPosition = player.position();
-    position = new PVector( playerPosition.x+Xmargin, playerPosition.y-followMargin);
-  }
 
   void apply() {
     PVector originInWorld = originInWorld();
