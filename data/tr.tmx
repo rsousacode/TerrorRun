@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1333">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1334">
  <tileset firstgid="1" source="trtsx.tsx"/>
  <layer name="O que fica atras (paredes)" width="300" height="600" offsetx="2" offsety="0">
   <data encoding="csv">
@@ -1209,7 +1209,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="MapColliders">
+ <objectgroup name="MapColliders" visible="0">
   <object id="1" x="4480" y="1856" width="448" height="1216"/>
   <object id="52" x="4480" y="9792" width="10560" height="256"/>
   <object id="76" x="14080" y="5120" width="640" height="64"/>
@@ -1784,7 +1784,7 @@
   <object id="837" x="6849.33" y="2688" width="62.6667" height="61.3333"/>
   <object id="1178" x="11392" y="18688" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="FireTrap">
+ <objectgroup name="FireTrap" visible="0">
   <object id="271" x="6081.33" y="3104" width="1149.33" height="32"/>
   <object id="274" x="10176.7" y="3108.67" width="574.666" height="26.8333"/>
   <object id="309" x="6596" y="7586" width="2624" height="32"/>
@@ -1838,7 +1838,7 @@
   <object id="1331" x="6987.88" y="18981.8" width="48.4848" height="21.2121"/>
   <object id="1332" x="7369.7" y="18918.2" width="112.121" height="24.2424"/>
  </objectgroup>
- <objectgroup name="Enemies" visible="0">
+ <objectgroup name="Enemies">
   <object id="302" x="11136" y="3008" width="192" height="64"/>
   <object id="304" x="13120" y="3008" width="256" height="64"/>
   <object id="378" x="5760" y="5248" width="256" height="64"/>
@@ -1869,7 +1869,7 @@
   <object id="926" x="11712" y="7488" width="384" height="64"/>
   <object id="1180" x="12992" y="18944" width="768" height="64"/>
  </objectgroup>
- <objectgroup name="EntriesLeft">
+ <objectgroup name="EntriesLeft" visible="0">
   <object id="59" x="5184" y="2496" width="64" height="64"/>
   <object id="63" x="4928" y="5248" width="64" height="64"/>
   <object id="67" x="4928" y="7488" width="64" height="64"/>
@@ -1879,7 +1879,7 @@
   <object id="1161" x="4864" y="16704" width="64" height="64"/>
   <object id="1165" x="4992" y="18944" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="EntriesRight">
+ <objectgroup name="EntriesRight" visible="0">
   <object id="60" x="5376" y="2496" width="64" height="64"/>
   <object id="64" x="5120" y="5248" width="64" height="64"/>
   <object id="68" x="5120" y="7488" width="64" height="64"/>
@@ -1889,7 +1889,7 @@
   <object id="1162" x="5056" y="16704" width="64" height="64"/>
   <object id="1166" x="5184" y="18944" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="ExitsLeft">
+ <objectgroup name="ExitsLeft" visible="0">
   <object id="62" x="13632" y="3008" width="64" height="64"/>
   <object id="65" x="14272" y="5248" width="64" height="64"/>
   <object id="69" x="14208" y="7488" width="64" height="64"/>
@@ -1899,7 +1899,7 @@
   <object id="1163" x="14080" y="16704" width="64" height="64"/>
   <object id="1326" x="14272" y="18944" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="ExitsRight">
+ <objectgroup name="ExitsRight" visible="0">
   <object id="61" x="13824" y="3008" width="64" height="64"/>
   <object id="66" x="14464" y="5248" width="64" height="64"/>
   <object id="70" x="14400" y="7488" width="64" height="64"/>
@@ -1922,10 +1922,10 @@
   <object id="1210" x="9856" y="18816" width="64" height="64"/>
   <object id="1211" x="6336" y="18880" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="gaja feita" visible="0">
-  <object id="815" x="8747.82" y="12221.7" width="254.545" height="63.6364"/>
+ <objectgroup name="gaja feita">
+  <object id="815" x="8747.82" y="12209.7" width="254.545" height="63.6364"/>
   <object id="816" x="8102.37" y="12415.6" width="200" height="66.6667"/>
-  <object id="817" x="5429.64" y="12224.7" width="378.788" height="63.6364"/>
+  <object id="817" x="6593.64" y="11884.7" width="378.788" height="63.6364"/>
   <object id="925" x="12864" y="7488" width="512" height="64"/>
   <object id="988" x="6880" y="18949.9" width="778.788" height="54.5455"/>
   <object id="989" x="8780" y="18956" width="303.03" height="54.5455"/>
