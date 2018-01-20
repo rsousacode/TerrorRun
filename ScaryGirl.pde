@@ -17,33 +17,36 @@ class Scarygirl extends GameObject
   }
 
   void update() {
+    if (controlsEnabled){
     moveBy(velocity());
     if (position().x <= minx )
       setVelocityXTo(1);
     if (position().x >= maxx)
       setVelocityXTo(-1);
+    }
   }
 
 
   Scarygirl collision4() {
     Scarygirl sg = null;
-    if (!devmode) {
 
+    if (!devmode) {
       if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width+10)
       {
         scarygirlLaugh.play();
         state=STATE_END;
       }
+    }
 
-      for (Bullet b : handler.bullets) {
+    for (Bullet b : handler.bullets) {
 
-        if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
-          vannishgirl.rewind();
-          vannishgirl.play();
-          sg = this;
-        }
+      if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
+        vannishgirl.rewind();
+        vannishgirl.play();
+        sg = this;
       }
     }
+
     return sg;
   }
 }

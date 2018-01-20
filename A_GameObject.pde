@@ -42,8 +42,12 @@ abstract class GameObject {
     position.y = y;
   }
 
-  void setPositionTo(float x, float y) {
-    position = new PVector(x, y);
+  void setPositionTo( float x, float y) {
+    position = new PVector (x, y);
+  }
+  
+    void resetpos() {
+    position = new PVector (position.x, position.y);
   }
 
   void moveBy(PVector displacement) {

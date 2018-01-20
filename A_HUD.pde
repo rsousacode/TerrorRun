@@ -33,7 +33,7 @@ class HUD {
     textFont(newFont, 16);
     fill(255);
     textAlign(LEFT);
-    if(!turnOffDarkning) {
+    if (!turnOffDarkning) {
       if (lanterns==2) // actually it's 1 lanterns
       {
         image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
@@ -137,6 +137,13 @@ class HUD {
       text("Press 'Y' to increase Y velocity", width- width/50, height-height/6);
       text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
+
+    if (!controlsEnabled) {
+      textSize(32);
+      textAlign(LEFT);
+
+      text("Paused", leftMargin, height/7);
+    }
   }
 
   int bullets() 
@@ -171,7 +178,7 @@ class HUD {
 
   void update() 
   {
-    if (!devmode)
+    if (!devmode && controlsEnabled)
       score++;
     if (hud.lanterns() < 0) {
       setState(STATE_END);

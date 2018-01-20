@@ -17,17 +17,19 @@ class Ghost extends GameObject
   }
 
   void update() {
-    moveBy(velocity());
-    if (position().x <= minx )
-      setVelocityXTo(1);
-    if (position().x >= maxx)
-      setVelocityXTo(-1);
+    if (controlsEnabled) {
+      moveBy(velocity());
+      if (position().x <= minx )
+        setVelocityXTo(1);
+      if (position().x >= maxx)
+        setVelocityXTo(-1);
+    }
   }
 
 
   Ghost collision4() {
     Ghost en = null;
-    if (!devmode)
+    if (!devmode) 
     {
       if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+10)
       {
@@ -35,16 +37,17 @@ class Ghost extends GameObject
         if (!devmode)
           state=STATE_END;
       }
+    }
 
-      for (Bullet b : handler.bullets) {
+    for (Bullet b : handler.bullets) {
 
-        if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
-          en = this;
-          vannish.rewind();
-          vannish.play();
-        }
+      if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
+        en = this;
+        vannish.rewind();
+        vannish.play();
       }
     }
+
     return en;
   }
 }

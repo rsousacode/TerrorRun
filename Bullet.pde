@@ -14,14 +14,17 @@ class Bullet {
   }
 
   void update(float delta) {
-    velocity.add(acceleration);
-    position.x += velocity.x * delta;
-    position.y += velocity.y * delta;
+    if (controlsEnabled) {
+      velocity.add(acceleration);
+      position.x += velocity.x * delta;
+      position.y += velocity.y * delta;
 
-    acceleration.mult(0);
+      acceleration.mult(0);
+    }
   }
 
   void applyForce(PVector force) {
+    if(controlsEnabled)
     acceleration.add(force);
   }
 

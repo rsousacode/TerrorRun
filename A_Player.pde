@@ -47,15 +47,18 @@ class Player  extends GameObject {
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
+
     if (!coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
       image(images[3], 0, 0);
-    else image(images[counter], 0, 0);
+    else   
+    image(images[counter], 0, 0);
     if (System.currentTimeMillis() - currentFrame >= 5) {
-      counter ++;
-      currentFrame = System.currentTimeMillis();
+      if (controlsEnabled)
+        counter ++;
       if (counter > 37)
         counter=0;
-    }
+    } else image(images[counter], 0, 0);
+    
   }
 
   void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
@@ -82,18 +85,23 @@ class Player  extends GameObject {
     }
   }
 
+  void checkColliders() { 
+    if (controlsEnabled) 
+    {
+      velocity.add( new PVector(0, .5).mult(0.999)); 
+      moveBy(velocity);
+
+      if (!coliding) {
+        moveBy(new PVector (0, 0.001));
+      } else
+        moveBy(new PVector (0, 0));
+    }
+    CheckCollisionWorld(0, 0, 0, 0);
+  }
+
+
   void update()
   {
-    velocity.add( new PVector(0, .5).mult(0.999)); 
-
-    moveBy(velocity);
-
-    if (!coliding) {
-      moveBy(new PVector (0, 0.001));
-    } else
-      moveBy(new PVector (0, 0));
-
-
-    CheckCollisionWorld(0, 0, 0, 0);
+    checkColliders();
   }
 }

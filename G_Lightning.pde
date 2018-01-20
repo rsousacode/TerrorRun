@@ -54,12 +54,13 @@ class Darkning {
   }
 
   void update() {
-    if(!devmode)
-    diameter-=DecreaseRate();
-    diameter = constrain(diameter, 0, height*2);
-    smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
-    if ( smoothedDiameter<=100) {
-      state=STATE_END;
+    if (!devmode && controlsEnabled) {
+      diameter-=DecreaseRate();
+      diameter = constrain(diameter, 0, height*2);
+      smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
+      if ( smoothedDiameter<=100) {
+        state=STATE_END;
+      }
     }
   }
 

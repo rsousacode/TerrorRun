@@ -6,6 +6,9 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 boolean turnOffDarkning = false;
 boolean devmode = false;
+boolean collisions = true;
+boolean controlsEnabled=true;
+
 int state;
 final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
@@ -91,6 +94,7 @@ void draw()
   } else if ( state== STATE_GAME) {
     background(0);
     controller.apply();
+    if(controlsEnabled);
     player.update();
     canon.render();
 

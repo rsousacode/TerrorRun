@@ -256,8 +256,6 @@ class Handler {
 
     flashlightss[playerIsAt].removeAll(buffer7);
 
-    ///
-
     ArrayList<BulletsPackFive> buffer13 = new ArrayList<BulletsPackFive>();
     for (BulletsPackFive obj : packfives[playerIsAt]) {
       obj.update();
@@ -267,8 +265,6 @@ class Handler {
     }
 
     packfives[playerIsAt].removeAll(buffer13);
-
-    //
 
 
     ArrayList<Ghost> buffer4 = new ArrayList<Ghost>();
