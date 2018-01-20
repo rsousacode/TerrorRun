@@ -5,6 +5,7 @@ class LowBattery extends GameObject
   int lastx, lasty;
   boolean coliding;
   int velY, velX;
+
   LowBattery (int x, int y, ID id) {
     super(x, y, assetManager.lowBateryImage().width, assetManager.lowBateryImage().height, 0, 0, id);
     image = assetManager.lowBateryImage();
@@ -16,6 +17,8 @@ class LowBattery extends GameObject
   }
 
   void update() {
+    
+
   }
 
   LowBattery collision() {
@@ -27,6 +30,7 @@ class LowBattery extends GameObject
       bg = this;
       hud.setScore(hud.getScore()+500);
       darkning.diameter+=250;
+      
     }
     return bg;
   }

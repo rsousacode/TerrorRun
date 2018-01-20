@@ -32,6 +32,8 @@ class Map {
     ghostbulletsPos = map.getObjects(13);
   }
   void update() {
+    
+    
   }
 
 

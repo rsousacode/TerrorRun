@@ -6,7 +6,6 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 boolean turnOffDarkning = false;
 boolean devmode = false;
-boolean collisions = true;
 boolean controlsEnabled=true;
 
 int state;
@@ -39,6 +38,7 @@ Controller controller;
 Player player;
 Canon canon;
 Menu menu;
+Ghost ghost;
 Help help;
 Darkning darkning;
 HUD hud;
@@ -48,8 +48,8 @@ Map map;
 
 void settings() {
   smooth(33);
-  fullScreen(P2D);
-  //size(800, 600, P2D);
+  //fullScreen(P2D);
+  size(800, 600, P2D);
   //size(400,300);
 }
 
@@ -67,6 +67,7 @@ void setState(int state) {
   this.state = state;
   switch(state) {
   case STATE_GAME:
+    controlsEnabled=true;
     map = new Map(this);
     handler = new Handler();
     player = new Player(5536, 3040, new PVector(0, 0), ID.Player);
@@ -94,7 +95,7 @@ void draw()
   } else if ( state== STATE_GAME) {
     background(0);
     controller.apply();
-    if(controlsEnabled);
+    if (controlsEnabled);
     player.update();
     canon.render();
 

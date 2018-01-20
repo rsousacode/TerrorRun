@@ -1,4 +1,6 @@
 class AssetManager {
+  int numFrames = 38;  // The number of frames in the animation
+  long currentFrame;
   boolean removeCursor = false;
   //***//MENU's IMAGES//***//
   private PImage cursorImage;
@@ -19,6 +21,10 @@ class AssetManager {
   private PImage ghostBullet;
   private PImage bullethudImage;
   private PImage packfiveImage;
+  
+  PImage[] images = new PImage[numFrames];
+
+
   String path;
 
 
@@ -141,6 +147,13 @@ class AssetManager {
   }
 
 
+  void WalkingAnimationSIdes() {
+    for (int i = 0; i < numFrames; i++) {
+      images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
+    }
+  }
+
+
   void Cursordisplay() {
     if (state==STATE_GAME) {
       removeCursor =true;
@@ -157,7 +170,6 @@ class AssetManager {
 
   void removeCursor() {
     noCursor();
-    
   }
 
 

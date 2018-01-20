@@ -45,8 +45,8 @@ abstract class GameObject {
   void setPositionTo( float x, float y) {
     position = new PVector (x, y);
   }
-  
-    void resetpos() {
+
+  void resetpos() {
     position = new PVector (position.x, position.y);
   }
 
@@ -73,6 +73,8 @@ abstract class GameObject {
 
   void CheckHorizontal(float xi, float objX, float objWidth)
   {
+    player.collidingHorizontal=true;
+
     player.velocity.x=0;
     if (xi==objX)
     {
