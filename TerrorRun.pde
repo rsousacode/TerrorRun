@@ -4,11 +4,11 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-boolean turnOffDarkning = false;
-boolean devmode = false;
-boolean controlsEnabled=true;
-boolean paused = false;
-boolean soundActivated = true;
+private boolean devmode = false;
+private boolean turnOffDarkning = false;
+private boolean controlsEnabled=true;
+private boolean gamePaused = false;
+private boolean soundActivated = true;
 
 private int state;
 final int STATE_MENU=1;
@@ -53,7 +53,7 @@ void settings()
   smooth(33);
   fullScreen(P2D);
   // size(800, 600, P2D);
-  //size(400,300);
+
 }
 
 void setup()
@@ -72,7 +72,7 @@ void setState(int state)
   switch(state) 
   {
   case STATE_GAME:
-    paused = false;
+    gamePaused = false;
     controlsEnabled=true;
     map = new Map(this);
     handler = new Handler();
@@ -111,10 +111,7 @@ void draw()
 
     map.update();
     handler.update();
-    if (!turnOffDarkning) 
-    {
       darkning.update();
-    }
     camera.update();
     camera.apply();
     map.display();

@@ -6,27 +6,37 @@ class End
   int pixelRadius;
   End ()
   {
-
     titleTitle = new PVector(width/2, 1 * height/7);
     return2menuShow = new PVector(width/1.1, 4 * height/4.5);
-    font = createFont("Verdana", 55, true);
+    font = assetManager.font();
 
     pixelRadius = 100;
   }
-  void display()
-  {
-    pushMatrix();
+  
+    void displayImages() {
 
-    image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     imageMode(CENTER);
+    image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     image(assetManager.title(), titleTitle.x, titleTitle.y, width/1.5, width/3.6);
     image(assetManager.return2menu(), return2menuShow.x, return2menuShow.y);
-    textFont(font, 33);
-    fill(255, 0, 0);
-    textAlign(CENTER);
-    text("You loss with this score: " + scoreManager.score(), width/2, height/3);
-    popMatrix();
+    image(assetManager.youlost(), width/2, height/1.9);
   }
+
+  void  displayScore() {
+    textFont(font);
+    textAlign(CENTER);
+    textSize(44);
+    fill(255, 0, 0);
+    text("You loss with this score: " + scoreManager.score(), width/2, height/1.2);
+  }
+  
+  void display()
+  {
+    displayImages();
+    displayScore();
+  }
+
+
   String checkButtons()
   {
     String result = "";

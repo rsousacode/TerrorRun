@@ -17,15 +17,21 @@ class Menu
   }
   void display()
   {
-    pushMatrix();
     imageMode(CENTER);
-    image(assetManager.backgroundMenu(), width/2, height/2, width, height);
-    popMatrix();
-    image(assetManager.exitSys(), exitVector.x, exitVector.y);
-    if(soundActivated)
-    image(assetManager.soundButton(), soundVector.x, soundVector.y);
+    showButtons();
+    soundMuteButton();
+  }
+
+  void soundMuteButton() {
+    if (soundActivated)
+      image(assetManager.soundButton(), soundVector.x, soundVector.y);
     else 
     image(assetManager.soundMenuButtonOff(), soundVector.x, soundVector.y);
+  }
+
+  void showButtons() {
+    image(assetManager.backgroundMenu(), width/2, height/2, width, height);
+    image(assetManager.exitSys(), exitVector.x, exitVector.y);
   }
 
   void checkMouseOverButtons() {

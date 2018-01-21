@@ -24,8 +24,7 @@ class LowBattery extends GameObject
     {
 
       bg = this;
-      scoreManager.setScore(scoreManager.score()+500);
-      darkning.diameter+=250;
+
       
     }
     return bg;

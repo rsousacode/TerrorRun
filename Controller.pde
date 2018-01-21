@@ -22,16 +22,16 @@ class Controller
       }
       if (left==true  )
       { 
-        if (controlsEnabled && !paused)
-        if (!paused){
+        if (controlsEnabled && !gamePaused)
+        if (!gamePaused){
           player.moveBy(-player.WalkSpeed, 0);        
           player.direction= -1;
         }
       }
       if (right==true  )
       {
-        if (controlsEnabled && !paused) 
-        if(!paused)
+        if (controlsEnabled && !gamePaused) 
+        if(!gamePaused)
         {
           player.moveBy(player.WalkSpeed, 0);             
           player.direction= 1;
@@ -48,10 +48,10 @@ class Controller
       player.resetpos();
 
     if (key=='P' || key =='p' ) {
-      paused=!paused;
+      gamePaused=!gamePaused;
     }
 
-    if (controlsEnabled && !paused) {
+    if (controlsEnabled && !gamePaused) {
       if (key == 'W' || key == 'w'  ) 
       {
         up = true;

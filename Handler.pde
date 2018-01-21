@@ -15,7 +15,7 @@ class Handler
   private ArrayList<BulletsPackFive> packfive;
   private PVector gravity = new PVector(0, 10);
   private  final int homesGenerated = 200;
-  private int[] homes = new int[homesGenerated]; 
+  private int[] casas = new int[homesGenerated]; 
   private int playerIsAt =0;
   private ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[homesGenerated];
   private ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[homesGenerated];
@@ -49,16 +49,16 @@ class Handler
 
   void randomFunction() 
   {
-    for (int i = 0; i < homes.length; i++) {
+    for (int i = 0; i < casas.length; i++) {
       float r = random(4, 6);
-      homes[0]=0;
+      casas[0]=0;
       if (i < 3)
         r= random(1, 3);
       else if (i < 6 )
         r =random(2, 4);
       else if (i >= 6)
         r = random(4, 7);
-      homes[i] = (int)r;
+      casas[i] = (int)r;
     }
   }
 
@@ -177,7 +177,7 @@ class Handler
       if (rec != null) 
       {
         playerIsAt++; 
-        player.setPositionTo(entriesRight.get(homes[playerIsAt]).x-16, entriesRight.get(homes[playerIsAt]).y+exitsLeft.get(0).h/2); 
+        player.setPositionTo(entriesRight.get(casas[playerIsAt]).x-16, entriesRight.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2); 
         camera.telleportCamera();
       }
     }
@@ -190,7 +190,7 @@ class Handler
       {
         playerIsAt--; 
 
-        player.setPositionTo(exitsLeft.get(homes[playerIsAt]).x+64+16, exitsLeft.get(homes[playerIsAt]).y+exitsLeft.get(0).h/2); 
+        player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+64+16, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2); 
         camera.telleportCamera();
       }
     }
@@ -204,8 +204,7 @@ class Handler
       obj.update(); 
       LowBattery bg = obj.collision(); 
       if (bg != null) {
-        assetManager.soundCatchBattery();
-
+        scoreManager.catchLowBattery();
         buffer.add(bg);
       }
     }
@@ -217,8 +216,7 @@ class Handler
       obj.update(); 
       HighBattery bg2 = obj.collision2(); 
       if (bg2 != null) {
-        assetManager.soundCatchBattery();
-
+        scoreManager.catchHighBattery();
         buffer2.add(bg2);
       }
     }
@@ -267,7 +265,7 @@ class Handler
       }
       Ghost aw = obj.cullisionBullets(); 
       if  (aw!=null) {
-        assetManager.soundVannish();
+        scoreManager.killGhosts();
         buffer4.add(aw);
       }
     }
@@ -287,7 +285,7 @@ class Handler
 
       Scarygirl bs = obj.collisionBullets();
       if (bs!=null) {
-        assetManager.soundVannish();
+        scoreManager.killHorrorGirl();
         buffer11.add(bs);
       }
     }

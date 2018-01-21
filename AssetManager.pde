@@ -8,6 +8,7 @@ class AssetManager
   private PImage backgroundMenu;
   private PImage title;
   private PImage helpButton;
+  private PImage youlost;
   private PImage return2menu;
   private PImage exitSys;
   private PImage play;
@@ -43,6 +44,7 @@ class AssetManager
     exitSys=loadImage("data/images/menu/exit.png");
     soundMenuButton = loadImage("data/images/menu/sound.png");
     soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
+    youlost = loadImage("data/images/menu/you_lost.png");
     transcursor= loadImage("data/images/transcursor.png");
     playerImage =    loadImage("data/images/skeleton.png");
     enemyImage = loadImage("data/images/ghost.png");
@@ -80,6 +82,11 @@ class AssetManager
   PFont font() 
   {
     return font;
+  }
+
+  PImage youlost() {
+
+    return youlost;
   }
 
   PImage hudLantern() 
@@ -289,8 +296,8 @@ class AssetManager
     if (System.currentTimeMillis() - assetManager.currentFrame >= 5) 
     {
 
-      if (controlsEnabled && !paused)
-          counter ++;
+      if (controlsEnabled && !gamePaused)
+        counter ++;
       if (counter > 37)
         counter=0;
     } else image(assetManager.images[counter], 0, 0);

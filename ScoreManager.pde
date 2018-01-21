@@ -18,7 +18,7 @@ class ScoreManager
     leftMargin = width/22;
     upperMargin = height/12;
     h = height/24;
-    bar = color(255, 255, 0, 100);
+    bar = color(255, 255, 0, 99);
     backgroundbar=color(255, 255, 0, 50);
     image=assetManager.hudLantern();
     newFont= assetManager.font();
@@ -31,7 +31,7 @@ class ScoreManager
     fill(backgroundbar);
     fill(bar);
     if (!turnOffDarkning)
-      rect(leftMargin, upperMargin-h/2, darkning.smoothedDiameter/8, barHeight);
+      rect(leftMargin, upperMargin-h/3.4, darkning.smoothedDiameter/6, barHeight/1.89);
     textFont(newFont, 16);
     fill(255);
     textAlign(LEFT);
@@ -86,49 +86,49 @@ class ScoreManager
       textSize(32);
       textAlign(CENTER);
       if (!devmode)
-
         text("Press 'Q' to equip a new lantern", width/2, height-height/15);
     }
     textAlign(LEFT);
-    textSize(16);
-    text("Score: " + score, leftMargin, height/20);
+    textSize(30);
+    fill(bar);
+    text("Score: " + score, leftMargin, height/1.05);
     imageMode(CORNER);
-    image(assetManager.bullethud(), leftMargin, height/5.33);
+    image(assetManager.bullethud(), leftMargin, height/9);
     textAlign(LEFT);
     textSize(30);
     if (height < 1000)
       fill(0, 255, 0);
-    text(+ bullets, leftMargin, height/4);
+    text(+ bullets, leftMargin +assetManager.bullethud().width+width/100, height/7.5);
     if (devmode) 
     {
       textAlign(LEFT);
       textSize(20);
       fill(255);
       text("Levels passed: " +handler.playerIsAt, height/10, height - height/25);
-      text(" " +handler.homes[0] +handler.homes[1] +handler.homes[2] +handler.homes[3] +handler.homes[4] +handler.homes[5] +handler.homes[6]+handler.homes[7]+handler.homes[8]+handler.homes[9] 
-        +handler.homes[10]
-        +handler.homes[11]
-        +handler.homes[12]
-        +handler.homes[13]
-        +handler.homes[14]
-        +handler.homes[15]
-        +handler.homes[16]
-        +handler.homes[17]
-        +handler.homes[18]
-        +handler.homes[19]
-        +handler.homes[20]
-        +handler.homes[21]
-        +handler.homes[22]
-        +handler.homes[23]
-        +handler.homes[24]
-        +handler.homes[25]
-        +handler.homes[26]
-        +handler.homes[27]
-        +handler.homes[28]
-        +handler.homes[29]
-        +handler.homes[30]
-        +handler.homes[31]
-        +handler.homes[32]
+      text(" " +handler.casas[0] +handler.casas[1] +handler.casas[2] +handler.casas[3] +handler.casas[4] +handler.casas[5] +handler.casas[6]+handler.casas[7]+handler.casas[8]+handler.casas[9] 
+        +handler.casas[10]
+        +handler.casas[11]
+        +handler.casas[12]
+        +handler.casas[13]
+        +handler.casas[14]
+        +handler.casas[15]
+        +handler.casas[16]
+        +handler.casas[17]
+        +handler.casas[18]
+        +handler.casas[19]
+        +handler.casas[20]
+        +handler.casas[21]
+        +handler.casas[22]
+        +handler.casas[23]
+        +handler.casas[24]
+        +handler.casas[25]
+        +handler.casas[26]
+        +handler.casas[27]
+        +handler.casas[28]
+        +handler.casas[29]
+        +handler.casas[30]
+        +handler.casas[31]
+        +handler.casas[32]
         , height/10, height - height/10);
       fill(0, 255, 0);
       text("Dev mode", height/10, height -height/6);
@@ -141,7 +141,7 @@ class ScoreManager
       text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
 
-    if (paused) {
+    if (gamePaused) {
       textSize(32);
       textAlign(LEFT);
       text("Paused", leftMargin, height/7);
@@ -178,6 +178,17 @@ class ScoreManager
     this.score =score;
   }
 
+  void killHorrorGirl() {
+    scoreManager.setScore(scoreManager.score()+1909);
+    assetManager.soundVannish();
+  }
+
+  void killGhosts() {
+
+    scoreManager.setScore(scoreManager.score()+998);
+    assetManager.soundVannish();
+  }
+
   void useLantern() 
   {  
     if ( scoreManager.lanterns!=1) 
@@ -186,6 +197,18 @@ class ScoreManager
       darkning.diameter = 2 * height;
       assetManager.soundEquipLantern();
     }
+  }
+
+  void catchLowBattery() {
+    assetManager.soundCatchBattery();
+    scoreManager.setScore(scoreManager.score()+220);
+    darkning.diameter+=250;
+  }
+
+  void catchHighBattery() {
+    assetManager.soundCatchBattery();
+    scoreManager.setScore(scoreManager.score()+110);
+    darkning.diameter+=400;
   }
 
   void fireBullets() 

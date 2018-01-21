@@ -3,15 +3,12 @@ class Player  extends GameObject
 {  
   private int Pheight;
   private int Pwidth;
-  private PImage image;
-  private PVector velocity;
+  PImage image;
+  PVector velocity;
   boolean coliding;
   int jumpSpeed;
   int WalkSpeed;
-
   int direction;
-
-
 
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
@@ -73,7 +70,7 @@ class Player  extends GameObject
   }
 
   void checkColliders() { 
-    if (controlsEnabled &&  !paused) 
+    if (controlsEnabled && !gamePaused) 
     {
       velocity.add( new PVector(0, .5).mult(0.999)); 
       moveBy(velocity);
