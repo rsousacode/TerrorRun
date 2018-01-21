@@ -204,19 +204,18 @@ class AssetManager {
       ghostbullet.play();
     }
   }
-  
-  
-void stopAudio() {
-  
-  backgroundmusic.close();
-  ghostbullet.close();
-  malelaugh.close();
-  vannish.close();
-  catchlantern.close();
-  catchBattery.close();
-  lightson.close();
-  
-}
+
+
+  void stopAudio() {
+
+    backgroundmusic.close();
+    ghostbullet.close();
+    malelaugh.close();
+    vannish.close();
+    catchlantern.close();
+    catchBattery.close();
+    lightson.close();
+  }
 
   void stopAndPlay() {
     if (backgroundmusic.isPlaying()) 
@@ -227,51 +226,51 @@ void stopAudio() {
   }
 
 
-void animatePlayerSides() {
+  void animatePlayerSides() {
 
-  if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
-    image(assetManager.images[3], 0, 0);
-  else   
-  image(assetManager.images[counter], 0, 0);
-  if (System.currentTimeMillis() - assetManager.currentFrame >= 5) {
-    if (controlsEnabled)
-      counter ++;
-    if (counter > 37)
-      counter=0;
-  } else image(assetManager.images[counter], 0, 0);
-}
-
-
-void WalkingAnimationSIdes() {
-  for (int i = 0; i < numFrames; i++) {
-    images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
-  }
-}
-
-
-void Cursordisplay() {
-  if (state==STATE_GAME) {
-    removeCursor =true;
-  } else {
-    removeCursor =false;
+    if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
+      image(assetManager.images[3], 0, 0);
+    else   
+    image(assetManager.images[counter], 0, 0);
+    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) {
+      if (controlsEnabled)
+        counter ++;
+      if (counter > 37)
+        counter=0;
+    } else image(assetManager.images[counter], 0, 0);
   }
 
-  if (removeCursor)
-    cursor((assetManager.transcursor.copy()));
-  else {
-    cursor((assetManager.cursorImage.copy()));
+
+  void WalkingAnimationSIdes() {
+    for (int i = 0; i < numFrames; i++) {
+      images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
+    }
   }
-}
-
-void removeCursor() {
-  noCursor();
-}
 
 
-//void stop() {
+  void Cursordisplay() {
+    if (state==STATE_GAME) {
+      removeCursor =true;
+    } else {
+      removeCursor =false;
+    }
 
-//  backgroundmusic.close();
-//  coinEffect.close();
-//  audio.stop();
-//}
+    if (removeCursor)
+      cursor((assetManager.transcursor.copy()));
+    else {
+      cursor((assetManager.cursorImage.copy()));
+    }
+  }
+
+  void removeCursor() {
+    noCursor();
+  }
+
+
+  //void stop() {
+
+  //  backgroundmusic.close();
+  //  coinEffect.close();
+  //  audio.stop();
+  //}
 }

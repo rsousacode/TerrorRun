@@ -1,5 +1,4 @@
 public enum ID {
-  
   Player,
   Ghost,
   LowBattery,

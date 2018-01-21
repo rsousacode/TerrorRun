@@ -9,8 +9,6 @@ class Player  extends GameObject {
   int WalkSpeed;
   private int Pheight;
   private int Pwidth;
-  boolean collidingHorizontal;
-  boolean colidingVertical =false;
 
 
   Player(int x, int y, PVector velocity, ID id) {
@@ -24,8 +22,6 @@ class Player  extends GameObject {
     this.Pwidth=assetManager.playerImage().width;
     assetManager.WalkingAnimationSIdes();
 
-
-    //load images
   }
 
   int pwidth() {

@@ -1,4 +1,4 @@
-class HUD {
+class ScoreManager {
   PFont newFont;
   float value, max, leftMargin, upperMargin, h, barHeight;
   color  bar, backgroundbar;
@@ -10,7 +10,7 @@ class HUD {
   PImage hudlantern;
   PImage hudbullet;
 
-  HUD() {
+  ScoreManager() {
     value = 50;
     barHeight= height/30;
     max = 100;
@@ -78,7 +78,7 @@ class HUD {
       }
     }
 
-    if (darkning.diameter < 700 && hud.lanterns!=1) 
+    if (darkning.diameter < 700 && scoreManager.lanterns!=1) 
     {
       textSize(32);
       textAlign(CENTER);
@@ -176,12 +176,5 @@ class HUD {
     this.score =score;
   }
 
-  void update() 
-  {
-    if (!devmode && controlsEnabled)
-      score++;
-    if (hud.lanterns() < 0) {
-      setState(STATE_END);
-    }
-  }
+ 
 }

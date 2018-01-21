@@ -42,15 +42,16 @@ Menu menu;
 Ghost ghost;
 Help help;
 Darkning darkning;
-HUD hud;
+ScoreManager scoreManager;
 Rectangle rectangle;
 End end;
 Map map;
 
-void settings() {
+void settings() 
+{
   smooth(33);
   fullScreen(P2D);
- // size(800, 600, P2D);
+  // size(800, 600, P2D);
   //size(400,300);
 }
 
@@ -64,9 +65,11 @@ void setup()
 }
 
 //initialization states
-void setState(int state) {
+void setState(int state) 
+{
   this.state = state;
-  switch(state) {
+  switch(state) 
+  {
   case STATE_GAME:
     controlsEnabled=true;
     map = new Map(this);
@@ -75,7 +78,7 @@ void setState(int state) {
     canon = new Canon();
     camera = new Camera(player.position());
     darkning = new Darkning();
-    hud = new HUD();
+    scoreManager = new ScoreManager();
   case STATE_END:
 
     end = new End();
@@ -88,13 +91,16 @@ void setState(int state) {
 
 void draw()
 {
-  if (state== STATE_MENU ) {
+  if (state== STATE_MENU ) 
+  {
     menu.display();
     menu.update();
     controller.apply();
-  } else if (state== STATE_HELP ) {
+  } else if (state== STATE_HELP ) 
+  {
     help.display();
-  } else if ( state== STATE_GAME) {
+  } else if ( state== STATE_GAME) 
+  {
     background(0);
     controller.apply();
     if (controlsEnabled);
@@ -103,35 +109,38 @@ void draw()
 
     map.update();
     handler.update();
-    if (!turnOffDarkning) {
+    if (!turnOffDarkning) 
+    {
       darkning.update();
     }
-
-    hud.update();
     camera.update();
     camera.apply();
     map.display();
     handler.display();
     player.display();
 
-    if (!turnOffDarkning) {
+    if (!turnOffDarkning) 
+    {
       darkning.apply();
     }
 
-    hud.display();
-  } else if (state== STATE_END ) {
+    scoreManager.display();
+  } else if (state== STATE_END ) 
+  {
     end.display();
   }
   assetManager.Cursordisplay();
 }
 
 
-float sqr(float value) {
+float sqr(float value) 
+{
   return value * value;
 }
 
 void StatesInter() {
-  if (state == STATE_MENU ) {
+  if (state == STATE_MENU ) 
+  {
     String result = menu.checkButtons();
     switch(result)
     {
@@ -157,7 +166,8 @@ void StatesInter() {
       break;
     }
   } 
-  if (state == STATE_HELP ) {
+  if (state == STATE_HELP ) 
+  {
     String result = help.checkButtons();
     switch(result)
     {
@@ -165,7 +175,8 @@ void StatesInter() {
       setState(STATE_MENU);
       break;
     }
-  } else if (state == STATE_END ) {
+  } else if (state == STATE_END ) 
+  {
     String result = end.checkButtons();
     switch(result)
     {
@@ -178,14 +189,17 @@ void StatesInter() {
 }
 
 
-void keyPressed() {
+void keyPressed() 
+{
   controller.keyPressed(key);
 }
 
-void keyReleased() {
+void keyReleased() 
+{
   controller.keyReleased(key);
 }
 
-void mousePressed() {
+void mousePressed() 
+{
   StatesInter();
 }

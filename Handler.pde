@@ -25,8 +25,8 @@ class Handler {
   ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[homesGenerated];
   ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[homesGenerated];
 
-  Handler() {
-
+  Handler() 
+  {
     randomFunction();
     dieTime = new StopWatchTimer();
     lowBatteries = new ArrayList<LowBattery>();
@@ -43,15 +43,13 @@ class Handler {
     packfive = new ArrayList<BulletsPackFive>();
 
     spawnTraps();
-    spawnBatteries();
+    spawnCollectables();
     spawnEnemies();
     spawnTelle();
   }
 
-
   void randomFunction() 
   {
-
     for (int i = 0; i < homes.length; i++) {
       float r = random(4, 6);
       homes[0]=0;
@@ -67,21 +65,19 @@ class Handler {
 
   void spawnTraps()
   {
-    for (StringDict obj : map.trapsPos) {
+    for (StringDict obj : map.trapsPos) 
+    {
       Rectangle rect = new Rectangle(obj);
       FireTrap newFireTrap = new FireTrap (rect, ID.Traps); 
       firetraps.add(newFireTrap);
     }
   }
 
-  void spawnBatteries() 
+  void spawnCollectables() 
   {
-
 
     for (StringDict obj : map.lowbatteriesPos) 
     {            
-
-
       Rectangle rect = new Rectangle(obj); 
       LowBattery allBatteries = new LowBattery (rect.x, rect.y, ID.LowBattery); 
       lowBatteries.add(allBatteries);
@@ -118,7 +114,7 @@ class Handler {
       flashlightss[c] = new ArrayList <Flashlight>(flashlights);
     }
 
-    for (StringDict obj : map.ghostbulletsPos) 
+    for (StringDict obj : map.pack5bulletsPos) 
     {
       Rectangle rect = new Rectangle(obj); 
       BulletsPackFive newpack = new BulletsPackFive (rect.x, rect.y); 
@@ -131,7 +127,8 @@ class Handler {
     }
   }
 
-  void spawnEnemies() {
+  void spawnEnemies() 
+  {
 
     for (StringDict obj : map.GhostsPos) 
     {
@@ -158,7 +155,8 @@ class Handler {
     }
   }
 
-  void spawnTelle() {
+  void spawnTelle() 
+  {
 
     for (StringDict exitLeftObject : map.exitLeftObjects)
       exitsLeft.add(new Rectangle(exitLeftObject)); 
@@ -207,11 +205,9 @@ class Handler {
       obj.update(); 
       LowBattery bg = obj.collision(); 
       if (bg != null) {
+        assetManager.soundCatchBattery();
+
         buffer.add(bg);
-        if (soundActivated) {
-          catchBattery.rewind();
-          catchBattery.play();
-        }
       }
     }
     lowbatteries[playerIsAt].removeAll(buffer); 
@@ -222,8 +218,9 @@ class Handler {
       obj.update(); 
       HighBattery bg2 = obj.collision2(); 
       if (bg2 != null) {
-        buffer2.add(bg2);
         assetManager.soundCatchBattery();
+
+        buffer2.add(bg2);
       }
     }
     highbatteries[playerIsAt].removeAll(buffer2); 
@@ -235,8 +232,9 @@ class Handler {
       obj.update(); 
       Flashlight fl = obj.collision2(); 
       if (fl != null) {
-        buffer7.add(fl);
         assetManager.soundCatchLantern();
+
+        buffer7.add(fl);
       }
     }
 
@@ -247,8 +245,10 @@ class Handler {
     {
       obj.update(); 
       BulletsPackFive bp = obj.collision2(); 
-      if (bp != null)
+      if (bp != null) {
         buffer13.add(bp);
+        assetManager.soundCatchBattery();
+      }
     }
 
     packfives[playerIsAt].removeAll(buffer13); 
@@ -338,13 +338,15 @@ class Handler {
 
 
 
-  void displayBullets() {
+  void displayBullets() 
+  {
     for (Bullet obj : bullets) {
       obj.display();
     }
   }
 
-  void displayBatteries() {
+  void displayBatteries() 
+  {
 
     for (LowBattery obj : lowbatteries[playerIsAt]) 
     {
@@ -361,14 +363,14 @@ class Handler {
       obj.display();
   }
 
-  void displayEnemies() {
+  void displayEnemies() 
+  {
 
     for (Ghost obj : ghostss[playerIsAt])
       obj.display(); 
     for (Scarygirl obj : scarygirlss[playerIsAt])
       obj.display();
   }
-
 
 
   void displayTraps() 
@@ -378,10 +380,15 @@ class Handler {
   }
 
 
-
   void dieAction() 
   {
     if (dieTime.second()>2.5)
       state = STATE_END;
+  }
+
+  void resetJumpSpeedandWalkSpeed() 
+  {
+    player.jumpSpeed=-13;
+    player.WalkSpeed=(int)3.8;
   }
 }

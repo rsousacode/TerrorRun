@@ -3,7 +3,6 @@ public class Canon {
   float fireForce;
   float direction;
   float rotation;
-  int TILE_SIZE = 32;
 
   public Canon() {
     fireForce=350;

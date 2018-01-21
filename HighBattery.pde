@@ -24,7 +24,7 @@ class HighBattery  extends GameObject
     { 
       
       bg2 = this;
-      hud.setScore(hud.getScore()+1500);
+      scoreManager.setScore(scoreManager.getScore()+1500);
       darkning.diameter+=400;
     }
     return bg2;

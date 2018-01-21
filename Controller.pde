@@ -1,12 +1,12 @@
-class Controller {
+class Controller 
+{
   private boolean up;
-  private boolean down;
   private boolean left;
   private boolean right;
 
-  Controller() {
+  Controller() 
+  {
     up = false;
-    down = false;
     left = false;
     right = false;
   }
@@ -37,7 +37,8 @@ class Controller {
   }
 
 
-  void keyPressed(char key) {
+  void keyPressed(char key) 
+  {
 
     if (key=='p' || key =='P' && key =='A' )
       player.resetpos();
@@ -50,9 +51,6 @@ class Controller {
       if (key == 'W' || key == 'w'  ) 
       {
         up = true;
-      } else if (key == 'S' || key == 's') 
-      {
-        down = true;
       } else if (key == 'D' && controlsEnabled|| key == 'd' && controlsEnabled  ) {
         right = true;
       } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) {
@@ -60,14 +58,14 @@ class Controller {
         if (state==STATE_MENU)
           menu.OverPlay=true;
       } else  if (key == 'Q' || key == 'q' ) {
-        if ( hud.lanterns!=1) {
-          hud.setLanterns(hud.lanterns()-1);
+        if ( scoreManager.lanterns!=1) {
+          scoreManager.setLanterns(scoreManager.lanterns()-1);
           darkning.diameter = 2 * height;
           assetManager.soundEquipLantern();
         }
       } else if (key == ' ') {
-        if (hud.bullets() > 0) {
-          hud.setBullets(hud.bullets()-1);
+        if (scoreManager.bullets() > 0) {
+          scoreManager.setBullets(scoreManager.bullets()-1);
           canon.fire();
           assetManager.soundGhostBullet();
         }
@@ -91,15 +89,14 @@ class Controller {
         if (key == 'Y' || key == 'y')
           player.jumpSpeed--;
         if (key == 'M' || key == 'm') 
+
         {
-          player.jumpSpeed=-13;
-          player.WalkSpeed=(int)3.8;
+          handler. resetJumpSpeedandWalkSpeed();
         }
       }
     }
     if (key == 'S' || key == 's') 
     {
-
       soundActivated=!soundActivated;
       assetManager.stopAndPlay();
     }
@@ -108,9 +105,6 @@ class Controller {
   {  
     if (key == 'W' || key == 'w' ) {
       up = false;
-    } else if (key == 'S' || key == 's' ) 
-    {
-      down = false;
     } else if (key == 'D' || key == 'd') 
     {
       right = false;

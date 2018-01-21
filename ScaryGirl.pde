@@ -1,7 +1,6 @@
 class Scarygirl extends GameObject
 {
   PImage image;
-  float direction;
   private float minx, maxx;
 
   Scarygirl (Rectangle livingSpace) {

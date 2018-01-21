@@ -2,7 +2,6 @@ class Menu
 {
   PVector playVector, titleVector, helpVector, exitVector;
   int pixelRadius;
-  
   boolean   OverHelp=false;
   boolean   OverPlay=false;
   boolean   OverTitle=false;
@@ -24,25 +23,7 @@ class Menu
     image(assetManager.exitSys(), exitVector.x, exitVector.y);
   }
 
-  String checkButtons()
-  {
-    String result = "";
-    PVector mouseVector = new PVector(mouseX, mouseY);
-
-    if (playVector.dist(mouseVector) <= pixelRadius) {
-      result = "play";
-    }
-    if (helpVector.dist(mouseVector) <= pixelRadius) {
-      result = "help";
-     // soundActivated=!soundActivated;
-    }
-    if (exitVector.dist(mouseVector) <= pixelRadius/2) {
-      result = "exit";
-    }
-    return result;
-  }
-
-  void update() {
+  void checkMouseOverButtons() {
     PVector mouseVector2 = new PVector(mouseX, mouseY);
     if (playVector.dist(mouseVector2) <= pixelRadius) {
       OverHelp=false; 
@@ -70,5 +51,28 @@ class Menu
     if ( OverTitle!=false) {
       image(assetManager.title(), titleVector.x, titleVector.y, width/1.2, width/2.8);
     } else image(assetManager.title(), titleVector.x, titleVector.y, width/1.5, width/3.6);
+  }
+
+  String checkButtons()
+  {
+    String result = "";
+    PVector mouseVector = new PVector(mouseX, mouseY);
+
+    if (playVector.dist(mouseVector) <= pixelRadius) {
+      result = "play";
+    }
+    if (helpVector.dist(mouseVector) <= pixelRadius) {
+      result = "help";
+      // soundActivated=!soundActivated;
+    }
+    if (exitVector.dist(mouseVector) <= pixelRadius/2) {
+      result = "exit";
+    }
+    return result;
+  }
+
+  void update() {
+
+    checkMouseOverButtons();
   }
 }

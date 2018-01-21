@@ -24,7 +24,7 @@ class Flashlight  extends GameObject
     { 
 
       fl = this;
-      hud.setLanterns(hud.lanterns()+1);
+      scoreManager.setLanterns(scoreManager.lanterns()+1);
     }
     return fl;
   }

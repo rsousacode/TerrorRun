@@ -1,10 +1,6 @@
 class LowBattery extends GameObject
 {
   PImage image;
-  int direction;
-  int lastx, lasty;
-  boolean coliding;
-  int velY, velX;
 
   LowBattery (int x, int y, ID id) {
     super(x, y, assetManager.lowBateryImage().width, assetManager.lowBateryImage().height, 0, 0, id);
@@ -27,7 +23,7 @@ class LowBattery extends GameObject
     {
 
       bg = this;
-      hud.setScore(hud.getScore()+500);
+      scoreManager.setScore(scoreManager.getScore()+500);
       darkning.diameter+=250;
       
     }
