@@ -61,7 +61,7 @@ class Darkning
 
   void update() 
   {
-    if (!devmode && controlsEnabled) 
+    if (!devmode && controlsEnabled || !paused) 
     {
       diameter-=DecreaseRate();
       diameter = constrain(diameter, 0, height*2);

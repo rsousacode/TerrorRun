@@ -15,7 +15,7 @@ class Bullet {
 
   void update(float delta) 
   {
-    if (controlsEnabled) 
+    if (controlsEnabled && !paused) 
     {
       velocity.add(acceleration);
       position.x += velocity.x * delta;
@@ -27,7 +27,7 @@ class Bullet {
 
   void applyForce(PVector force) 
   {
-    if (controlsEnabled)
+    if (controlsEnabled && !paused)
       acceleration.add(force);
   }
 

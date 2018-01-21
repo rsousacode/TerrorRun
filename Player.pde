@@ -73,7 +73,7 @@ class Player  extends GameObject
   }
 
   void checkColliders() { 
-    if (controlsEnabled) 
+    if (controlsEnabled &&  !paused) 
     {
       velocity.add( new PVector(0, .5).mult(0.999)); 
       moveBy(velocity);

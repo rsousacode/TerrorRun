@@ -76,7 +76,7 @@ class AssetManager
   {
     backgroundmusic.loop();
   }
-  
+
   PFont font() 
   {
     return font;
@@ -288,8 +288,9 @@ class AssetManager
     image(assetManager.images[counter], 0, 0);
     if (System.currentTimeMillis() - assetManager.currentFrame >= 5) 
     {
-      if (controlsEnabled)
-        counter ++;
+
+      if (controlsEnabled && !paused)
+          counter ++;
       if (counter > 37)
         counter=0;
     } else image(assetManager.images[counter], 0, 0);

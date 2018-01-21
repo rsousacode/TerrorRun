@@ -10,7 +10,7 @@ boolean controlsEnabled=true;
 boolean paused = false;
 boolean soundActivated = true;
 
-int state;
+private int state;
 final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
 final int STATE_HELP=3;
@@ -72,6 +72,7 @@ void setState(int state)
   switch(state) 
   {
   case STATE_GAME:
+    paused = false;
     controlsEnabled=true;
     map = new Map(this);
     handler = new Handler();
@@ -154,44 +155,44 @@ void StatesInter() {
     {
     case "help":
       setState(STATE_HELP);
-      
+
       break;
     }
-    switch(result){
-  case "sound":
-    soundActivated=!soundActivated;
-    assetManager.stopAndPlay();
-    break;
-  }
+    switch(result) {
+    case "sound":
+      soundActivated=!soundActivated;
+      assetManager.stopAndPlay();
+      break;
+    }
 
-  switch(result)
+    switch(result)
+    {
+    case "exit":
+      assetManager.stopAudio();
+      exit();
+      break;
+    }
+  } 
+  if (state == STATE_HELP ) 
   {
-  case "exit":
-    assetManager.stopAudio();
-    exit();
-    break;
-  }
-} 
-if (state == STATE_HELP ) 
-{
-  String result = help.checkButtons();
-  switch(result)
+    String result = help.checkButtons();
+    switch(result)
+    {
+    case "gomenu":
+      setState(STATE_MENU);
+      break;
+    }
+  } else if (state == STATE_END ) 
   {
-  case "gomenu":
-    setState(STATE_MENU);
-    break;
-  }
-} else if (state == STATE_END ) 
-{
-  String result = end.checkButtons();
-  switch(result)
-  {
-  case "gomenu":
-    setState(STATE_MENU);
+    String result = end.checkButtons();
+    switch(result)
+    {
+    case "gomenu":
+      setState(STATE_MENU);
 
-    break;
+      break;
+    }
   }
-}
 }
 
 

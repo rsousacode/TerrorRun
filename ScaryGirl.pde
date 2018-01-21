@@ -17,7 +17,7 @@ class Scarygirl extends GameObject
 
   void update() 
   {
-    if (controlsEnabled) 
+    if (controlsEnabled && !paused) 
     {
       moveBy(velocity());
       if (position().x <= minx )

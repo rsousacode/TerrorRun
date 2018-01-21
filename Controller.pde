@@ -22,14 +22,16 @@ class Controller
       }
       if (left==true  )
       { 
-        if (controlsEnabled) {
+        if (controlsEnabled && !paused)
+        if (!paused){
           player.moveBy(-player.WalkSpeed, 0);        
           player.direction= -1;
         }
       }
       if (right==true  )
       {
-        if (controlsEnabled) 
+        if (controlsEnabled && !paused) 
+        if(!paused)
         {
           player.moveBy(player.WalkSpeed, 0);             
           player.direction= 1;
@@ -46,17 +48,17 @@ class Controller
       player.resetpos();
 
     if (key=='P' || key =='p' ) {
-      controlsEnabled=!controlsEnabled;
+      paused=!paused;
     }
 
-    if (controlsEnabled) {
+    if (controlsEnabled && !paused) {
       if (key == 'W' || key == 'w'  ) 
       {
         up = true;
-      } else if (key == 'D' && controlsEnabled|| key == 'd' && controlsEnabled  ) 
+      } else if (key == 'D' || key == 'd'  ) 
       {
         right = true;
-      } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) 
+      } else if (key == 'A' || key == 'a') 
       {
         left = true;
       } else  if (key == 'Q' || key == 'q' ) 
