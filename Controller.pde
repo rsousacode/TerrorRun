@@ -55,28 +55,17 @@ class Controller
         right = true;
       } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) {
         left = true;
-        if (state==STATE_MENU)
-          menu.OverPlay=true;
       } else  if (key == 'Q' || key == 'q' ) {
-        if ( scoreManager.lanterns!=1) {
-          scoreManager.setLanterns(scoreManager.lanterns()-1);
-          darkning.diameter = 2 * height;
-          assetManager.soundEquipLantern();
-        }
+        scoreManager.useLantern();
       } else if (key == ' ') {
-        if (scoreManager.bullets() > 0) {
-          scoreManager.setBullets(scoreManager.bullets()-1);
-          canon.fire();
-          assetManager.soundGhostBullet();
-        }
+        scoreManager.fireBullets();
       } else if (key =='o' || key == 'O') {
         if (turnOffDarkning) {
           turnOffDarkning=!turnOffDarkning;
           devmode=!devmode;
         } else  devmode=!devmode;
       } else if (key =='l' || key == 'L') {
-        if (devmode)
-          turnOffDarkning=!turnOffDarkning;
+        darkning.turnOff();
       }
       if (devmode) {
 
@@ -95,7 +84,7 @@ class Controller
         }
       }
     }
-    if (key == 'S' || key == 's') 
+    if (key == 'Y' || key == 'y') 
     {
       soundActivated=!soundActivated;
       assetManager.stopAndPlay();

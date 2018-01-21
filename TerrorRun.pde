@@ -7,6 +7,7 @@ import ddf.minim.ugens.*;
 boolean turnOffDarkning = false;
 boolean devmode = false;
 boolean controlsEnabled=true;
+boolean paused = false;
 boolean soundActivated = true;
 
 int state;
@@ -152,40 +153,45 @@ void StatesInter() {
     switch(result)
     {
     case "help":
-      //setState(STATE_HELP);
-      soundActivated=!soundActivated;
-      assetManager.stopAndPlay();
-
+      setState(STATE_HELP);
+      
       break;
     }
-    switch(result)
-    {
-    case "exit":
-      assetManager.stopAudio();
-      exit();
-      break;
-    }
-  } 
-  if (state == STATE_HELP ) 
-  {
-    String result = help.checkButtons();
-    switch(result)
-    {
-    case "gomenu":
-      setState(STATE_MENU);
-      break;
-    }
-  } else if (state == STATE_END ) 
-  {
-    String result = end.checkButtons();
-    switch(result)
-    {
-    case "gomenu":
-      setState(STATE_MENU);
-
-      break;
-    }
+    switch(result){
+  case "sound":
+    soundActivated=!soundActivated;
+    assetManager.stopAndPlay();
+    break;
   }
+
+  switch(result)
+  {
+  case "exit":
+    assetManager.stopAudio();
+    exit();
+    break;
+  }
+} 
+if (state == STATE_HELP ) 
+{
+  String result = help.checkButtons();
+  switch(result)
+  {
+  case "gomenu":
+    setState(STATE_MENU);
+    break;
+  }
+} else if (state == STATE_END ) 
+{
+  String result = end.checkButtons();
+  switch(result)
+  {
+  case "gomenu":
+    setState(STATE_MENU);
+
+    break;
+  }
+}
 }
 
 

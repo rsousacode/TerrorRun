@@ -68,4 +68,9 @@ class Darkning {
     resetMatrix();
     apply(camera.asDisplay(player.position()), smoothedDiameter / 2);
   }
+
+  void turnOff() {
+    if (devmode)
+      turnOffDarkning=!turnOffDarkning;
+  }
 }

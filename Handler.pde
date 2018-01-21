@@ -260,15 +260,15 @@ class Handler {
       obj.update(); 
       Ghost en = obj.collisionPlayer(); 
       if (en != null) {
-
+        assetManager.soundVannish();
         buffer4.add(en);
         //  PVector ghostPos = new PVector( en.position().x, en.position().x);
         dieTime.start();
         controlsEnabled=false;
-        assetManager.soundVannish();
       }
       Ghost aw = obj.cullisionBullets(); 
       if  (aw!=null) {
+        assetManager.soundVannish();
         buffer4.add(aw);
       }
     }
@@ -288,6 +288,7 @@ class Handler {
 
       Scarygirl bs = obj.collisionBullets();
       if (bs!=null) {
+        assetManager.soundVannish();
         buffer11.add(bs);
       }
     }

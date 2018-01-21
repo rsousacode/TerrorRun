@@ -23,6 +23,8 @@ class AssetManager {
   private PImage ghostBullet;
   private PImage bullethudImage;
   private PImage packfiveImage;
+  private PImage soundMenuButton;
+  private PImage soundMenuButtonOff;
   boolean musicPlaying=false;
 
   PImage[] images = new PImage[numFrames];
@@ -33,13 +35,15 @@ class AssetManager {
 
   AssetManager() {
     cursorImage= loadImage("data/images/cursor.png");
-    backgroundMenu =   loadImage("data/images/background4.jpg");
-    title = loadImage("data/images/title.png");
-    return2menu = loadImage("data/images/return.png");
-    helpButton = loadImage("data/images/help21.png");
-    helpCurrent = loadImage("data/images/help.png");
-    play=loadImage("data/images/play2.png");
-    exitSys=loadImage("data/images/exit.png");
+    backgroundMenu =   loadImage("data/images/menu/background4.jpg");
+    title = loadImage("data/images/menu/title.png");
+    return2menu = loadImage("data/images/menu/return.png");
+    helpButton = loadImage("data/images/menu/help21.png");
+    helpCurrent = loadImage("data/images/menu/help.png");
+    play=loadImage("data/images/menu/play2.png");
+    exitSys=loadImage("data/images/menu/exit.png");
+    soundMenuButton = loadImage("data/images/menu/sound.png");
+    soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
     transcursor= loadImage("data/images/transcursor.png");
     playerImage =    loadImage("data/images/skeleton.png");
     enemyImage = loadImage("data/images/ghost.png");
@@ -74,6 +78,9 @@ class AssetManager {
     musicPlaying=true;
   }
 
+  PImage soundMenuButtonOff() {
+    return soundMenuButtonOff;
+  }
 
   PImage backgroundMenu() {
     return backgroundMenu.copy();
@@ -89,6 +96,11 @@ class AssetManager {
 
   PImage help() {
     return helpButton;
+  }
+
+  PImage soundButton() {
+
+    return soundMenuButton;
   }
 
   PImage helpCurrent() {
@@ -227,7 +239,6 @@ class AssetManager {
 
 
   void animatePlayerSides() {
-
     if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
       image(assetManager.images[3], 0, 0);
     else   
@@ -261,16 +272,4 @@ class AssetManager {
       cursor((assetManager.cursorImage.copy()));
     }
   }
-
-  void removeCursor() {
-    noCursor();
-  }
-
-
-  //void stop() {
-
-  //  backgroundmusic.close();
-  //  coinEffect.close();
-  //  audio.stop();
-  //}
 }

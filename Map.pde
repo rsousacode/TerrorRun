@@ -36,8 +36,6 @@ class Map {
     
   }
 
-
-
   void display() {
     map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
     map.draw(1, camera.position.x - width / 2, camera.position.y - height / 2);

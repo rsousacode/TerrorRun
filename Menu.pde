@@ -1,6 +1,6 @@
 class Menu
 {
-  PVector playVector, titleVector, helpVector, exitVector;
+  PVector playVector, titleVector, helpVector, exitVector, soundVector;
   int pixelRadius;
   boolean   OverHelp=false;
   boolean   OverPlay=false;
@@ -9,9 +9,10 @@ class Menu
   Menu ()
   {
     titleVector = new PVector(width/2, 1 * height/7);
-    playVector = new PVector(3*width/8, 4 * height/7);
-    helpVector = new PVector(5*width/9, 4 * height/7);
+    playVector = new PVector(3*width/7.77, 4 * height/7);
+    helpVector = new PVector(5*width/8.88, 4 * height/7);
     exitVector = new PVector(width/1.05, height/15);
+    soundVector = new PVector(width/2.1, height/1.2);
     pixelRadius = width/15;
   }
   void display()
@@ -21,6 +22,10 @@ class Menu
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     popMatrix();
     image(assetManager.exitSys(), exitVector.x, exitVector.y);
+    if(soundActivated)
+    image(assetManager.soundButton(), soundVector.x, soundVector.y);
+    else 
+    image(assetManager.soundMenuButtonOff(), soundVector.x, soundVector.y);
   }
 
   void checkMouseOverButtons() {
@@ -63,10 +68,12 @@ class Menu
     }
     if (helpVector.dist(mouseVector) <= pixelRadius) {
       result = "help";
-      // soundActivated=!soundActivated;
     }
     if (exitVector.dist(mouseVector) <= pixelRadius/2) {
       result = "exit";
+    }
+    if (soundVector.dist(mouseVector) <= pixelRadius) {
+      result = "sound";
     }
     return result;
   }

@@ -3,7 +3,8 @@ class Scarygirl extends GameObject
   PImage image;
   private float minx, maxx;
 
-  Scarygirl (Rectangle livingSpace) {
+  Scarygirl (Rectangle livingSpace) 
+  {
     super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.scarygirlImage().height, assetManager.scarygirlImage().width, assetManager.scarygirlImage().height, 1, 0, ID.Scarygirl);
     image = assetManager.scarygirlImage();
     minx = livingSpace.x;
@@ -15,8 +16,10 @@ class Scarygirl extends GameObject
     image(image, 0, 0);
   }
 
-  void update() {
-    if (controlsEnabled) {
+  void update() 
+  {
+    if (controlsEnabled) 
+    {
       moveBy(velocity());
       if (position().x <= minx )
         setVelocityXTo(1);
@@ -26,30 +29,29 @@ class Scarygirl extends GameObject
   }
 
 
-  Scarygirl collisionPlayer() {
+  Scarygirl collisionPlayer() 
+  {
     Scarygirl sg = null;
 
-    if (!devmode) {
+    if (!devmode) 
+    {
       if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width+10)
       {
         sg=this;
       }
     }
 
-
-
     return sg;
   }
 
-  Scarygirl collisionBullets() {
+  Scarygirl collisionBullets() 
+  {
     Scarygirl bs = null;
 
 
-    for (Bullet b : handler.bullets) {
-
+    for (Bullet b : handler.bullets) 
+    {
       if (dist(b.position.x, b.position.y, position().x+5, position().y + 5)< 10) {
-        vannishgirl.rewind();
-        vannishgirl.play();
         bs = this;
       }
     }

@@ -138,10 +138,9 @@ class ScoreManager {
       text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
 
-    if (!controlsEnabled) {
+    if (paused) {
       textSize(32);
       textAlign(LEFT);
-
       text("Paused", leftMargin, height/7);
     }
   }
@@ -176,5 +175,22 @@ class ScoreManager {
     this.score =score;
   }
 
- 
+  void useLantern() 
+  {  
+    if ( scoreManager.lanterns!=1) 
+    {
+      setLanterns(scoreManager.lanterns()-1);
+      darkning.diameter = 2 * height;
+      assetManager.soundEquipLantern();
+    }
+  }
+
+  void fireBullets() 
+  {
+    if (scoreManager.bullets() > 0) {
+      scoreManager.setBullets(scoreManager.bullets()-1);
+      assetManager.soundGhostBullet();
+      canon.fire();
+    }
+  }
 }
