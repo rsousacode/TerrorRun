@@ -125,7 +125,7 @@ void draw()
     {
       darkning.apply();
     }
-
+    if(controlsEnabled)
     scoreManager.display();
   } else if (state== STATE_END ) 
   {

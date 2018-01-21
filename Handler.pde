@@ -24,7 +24,6 @@ class Handler  //<>//
   private  ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[homesGenerated];
   private  ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[homesGenerated];
   private ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[homesGenerated];
-  boolean dying=false;
 
   Handler() 
   {
@@ -270,13 +269,12 @@ class Handler  //<>//
       obj.update(); 
       Ghost en = obj.collisionPlayer(); 
       if (en != null) {
-        assetManager.soundMaleLaugh();
-        buffer4.add(en);
-        //  PVector ghostPos = new PVector( en.position().x, en.position().x);
-        dying =true;
+        assetManager.soundMaleLaugh() ;
         dieTime.start();
         controlsEnabled=false;
-      } else dying=false;
+        // buffer4.add(en);
+        //  PVector ghostPos = new PVector( en.position().x, en.position().x);
+      }
       Ghost aw = obj.cullisionBullets(); 
       if  (aw!=null) {
         scoreManager.killGhosts();
@@ -293,10 +291,9 @@ class Handler  //<>//
       if (sg != null) {
         controlsEnabled=!controlsEnabled;
         assetManager.soundGirlaugh();
-        buffer11.add(sg);
-        dying =true;
         dieTime.start();
-      } else dying=false;
+        buffer11.add(sg);
+      } 
 
       Scarygirl bs = obj.collisionBullets();
       if (bs!=null) {

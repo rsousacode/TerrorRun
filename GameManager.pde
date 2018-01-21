@@ -9,6 +9,7 @@ class GameManager
   private int score=0;
   private final int marginLantern = width/50;
   private PImage image;
+  private boolean showBar = false;
 
   GameManager() 
   {
@@ -23,15 +24,18 @@ class GameManager
     image=assetManager.lanternHUD();
     newFont= assetManager.font();
   }
-  
+
   void showBar() 
   {
-    stroke(0);
-    resetMatrix();
-    rectMode(CORNER);
-    fill(bar);
-    if (!turnOffDarkning)
-      rect(leftMargin, upperMargin-h/3.4, darkning.smoothedDiameter/6, barHeight/1.89);
+    if (showBar) {
+
+      stroke(0);
+      resetMatrix();
+      rectMode(CORNER);
+      fill(bar);
+      if (!turnOffDarkning)
+        rect(leftMargin, upperMargin-h/3.4, darkning.smoothedDiameter/6, barHeight/1.89);
+    }
   }
 
   void showLanterns() 
