@@ -23,9 +23,9 @@ class ScoreManager
     image=assetManager.hudLantern();
     newFont= assetManager.font();
   }
- 
-
-  void showBar() {
+  
+  void showBar() 
+  {
     stroke(0);
     resetMatrix();
     rectMode(CORNER);
@@ -34,7 +34,8 @@ class ScoreManager
       rect(leftMargin, upperMargin-h/3.4, darkning.smoothedDiameter/6, barHeight/1.89);
   }
 
-  void showLanterns() {
+  void showLanterns() 
+  {
     if (!turnOffDarkning) 
     {
       if (lanterns==2) // actually it's 1 lanterns
@@ -82,7 +83,8 @@ class ScoreManager
     }
   }
 
-  void equipLanternTxt() {
+  void equipLanternTxt() 
+  {
     if (darkning.diameter < 700 && scoreManager.lanterns!=1) 
     {
       textSize(32);
@@ -92,14 +94,18 @@ class ScoreManager
     }
   }
 
-  void showScore() {
-    textAlign(LEFT);
-    textSize(40);
-    fill(bar);
-    text("Score: " + score, leftMargin, height/1.05);
+  void showScore() 
+  {
+    if (!devmode) {
+      textAlign(LEFT);
+      textSize(40);
+      fill(bar);
+      text("Score: " + score, leftMargin, height/1.05);
+    }
   }
 
-  void developerMode() {
+  void developerMode() 
+  {
     if (devmode) 
     {
       textAlign(LEFT);
@@ -150,7 +156,7 @@ class ScoreManager
       text("Paused", width/2, height/2);
     }
   }
-   void display() 
+  void display() 
   {
     showBar();
     textFont(newFont);
