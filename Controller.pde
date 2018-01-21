@@ -12,7 +12,8 @@ class Controller
   }
   void apply()
   {
-    if (state == STATE_GAME) {
+    if (state == STATE_GAME) 
+    {
 
       if ( player.coliding==true && up==true )
       {
@@ -28,7 +29,8 @@ class Controller
       }
       if (right==true  )
       {
-        if (controlsEnabled) {
+        if (controlsEnabled) 
+        {
           player.moveBy(player.WalkSpeed, 0);             
           player.direction= 1;
         }
@@ -51,20 +53,25 @@ class Controller
       if (key == 'W' || key == 'w'  ) 
       {
         up = true;
-      } else if (key == 'D' && controlsEnabled|| key == 'd' && controlsEnabled  ) {
+      } else if (key == 'D' && controlsEnabled|| key == 'd' && controlsEnabled  ) 
+      {
         right = true;
-      } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) {
+      } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) 
+      {
         left = true;
-      } else  if (key == 'Q' || key == 'q' ) {
+      } else  if (key == 'Q' || key == 'q' ) 
+      {
         scoreManager.useLantern();
       } else if (key == ' ') {
         scoreManager.fireBullets();
-      } else if (key =='o' || key == 'O') {
+      } else if (key =='o' || key == 'O') 
+      {
         if (turnOffDarkning) {
           turnOffDarkning=!turnOffDarkning;
           devmode=!devmode;
         } else  devmode=!devmode;
-      } else if (key =='l' || key == 'L') {
+      } else if (key =='l' || key == 'L')
+      {
         darkning.turnOff();
       }
       if (devmode) {

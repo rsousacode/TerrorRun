@@ -1,15 +1,19 @@
-class StopWatchTimer {
+class StopWatchTimer 
+{
   int startTime = 0, stopTime = 0;
   boolean running = false; 
-  void start() {
+  void start() 
+  {
     startTime = millis();
     running = true;
   }
-  void stop() {
+  void stop() 
+  {
     stopTime = millis();
     running = false;
   }
-  int getElapsedTime() {
+  int getElapsedTime() 
+  {
     int elapsed;
     if (running) {
       elapsed = (millis() - startTime);
@@ -19,13 +23,16 @@ class StopWatchTimer {
     }
     return elapsed;
   }
-  int second() {
+  int second() 
+  {
     return (getElapsedTime() / 1000) % 60;
   }
-  int minute() {
+  int minute() 
+  {
     return (getElapsedTime() / (1000*60)) % 60;
   }
-  int hour() {
+  int hour() 
+  {
     return (getElapsedTime() / (1000*60*60)) % 24;
   }
 }

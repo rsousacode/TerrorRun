@@ -1,4 +1,5 @@
-abstract class GameObject {
+abstract class GameObject 
+{
 
   private PVector position;
   private PVector velocity;
@@ -6,7 +7,8 @@ abstract class GameObject {
   private float h;
   protected ID id;
 
-  GameObject(PVector position) {
+  GameObject(PVector position) 
+  {
     this.position = position.copy();
     this.velocity = velocity.copy();
   }
@@ -19,55 +21,68 @@ abstract class GameObject {
     this.id = id;
   }
 
-  PVector position() {
+  PVector position() 
+  {
     return position.copy();
   }
-  PVector velocity() {
+  PVector velocity() 
+  {
     return velocity.copy();
   }
 
-  void setVelocityXTo(float velX) {
+  void setVelocityXTo(float velX) 
+  {
     velocity.x = velX;
   }
 
-  void setVelocityYTo(float velY) {
+  void setVelocityYTo(float velY) 
+  {
     position.y = velY;
   }
 
-  void setPositionXTo(float x) {
+  void setPositionXTo(float x) 
+  {
     position.x = x;
   }
 
-  void setPositionYTo(float y) {
+  void setPositionYTo(float y) 
+  {
     position.y = y;
   }
 
-  void setPositionTo( float x, float y) {
+  void setPositionTo( float x, float y) 
+  {
     position = new PVector (x, y);
   }
 
-  void resetpos() {
+  void resetpos() 
+  {
     position = new PVector (position.x, position.y);
   }
 
-  void moveBy(PVector displacement) {
+  void moveBy(PVector displacement) 
+  {
     position.add(displacement);
   }
 
-  void moveBy(float dx, float dy) {
+  void moveBy(float dx, float dy) 
+  {
     position.add(dx, dy);
   }
 
-  void setSizeTo(float w, float h) {
+  void setSizeTo(float w, float h) 
+  {
     this.w=w;
     this.h=h;
   }
 
-  float width() {
+  float width() 
+  {
     return w;
   }
 
-  float height() {
+  float height() 
+  {
     return h;
   }
 

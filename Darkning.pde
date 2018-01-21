@@ -1,4 +1,5 @@
-class Darkning {
+class Darkning 
+{
   PVector position;
   private int diameter;
   public int acceltime = 128/2;
@@ -6,7 +7,8 @@ class Darkning {
   PGraphics darkning;
   private float DecreaseRate;
 
-  Darkning() {
+  Darkning() 
+  {
     DecreaseRate = (float)width/2500;
     diameter = 2 * height;
     smoothedDiameter = 2 * height;
@@ -16,7 +18,8 @@ class Darkning {
     darkning.loadPixels();
     float radius = size / 5.0;
     for (int line = 0; line != darkning.height; line++)
-      for (int column = 0; column != darkning.width; column++) {
+      for (int column = 0; column != darkning.width; column++) 
+      {
         int pixel = line * darkning.width + column;
         float distance = dist(column, line, darkning.width / 2, darkning.height / 2);
         float factor = exp(-sqr(distance / radius));
@@ -28,7 +31,8 @@ class Darkning {
     position = new PVector(width / 2, height / 2);
   }
 
-  void apply(PVector center, float radius) {
+  void apply(PVector center, float radius) 
+  {
     pushStyle();
 
     rectMode(CORNER);
@@ -49,22 +53,27 @@ class Darkning {
     popStyle();
   }
 
-  float DecreaseRate() {
+  float DecreaseRate() 
+  {
     return DecreaseRate;
   }
 
-  void update() {
-    if (!devmode && controlsEnabled) {
+  void update() 
+  {
+    if (!devmode && controlsEnabled) 
+    {
       diameter-=DecreaseRate();
       diameter = constrain(diameter, 0, height*2);
       smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
-      if ( smoothedDiameter<=100) {
+      if ( smoothedDiameter<=100) 
+      {
         state=STATE_END;
       }
     }
   }
 
-  void apply() {
+  void apply() 
+  {
     resetMatrix();
     apply(camera.asDisplay(player.position()), smoothedDiameter / 2);
   }

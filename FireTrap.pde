@@ -16,11 +16,12 @@ class FireTrap extends GameObject
     getY=fireArea.y;
   }
 
-  void draw() {
+  void draw() 
+  {
   }
 
-  void update() {
-    // handler.CheckCollisionTraps(0, 0, 0, 0);
+  void update() 
+  {
   }
 
   FireTrap  PlayerColidingTraps()
@@ -46,11 +47,8 @@ class FireTrap extends GameObject
       {
         if (wi > hi) {
           fa=this;
-          //state=STATE_END;
         } else {
           fa=this;
-
-          //state=STATE_END;
         }
       }
     }

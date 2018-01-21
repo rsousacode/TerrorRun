@@ -25,7 +25,7 @@ class End
     textFont(font, 33);
     fill(255, 0, 0);
     textAlign(CENTER);
-    text("You loss with this score: " + scoreManager.getScore(), width/2, height/3);
+    text("You loss with this score: " + scoreManager.score(), width/2, height/3);
     popMatrix();
   }
   String checkButtons()

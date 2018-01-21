@@ -14,7 +14,8 @@ class Map {
   StringDict[] entryRightObjects;
 
   int collisionOffset = 10;
-  Map(PApplet papplet) {
+  Map(PApplet papplet) 
+  {
     map = new Ptmx(papplet, "tr.tmx");
     map.setDrawMode(CORNER); 
     map.setPositionMode("CANVAS");
@@ -31,12 +32,14 @@ class Map {
     scarygirlPos= map.getObjects(12);
     pack5bulletsPos = map.getObjects(13);
   }
-  void update() {
+  void update() 
+  {
     
     
   }
 
-  void display() {
+  void display() 
+  {
     map.draw(0, camera.position.x - width / 2, camera.position.y - height / 2);
     map.draw(1, camera.position.x - width / 2, camera.position.y - height / 2);
   }

@@ -1,21 +1,19 @@
 class HighBattery  extends GameObject
 {
   PImage image;
-  float direction;
-  float lastx, lasty;
-  boolean coliding;
-  float velY, velX;
   HighBattery (int x, int y) {
     super(x, y, assetManager.highBateryImage().width, assetManager.highBateryImage().height, 0, 0, ID.HighBattery);
     image = assetManager.highBateryImage();
   }
 
-  void draw() { 
+  void draw() 
+  { 
     imageMode(CENTER);
     image(image, 0, 0);
   }
 
-  void update() {
+  void update() 
+  {
   }
 
   HighBattery collision2() {
@@ -24,7 +22,7 @@ class HighBattery  extends GameObject
     { 
       
       bg2 = this;
-      scoreManager.setScore(scoreManager.getScore()+1500);
+      scoreManager.setScore(scoreManager.score()+1500);
       darkning.diameter+=400;
     }
     return bg2;

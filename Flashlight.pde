@@ -1,11 +1,9 @@
 class Flashlight  extends GameObject
 {
   PImage image;
-  float direction;
-  float lastx, lasty;
-  boolean coliding;
-  float velY, velX;
-  Flashlight (int x, int y) {
+
+  Flashlight (int x, int y) 
+  {
     super(x, y, assetManager.flashlightImage().width, assetManager.flashlightImage().height, 0, 0, ID.Flashlight);
     image = assetManager.flashlightImage();
   }
@@ -15,10 +13,12 @@ class Flashlight  extends GameObject
     image(image, 0, 0);
   }
 
-  void update() {
+  void update() 
+  {
   }
 
-  Flashlight collision2() {
+  Flashlight collision2() 
+  {
     Flashlight fl = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     { 

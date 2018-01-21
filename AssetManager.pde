@@ -1,10 +1,9 @@
-class AssetManager {
-  int numFrames = 38;  // The number of frames in the animation
-  long currentFrame;
-  int counter;
-
-  boolean removeCursor = false;
-  //***//MENU's IMAGES//***//
+class AssetManager 
+{
+  private int numFrames = 38;  // The number of frames in the animation
+  private long currentFrame;
+  private int counter;
+  private boolean removeCursor = false;
   private PImage cursorImage;
   private PImage backgroundMenu;
   private PImage title;
@@ -19,21 +18,18 @@ class AssetManager {
   private PImage lowBateryImage;
   private PImage highBateryImage;
   private PImage flashlightImage;
+  private PImage hudlantern;
   private PImage scarygirlImage;
   private PImage ghostBullet;
   private PImage bullethudImage;
   private PImage packfiveImage;
   private PImage soundMenuButton;
   private PImage soundMenuButtonOff;
-  boolean musicPlaying=false;
-
-  PImage[] images = new PImage[numFrames];
+  private PImage[] images = new PImage[numFrames];
 
 
-  String path;
-
-
-  AssetManager() {
+  AssetManager() 
+  {
     cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/menu/background4.jpg");
     title = loadImage("data/images/menu/title.png");
@@ -53,6 +49,7 @@ class AssetManager {
     scarygirlImage= loadImage("data/images/scarygirl.png");
     ghostBullet = loadImage("data/images/bone.png");
     bullethudImage = loadImage("data/images/bullhd.png");
+    hudlantern = loadImage("data/images/hud-flash.png");
     packfiveImage = loadImage("data/images/packfive.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
     catchBattery=audio.loadFile("data/sounds/pop.wav");
@@ -72,25 +69,33 @@ class AssetManager {
     playMusic();
   }
 
-  void playMusic() {
+  void playMusic() 
+  {
     backgroundmusic.loop();
-
-    musicPlaying=true;
   }
 
-  PImage soundMenuButtonOff() {
+  PImage hudLantern() 
+  {
+    return hudlantern;
+  }
+
+  PImage soundMenuButtonOff() 
+  {
     return soundMenuButtonOff;
   }
 
-  PImage backgroundMenu() {
+  PImage backgroundMenu() 
+  {
     return backgroundMenu.copy();
   }
 
-  PImage title() {
+  PImage title() 
+  {
     return title;
   }
 
-  PImage return2menu() {
+  PImage return2menu() 
+  {
     return return2menu;
   }
 
@@ -98,120 +103,149 @@ class AssetManager {
     return helpButton;
   }
 
-  PImage soundButton() {
+  PImage soundButton() 
+  {
 
     return soundMenuButton;
   }
 
-  PImage helpCurrent() {
+  PImage helpCurrent() 
+  {
     return helpCurrent;
   }
 
-  PImage exitSys() {
+  PImage exitSys()
+  {
     return exitSys;
   }
 
-  PImage play() {
+  PImage play() 
+  {
     return play;
   }
 
-  PImage cursorImage() {
+  PImage cursorImage() 
+  {
     return cursorImage;
   }
 
-  PImage transcursor() {
+  PImage transcursor() 
+  {
     return transcursor;
   }
 
-  PImage playerImage() {
+  PImage playerImage() 
+  {
     return playerImage;
   }
 
-  int playerHeight() {
+  int playerHeight() 
+  {
     return playerImage.width;
   }
 
-  int playerWidth() {
+  int playerWidth() 
+  {
     return playerImage.height;
   }
 
-  PImage enemyImage() {
+  PImage enemyImage() 
+  {
     return enemyImage;
   }
 
-  PImage ghostBullet() {
+  PImage ghostBullet() 
+  {
     return ghostBullet;
   }
 
-  PImage lowBateryImage() {
+  PImage lowBateryImage() 
+  {
     return lowBateryImage;
   }
 
-  PImage flashlightImage() {
+  PImage flashlightImage() 
+  {
     return flashlightImage;
   }
 
-  PImage highBateryImage() {
+  PImage highBateryImage() 
+  {
     return highBateryImage;
   }
 
-  PImage scarygirlImage() {
+  PImage scarygirlImage() 
+  {
     return scarygirlImage;
   }
 
-  PImage packfiveImage() {
+  PImage packfiveImage() 
+  {
     return packfiveImage;
   }
 
-  PImage bullethud() {
+  PImage bullethud() 
+  {
     return bullethudImage;
   }
 
-  void soundEquipLantern() {
-    if (soundActivated) {
+  void soundEquipLantern() 
+  {
+    if (soundActivated) 
+    {
       lightson.rewind();
       lightson.play();
     }
   }
 
-  void soundCatchBattery() {
+  void soundCatchBattery() 
+  {
     if (soundActivated) {
       catchBattery.rewind();
       catchBattery.play();
     }
   }
 
-  void soundCatchLantern() {
+  void soundCatchLantern() 
+  {
     if (soundActivated) {
       catchlantern.rewind();
       catchlantern.play();
     }
   }
 
-  void soundVannish() {
-    if (soundActivated) {
+  void soundVannish() 
+  {
+    if (soundActivated) 
+    {
       vannish.rewind();
       vannish.play();
     }
   }
 
-  void  soundMaleLaugh() {
-    if (soundActivated) {
+  void  soundMaleLaugh() 
+  {
+    if (soundActivated) 
+    {
       malelaugh.rewind();
       malelaugh.play();
     }
   }
 
-  void soundGirlaugh() {
+  void soundGirlaugh() 
+  {
 
-    if (soundActivated) {
+    if (soundActivated) 
+    {
       scarygirlLaugh.rewind();
       scarygirlLaugh.play();
     }
   }
 
-  void soundGhostBullet() {
-    if (soundActivated) {
+  void soundGhostBullet() 
+  {
+    if (soundActivated) 
+    {
       ghostbullet.rewind();
       ghostbullet.play();
     }
@@ -229,7 +263,8 @@ class AssetManager {
     lightson.close();
   }
 
-  void stopAndPlay() {
+  void stopAndPlay() 
+  {
     if (backgroundmusic.isPlaying()) 
     {
       backgroundmusic.pause();
@@ -243,7 +278,8 @@ class AssetManager {
       image(assetManager.images[3], 0, 0);
     else   
     image(assetManager.images[counter], 0, 0);
-    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) {
+    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) 
+    {
       if (controlsEnabled)
         counter ++;
       if (counter > 37)
@@ -252,23 +288,29 @@ class AssetManager {
   }
 
 
-  void WalkingAnimationSIdes() {
-    for (int i = 0; i < numFrames; i++) {
+  void WalkingAnimationSIdes() 
+  {
+    for (int i = 0; i < numFrames; i++) 
+    {
       images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
     }
   }
 
 
-  void Cursordisplay() {
-    if (state==STATE_GAME) {
+  void Cursordisplay() 
+  {
+    if (state==STATE_GAME) 
+    {
       removeCursor =true;
-    } else {
+    } else 
+    {
       removeCursor =false;
     }
 
     if (removeCursor)
       cursor((assetManager.transcursor.copy()));
-    else {
+    else 
+    {
       cursor((assetManager.cursorImage.copy()));
     }
   }

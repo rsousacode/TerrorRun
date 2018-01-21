@@ -78,8 +78,8 @@ class Menu
     return result;
   }
 
-  void update() {
-
+  void update() 
+  {
     checkMouseOverButtons();
   }
 }

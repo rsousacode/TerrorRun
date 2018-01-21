@@ -1,16 +1,18 @@
-class ScoreManager {
+class ScoreManager 
+{
   PFont newFont;
   float value, max, leftMargin, upperMargin, h, barHeight;
   color  bar, backgroundbar;
   private int lanterns = 4; 
   int bateries =0;
   int bullets = 10;
-  int score=0;
+  private int score=0;
   final int marginLantern = width/50;
-  PImage hudlantern;
+  PImage image;
   PImage hudbullet;
 
-  ScoreManager() {
+  ScoreManager() 
+  {
     value = 50;
     barHeight= height/30;
     max = 100;
@@ -19,10 +21,11 @@ class ScoreManager {
     h = height/24;
     bar = color(255, 255, 0, 100);
     backgroundbar=color(255, 255, 0, 50);
-    hudlantern=loadImage("data/images/hud-flash.png");
+    image=assetManager.hudLantern();
     newFont= createFont("data/Lycanthrope.ttf", 14, true);
   }
-  void display() {
+  void display() 
+  {
     stroke(0);
     resetMatrix();
     rectMode(CORNER);
@@ -33,48 +36,49 @@ class ScoreManager {
     textFont(newFont, 16);
     fill(255);
     textAlign(LEFT);
-    if (!turnOffDarkning) {
+    if (!turnOffDarkning) 
+    {
       if (lanterns==2) // actually it's 1 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
       }
       if (lanterns==3) // actually it's 2 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*2, upperMargin, 32, 32);
       }
       if (lanterns==4) // actually it's 3 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*2, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*3, upperMargin, 32, 32);
       }
 
       if (lanterns==5) // actually it's 4 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*2, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*3, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*4, upperMargin, 32, 32);
       }
 
       if (lanterns==6) // actually it's 5 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*2, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*3, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*4, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*5, upperMargin, 32, 32);
       }
 
       if (lanterns==7) // actually it's 6 lanterns
       {
-        image(hudlantern, width-marginLantern-hudlantern.height, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*2, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*3, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*4, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*5, upperMargin, 32, 32);
-        image(hudlantern, width-marginLantern-hudlantern.height*6, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*2, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*3, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*4, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*5, upperMargin, 32, 32);
+        image(image, width-marginLantern-image.height*6, upperMargin, 32, 32);
       }
     }
 
@@ -165,7 +169,7 @@ class ScoreManager {
     this.lanterns =lanterns;
   }
 
-  public int getScore() 
+  public int score() 
   {
     return score;
   }

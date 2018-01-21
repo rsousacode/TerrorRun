@@ -1,4 +1,5 @@
-class Handler {
+class Handler 
+{
   StopWatchTimer dieTime;
   ArrayList<Ghost> ghosts;
   ArrayList<Scarygirl> scarygirls;
@@ -179,7 +180,7 @@ class Handler {
       {
         playerIsAt++; 
         player.setPositionTo(entriesRight.get(homes[playerIsAt]).x-16, entriesRight.get(homes[playerIsAt]).y+exitsLeft.get(0).h/2); 
-        camera.reColocar();
+        camera.telleportCamera();
       }
     }
 
@@ -192,7 +193,7 @@ class Handler {
         playerIsAt--; 
 
         player.setPositionTo(exitsLeft.get(homes[playerIsAt]).x+64+16, exitsLeft.get(homes[playerIsAt]).y+exitsLeft.get(0).h/2); 
-        camera.reColocar();
+        camera.telleportCamera();
       }
     }
   }

@@ -1,20 +1,21 @@
 class LowBattery extends GameObject
 {
   PImage image;
-
-  LowBattery (int x, int y, ID id) {
+  LowBattery (int x, int y, ID id) 
+  {
     super(x, y, assetManager.lowBateryImage().width, assetManager.lowBateryImage().height, 0, 0, id);
     image = assetManager.lowBateryImage();
   }
 
-  void draw() { 
+  void draw() 
+  { 
     imageMode(CENTER);
     image(image, 0, 0);
   }
 
-  void update() {
+  void update() 
+  {
     
-
   }
 
   LowBattery collision() {
@@ -23,7 +24,7 @@ class LowBattery extends GameObject
     {
 
       bg = this;
-      scoreManager.setScore(scoreManager.getScore()+500);
+      scoreManager.setScore(scoreManager.score()+500);
       darkning.diameter+=250;
       
     }

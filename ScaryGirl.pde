@@ -11,7 +11,8 @@ class Scarygirl extends GameObject
     maxx = livingSpace.x + livingSpace.w - image.width;
   }
 
-  void draw() { 
+  void draw() 
+  { 
     imageMode(CORNER);
     image(image, 0, 0);
   }
@@ -27,7 +28,6 @@ class Scarygirl extends GameObject
         setVelocityXTo(-1);
     }
   }
-
 
   Scarygirl collisionPlayer() 
   {

@@ -6,15 +6,18 @@ class Bullet {
   PImage image;
   boolean colliding=false;
 
-  Bullet() {
+  Bullet() 
+  {
     position = new PVector();
     velocity = new PVector();
     acceleration = new PVector();
     image = assetManager.ghostBullet();
   }
 
-  void update(float delta) {
-    if (controlsEnabled) {
+  void update(float delta) 
+  {
+    if (controlsEnabled) 
+    {
       velocity.add(acceleration);
       position.x += velocity.x * delta;
       position.y += velocity.y * delta;
@@ -23,12 +26,14 @@ class Bullet {
     }
   }
 
-  void applyForce(PVector force) {
+  void applyForce(PVector force) 
+  {
     if(controlsEnabled)
     acceleration.add(force);
   }
 
-  void display() {
+  void display() 
+  {
     pushMatrix();
     translate(position.x, position.y);
     pushStyle();
@@ -38,7 +43,8 @@ class Bullet {
     popMatrix();
   }
 
-  Bullet removeBullets() {
+  Bullet removeBullets() 
+  {
     Bullet bl = null;
     if ( position.y > camera.position.y+height/2)
     {

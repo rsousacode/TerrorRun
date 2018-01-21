@@ -1,21 +1,25 @@
-public class Canon {
+public class Canon 
+{
 
   float fireForce;
   float direction;
   float rotation;
 
-  public Canon() {
+  public Canon() 
+  {
     fireForce=350;
   }
 
-  public void render() {
+  public void render() 
+  {
 
     pushMatrix();
     rotate(getDir());
     popMatrix();
   }
 
-  public void fire() {
+  public void fire() 
+  {
     if (controller.left || controller.right)
       fireForce=400;
     else 
@@ -35,7 +39,8 @@ public class Canon {
     handler.bullets.add(s);
   }
 
-  float getDir() {
+  float getDir() 
+  {
     PVector mouse = new PVector(width/2, height/2-height/25 );
     PVector cannon = new PVector(-16, height-72);
     PVector dir = PVector.sub(mouse, cannon);    
@@ -43,7 +48,8 @@ public class Canon {
   }
 
 
-  float getOpDir() {
+  float getOpDir() 
+  {
     PVector mouse = new PVector(-width/2, height/2 );
     PVector cannon = new PVector(-16, height-72);
     PVector dir = PVector.sub(mouse, cannon);    

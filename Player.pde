@@ -1,7 +1,7 @@
 
-class Player  extends GameObject {
+class Player  extends GameObject 
+{
   PImage image;
-
   int direction;
   private PVector velocity;
   boolean coliding;
@@ -21,7 +21,6 @@ class Player  extends GameObject {
     this.Pheight = assetManager.playerImage().height;
     this.Pwidth=assetManager.playerImage().width;
     assetManager.WalkingAnimationSIdes();
-
   }
 
   int pwidth() {
@@ -41,7 +40,6 @@ class Player  extends GameObject {
     scale(-1, 1);
     assetManager.animatePlayerSides();
   }
-
 
   void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
   {
