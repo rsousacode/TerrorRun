@@ -1,7 +1,7 @@
 class BulletsPackFive  extends GameObject
 {
-  PImage image;
-  float velY, velX;
+  private PImage image;
+  
   BulletsPackFive (int x, int y) 
   {
     super(x, y, assetManager.packfiveImage().width, assetManager.packfiveImage().height, 0, 0, ID.Packfivebullets);

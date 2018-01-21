@@ -1,10 +1,9 @@
 class Bullet {
 
-  PVector position;
-  PVector acceleration;
-  PVector velocity;
+  private PVector position;
+  private  PVector acceleration;
+  private PVector velocity;
   PImage image;
-  boolean colliding=false;
 
   Bullet() 
   {
@@ -28,8 +27,8 @@ class Bullet {
 
   void applyForce(PVector force) 
   {
-    if(controlsEnabled)
-    acceleration.add(force);
+    if (controlsEnabled)
+      acceleration.add(force);
   }
 
   void display() 

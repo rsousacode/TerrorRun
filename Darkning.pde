@@ -4,8 +4,9 @@ class Darkning
   private int diameter;
   public int acceltime = 128/2;
   private float smoothedDiameter;
-  PGraphics darkning;
   private float DecreaseRate;
+  PGraphics darkning;
+
 
   Darkning() 
   {

@@ -1,8 +1,7 @@
 class Help
 {
-  PVector return2menuPos, titlePos, helpPos;
-  int pixelRadius;
-  PImage background; 
+  private PVector return2menuPos, titlePos, helpPos;
+  private int pixelRadius;
   Help ()
   {
     helpPos = new PVector(width/2, 1 * height/1.6);

@@ -1,20 +1,18 @@
 class Scarygirl extends GameObject
 {
-  PImage image;
   private float minx, maxx;
 
   Scarygirl (Rectangle livingSpace) 
   {
     super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.scarygirlImage().height, assetManager.scarygirlImage().width, assetManager.scarygirlImage().height, 1, 0, ID.Scarygirl);
-    image = assetManager.scarygirlImage();
     minx = livingSpace.x;
-    maxx = livingSpace.x + livingSpace.w - image.width;
+    maxx = livingSpace.x + livingSpace.w - assetManager.scarygirlImage().width;
   }
 
   void draw() 
   { 
     imageMode(CORNER);
-    image(image, 0, 0);
+    image(assetManager.scarygirlImage(), 0, 0);
   }
 
   void update() 

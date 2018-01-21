@@ -1,9 +1,9 @@
 public class Canon 
 {
 
-  float fireForce;
-  float direction;
-  float rotation;
+  private  float fireForce;
+  private  float direction;
+  private float rotation;
 
   public Canon() 
   {

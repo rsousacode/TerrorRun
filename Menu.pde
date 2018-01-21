@@ -1,10 +1,10 @@
 class Menu
 {
-  PVector playVector, titleVector, helpVector, exitVector, soundVector;
-  int pixelRadius;
-  boolean   OverHelp=false;
-  boolean   OverPlay=false;
-  boolean   OverTitle=false;
+  private PVector playVector, titleVector, helpVector, exitVector, soundVector;
+  private int pixelRadius;
+  private boolean   OverHelp=false;
+  private boolean   OverPlay=false;
+  private boolean   OverTitle=false;
 
   Menu ()
   {

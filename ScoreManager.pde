@@ -1,15 +1,14 @@
 class ScoreManager 
 {
-  PFont newFont;
-  float value, max, leftMargin, upperMargin, h, barHeight;
-  color  bar, backgroundbar;
+  private PFont newFont;
+  float value, max;
+  private float leftMargin, upperMargin, h, barHeight;
+  private  color  bar, backgroundbar;
   private int lanterns = 4; 
-  int bateries =0;
-  int bullets = 10;
+  private int bullets = 10;
   private int score=0;
-  final int marginLantern = width/50;
-  PImage image;
-  PImage hudbullet;
+  private final int marginLantern = width/50;
+  private PImage image;
 
   ScoreManager() 
   {
@@ -22,7 +21,7 @@ class ScoreManager
     bar = color(255, 255, 0, 100);
     backgroundbar=color(255, 255, 0, 50);
     image=assetManager.hudLantern();
-    newFont= createFont("data/Lycanthrope.ttf", 14, true);
+    newFont= assetManager.font();
   }
   void display() 
   {

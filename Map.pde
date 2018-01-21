@@ -13,7 +13,6 @@ class Map {
   StringDict[] entryLeftObjects;
   StringDict[] entryRightObjects;
 
-  int collisionOffset = 10;
   Map(PApplet papplet) 
   {
     map = new Ptmx(papplet, "tr.tmx");

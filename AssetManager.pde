@@ -26,10 +26,13 @@ class AssetManager
   private PImage soundMenuButton;
   private PImage soundMenuButtonOff;
   private PImage[] images = new PImage[numFrames];
+  private PFont font;
+
 
 
   AssetManager() 
   {
+    font = createFont("data/Lycanthrope.ttf", 14, true);
     cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/menu/background4.jpg");
     title = loadImage("data/images/menu/title.png");
@@ -72,6 +75,11 @@ class AssetManager
   void playMusic() 
   {
     backgroundmusic.loop();
+  }
+  
+  PFont font() 
+  {
+    return font;
   }
 
   PImage hudLantern() 

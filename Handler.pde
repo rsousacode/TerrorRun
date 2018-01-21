@@ -1,30 +1,28 @@
 class Handler 
 {
   StopWatchTimer dieTime;
-  ArrayList<Ghost> ghosts;
-  ArrayList<Scarygirl> scarygirls;
-  ArrayList<FireTrap> firetraps;
-  ArrayList<LowBattery> lowBatteries;
-  ArrayList<HighBattery> highBatteries;
-  ArrayList <Flashlight> flashlights;
-  ArrayList<Rectangle> exitsLeft;
-  ArrayList<Rectangle> exitsRight;
-  ArrayList<Rectangle> entriesLeft;
-  ArrayList<Rectangle> entriesRight;
-  ArrayList<Bullet> bullets;
-  ArrayList<BulletsPackFive> packfive;
-  PVector gravity = new PVector(0, 10);
-  int collisionOffset = 10;
-  int getID;
-  final int homesGenerated = 200;
-  int[] homes = new int[homesGenerated]; 
-  int playerIsAt =0;
-  ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[homesGenerated];
-  ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[homesGenerated];
-  ArrayList<Ghost>[] ghostss = (ArrayList<Ghost>[])new ArrayList[homesGenerated];
-  ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[homesGenerated];
-  ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[homesGenerated];
-  ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[homesGenerated];
+  private  ArrayList<Ghost> ghosts;
+  private ArrayList<Scarygirl> scarygirls;
+  private ArrayList<FireTrap> firetraps;
+  private ArrayList<LowBattery> lowBatteries;
+  private ArrayList<HighBattery> highBatteries;
+  private ArrayList <Flashlight> flashlights;
+  private ArrayList<Rectangle> exitsLeft;
+  private ArrayList<Rectangle> exitsRight;
+  private ArrayList<Rectangle> entriesLeft;
+  private ArrayList<Rectangle> entriesRight;
+  private ArrayList<Bullet> bullets;
+  private ArrayList<BulletsPackFive> packfive;
+  private PVector gravity = new PVector(0, 10);
+  private  final int homesGenerated = 200;
+  private int[] homes = new int[homesGenerated]; 
+  private int playerIsAt =0;
+  private ArrayList<LowBattery>[] lowbatteries = (ArrayList<LowBattery>[])new ArrayList[homesGenerated];
+  private ArrayList<HighBattery>[] highbatteries = (ArrayList<HighBattery>[])new ArrayList[homesGenerated];
+  private  ArrayList<Ghost>[] ghostss = (ArrayList<Ghost>[])new ArrayList[homesGenerated];
+  private  ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[homesGenerated];
+  private  ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[homesGenerated];
+  private ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[homesGenerated];
 
   Handler() 
   {

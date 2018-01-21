@@ -1,14 +1,16 @@
 
 class Player  extends GameObject 
-{
-  PImage image;
-  int direction;
+{  
+  private int Pheight;
+  private int Pwidth;
+  private PImage image;
   private PVector velocity;
   boolean coliding;
   int jumpSpeed;
   int WalkSpeed;
-  private int Pheight;
-  private int Pwidth;
+
+  int direction;
+
 
 
   Player(int x, int y, PVector velocity, ID id) {

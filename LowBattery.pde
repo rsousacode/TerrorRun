@@ -1,6 +1,6 @@
 class LowBattery extends GameObject
 {
-  PImage image;
+  private PImage image;
   LowBattery (int x, int y, ID id) 
   {
     super(x, y, assetManager.lowBateryImage().width, assetManager.lowBateryImage().height, 0, 0, id);

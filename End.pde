@@ -1,13 +1,12 @@
 class End
 {
-  PVector return2menuShow, titleTitle, helphelp;
+  private PVector return2menuShow, titleTitle;
   PVector return2menuShow2;
   PFont font;
   int pixelRadius;
   End ()
   {
 
-    helphelp = new PVector(width/2, 1 * height/1.6);
     titleTitle = new PVector(width/2, 1 * height/7);
     return2menuShow = new PVector(width/1.1, 4 * height/4.5);
     font = createFont("Verdana", 55, true);

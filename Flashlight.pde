@@ -1,6 +1,6 @@
 class Flashlight  extends GameObject
 {
-  PImage image;
+  private PImage image;
 
   Flashlight (int x, int y) 
   {

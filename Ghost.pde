@@ -1,6 +1,6 @@
 class Ghost extends GameObject
 {
-  PImage image;
+  private PImage image;
   private float minx, maxx;
   Ghost (Rectangle livingSpace) 
   {
