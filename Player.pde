@@ -13,6 +13,7 @@ class Player  extends GameObject
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
     WalkSpeed = (int)3.8;
+    
     jumpSpeed= -13;
     this.velocity = velocity.copy();
     image = assetManager.playerImage();
@@ -32,12 +33,21 @@ class Player  extends GameObject
     return Pheight;
   }
 
+  void update()
+  {
+    checkColliders();
+  }
+
 
   void draw() { 
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
     assetManager.animatePlayerSides();
+    if (!jumpActivated)
+     jumpSpeed= 0;
+     else  jumpSpeed= -13;
+    
   }
 
   void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
@@ -82,11 +92,5 @@ class Player  extends GameObject
       }
     }
     CheckCollisionWorld(0, 0, 0, 0);
-  }
-
-
-  void update()
-  {
-    checkColliders();
   }
 }

@@ -1,4 +1,4 @@
-class Handler 
+class Handler  //<>//
 {
   StopWatchTimer dieTime;
   private  ArrayList<Ghost> ghosts;
@@ -11,6 +11,7 @@ class Handler
   private ArrayList<Rectangle> exitsRight;
   private ArrayList<Rectangle> entriesLeft;
   private ArrayList<Rectangle> entriesRight;
+  ArrayList <Rectangle> triggersLeft;
   private ArrayList<Bullet> bullets;
   private ArrayList<BulletsPackFive> packfive;
   private PVector gravity = new PVector(0, 10);
@@ -35,6 +36,7 @@ class Handler
     scarygirls = new ArrayList <Scarygirl>();
     ghosts = new ArrayList<Ghost>();
     firetraps = new ArrayList <FireTrap>();
+    triggersLeft = new ArrayList<Rectangle>();
     exitsLeft = new ArrayList <Rectangle>();
     exitsRight = new ArrayList <Rectangle>();
     entriesRight = new ArrayList<Rectangle>();
@@ -45,7 +47,7 @@ class Handler
     spawnTraps();
     spawnCollectables();
     spawnEnemies();
-    spawnTelle();
+    spawnTriggers();
   }
 
   void randomFunction() 
@@ -155,7 +157,7 @@ class Handler
     }
   }
 
-  void spawnTelle() 
+  void spawnTriggers() 
   {
 
     for (StringDict exitLeftObject : map.exitLeftObjects)
@@ -166,7 +168,11 @@ class Handler
       entriesLeft.add(new Rectangle(entryLeftObject)); 
     for (StringDict entryRightObject : map.entryRightObjects)
       entriesRight.add(new Rectangle(entryRightObject));
+
+    for (StringDict leftTriggerObject : map.leftTriggerPos)
+      triggersLeft.add(new Rectangle(leftTriggerObject)); 
   }
+
 
   void telleCollision() 
   {
@@ -192,6 +198,17 @@ class Handler
         camera.telleportCamera();
       }
     }
+
+    for (Rectangle obj : triggersLeft) 
+    {
+      jumpActivated =true;
+      Rectangle rg = obj.RectangleAreaCollision() ; 
+      if (rg!=null) {
+        jumpActivated =!true;
+      } 
+    }
+
+
   }
 
   void objectsCemitery() 
@@ -319,22 +336,6 @@ class Handler
   }
 
 
-  void update() 
-  {
-    dieAction();
-
-    objectsCemitery(); 
-    telleCollision();
-  }
-
-  void display() 
-  {
-    displayBatteries(); 
-    displayBullets();
-    displayEnemies(); 
-    displayTraps();
-  }
-
 
 
   void displayBullets() 
@@ -387,6 +388,24 @@ class Handler
     if (dieTime.second()>3.8)
       state = STATE_END;
   }
+
+
+  void update() 
+  {
+    dieAction();
+
+    objectsCemitery(); 
+    telleCollision();
+  }
+
+  void display() 
+  {
+    displayBatteries(); 
+    displayBullets();
+    displayEnemies(); 
+    displayTraps();
+  }
+
 
   void resetJumpSpeedandWalkSpeed() 
   {

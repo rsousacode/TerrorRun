@@ -1,4 +1,7 @@
-import ddf.minim.*; //<>//
+//TERROR-RUN---------------// //<>//
+//Use key "O" to use developer-mode
+//Use key "Y" to mute sound
+import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -9,6 +12,7 @@ private boolean turnOffDarkning = false;
 private boolean controlsEnabled=true;
 private boolean gamePaused = false;
 private boolean soundActivated = true;
+boolean jumpActivated = true;
 
 private int state;
 final int STATE_MENU=1;
@@ -19,7 +23,6 @@ final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
 Minim audio;
-
 AudioPlayer dieghost;
 AudioPlayer ghostbullet;
 AudioPlayer vannishgirl;
@@ -52,8 +55,7 @@ void settings()
 {
   smooth(33);
   fullScreen(P2D);
-  // size(800, 600, P2D);
-
+  //size(800, 600); //Tested
 }
 
 void setup()
@@ -111,7 +113,7 @@ void draw()
 
     map.update();
     handler.update();
-      darkning.update();
+    darkning.update();
     camera.update();
     camera.apply();
     map.display();

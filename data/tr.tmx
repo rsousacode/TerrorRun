@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1335">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="300" height="600" tilewidth="64" tileheight="64" nextobjectid="1370">
  <tileset firstgid="1" source="trtsx.tsx"/>
  <layer name="O que fica atras (paredes)" width="300" height="600" offsetx="2" offsety="0">
   <properties>
@@ -3840,7 +3840,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="BateriesBlue">
+ <objectgroup name="BateriesBlue" visible="0">
   <properties>
    <property name="myID" type="int" value="5"/>
   </properties>
@@ -4719,7 +4719,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="gaja feita">
+ <objectgroup name="gaja feita" visible="0">
   <object id="815" x="8747.82" y="12209.7" width="254.545" height="63.6364">
    <properties>
     <property name="myID" type="int" value="4"/>
@@ -4817,5 +4817,20 @@
     <property name="myID" type="int" value="6"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="deactivateJump">
+  <object id="1351" x="14016" y="5184" width="832" height="128"/>
+  <object id="1354" x="13312" y="2944" width="960" height="128"/>
+  <object id="1355" x="4608" y="5184" width="1024" height="128"/>
+  <object id="1360" x="13952" y="7424" width="832" height="128"/>
+  <object id="1361" x="4672" y="7424" width="832" height="128"/>
+  <object id="1362" x="4608" y="9664" width="832" height="128"/>
+  <object id="1363" x="14336" y="9664" width="832" height="128"/>
+  <object id="1364" x="4608" y="12160" width="832" height="128"/>
+  <object id="1365" x="13568" y="12160" width="832" height="128"/>
+  <object id="1366" x="14016" y="14400" width="832" height="128"/>
+  <object id="1367" x="4672" y="14400" width="832" height="128"/>
+  <object id="1368" x="4608" y="16640" width="832" height="128"/>
+  <object id="1369" x="13824" y="16640" width="832" height="128"/>
  </objectgroup>
 </map>

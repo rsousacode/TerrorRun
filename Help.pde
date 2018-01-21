@@ -21,6 +21,7 @@ class Help
   {
     displayImages();
   }
+  
   String checkButtons()
   {
     String result = "";

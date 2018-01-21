@@ -22,14 +22,16 @@ class Menu
     soundMuteButton();
   }
 
-  void soundMuteButton() {
+  void soundMuteButton() 
+  {
     if (soundActivated)
       image(assetManager.soundButton(), soundVector.x, soundVector.y);
     else 
     image(assetManager.soundMenuButtonOff(), soundVector.x, soundVector.y);
   }
 
-  void showButtons() {
+  void showButtons() 
+  {
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     image(assetManager.exitSys(), exitVector.x, exitVector.y);
   }

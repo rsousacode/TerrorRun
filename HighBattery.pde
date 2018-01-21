@@ -6,7 +6,9 @@ class HighBattery  extends GameObject
     image = assetManager.highBateryImage();
   }
 
-
+  void update() 
+  {
+  }
   HighBattery collision2() {
     HighBattery bg2 = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
@@ -24,7 +26,5 @@ class HighBattery  extends GameObject
     image(image, 0, 0);
   }
 
-  void update() 
-  {
-  }
+
 }

@@ -23,24 +23,7 @@ class ScoreManager
     image=assetManager.hudLantern();
     newFont= assetManager.font();
   }
-  void display() 
-  {
-
-    showBar();
-    textFont(newFont);
-    showLanterns();
-    equipLanternTxt();
-    showScore();
-    imageMode(CORNER);
-    image(assetManager.bullethud(), leftMargin, height/9);
-    textAlign(LEFT);
-    textSize(30);
-    if (height < 1000)
-      fill(0, 255, 0);
-    text(+ bullets, leftMargin +assetManager.bullethud().width+width/100, height/7.5);
-    developerMode();
-    showPause();
-  }
+ 
 
   void showBar() {
     stroke(0);
@@ -166,6 +149,23 @@ class ScoreManager
       textAlign(CENTER);
       text("Paused", width/2, height/2);
     }
+  }
+   void display() 
+  {
+    showBar();
+    textFont(newFont);
+    showLanterns();
+    equipLanternTxt();
+    showScore();
+    imageMode(CORNER);
+    image(assetManager.bullethud(), leftMargin, height/9);
+    textAlign(LEFT);
+    textSize(30);
+    if (height < 1000)
+      fill(0, 255, 0);
+    text(+ bullets, leftMargin +assetManager.bullethud().width+width/100, height/7.5);
+    developerMode();
+    showPause();
   }
 
   int bullets() 

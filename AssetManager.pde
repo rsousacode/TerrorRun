@@ -1,18 +1,19 @@
-class AssetManager 
-{
+class AssetManager {
   private int numFrames = 38;  // The number of frames in the animation
+  private boolean removeCursor = false;
+
   private long currentFrame;
   private int counter;
-  private boolean removeCursor = false;
+  private PFont font;
   private PImage cursorImage;
   private PImage backgroundMenu;
   private PImage title;
   private PImage helpButton;
-  private PImage youlost;
+  private PImage skullAndCup;
   private PImage return2menu;
   private PImage exitSys;
-  private PImage play;
-  private PImage helpCurrent;
+  private PImage playButton;
+  private PImage showHelp;
   private PImage transcursor;
   private PImage playerImage;
   private PImage enemyImage;
@@ -27,35 +28,32 @@ class AssetManager
   private PImage soundMenuButton;
   private PImage soundMenuButtonOff;
   private PImage[] images = new PImage[numFrames];
-  private PFont font;
-
-
 
   AssetManager() 
-  {
+  {    
     font = createFont("data/Lycanthrope.ttf", 14, true);
     cursorImage= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/menu/background4.jpg");
     title = loadImage("data/images/menu/title.png");
-    return2menu = loadImage("data/images/menu/return.png");
     helpButton = loadImage("data/images/menu/help21.png");
-    helpCurrent = loadImage("data/images/menu/help.png");
-    play=loadImage("data/images/menu/play2.png");
+    skullAndCup = loadImage("data/images/menu/you_lost.png");
+    return2menu = loadImage("data/images/menu/return.png");
+    playButton=loadImage("data/images/menu/play2.png");
     exitSys=loadImage("data/images/menu/exit.png");
-    soundMenuButton = loadImage("data/images/menu/sound.png");
-    soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
-    youlost = loadImage("data/images/menu/you_lost.png");
+    showHelp = loadImage("data/images/menu/help.png");
     transcursor= loadImage("data/images/transcursor.png");
     playerImage =    loadImage("data/images/skeleton.png");
     enemyImage = loadImage("data/images/ghost.png");
     lowBateryImage =   loadImage("data/images/battery.png");
     highBateryImage= loadImage("data/images/battery2.png");
     flashlightImage= loadImage("data/images/flashlight.png");
+    hudlantern = loadImage("data/images/hud-flash.png");
     scarygirlImage= loadImage("data/images/scarygirl.png");
     ghostBullet = loadImage("data/images/bone.png");
     bullethudImage = loadImage("data/images/bullhd.png");
-    hudlantern = loadImage("data/images/hud-flash.png");
     packfiveImage = loadImage("data/images/packfive.png");
+    soundMenuButton = loadImage("data/images/menu/sound.png");
+    soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
     catchBattery=audio.loadFile("data/sounds/pop.wav");
     scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
@@ -71,32 +69,19 @@ class AssetManager
     ghostbullet = audio.loadFile(  "data/sounds/ghostbullet.wav");
     malelaugh = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
     lightson = audio.loadFile(  "data/sounds/lightson.wav"); 
-    playMusic();
+    PlayBackgroundMusic();
   }
 
-  void playMusic() 
-  {
-    backgroundmusic.loop();
-  }
+
 
   PFont font() 
   {
     return font;
   }
 
-  PImage youlost() {
-
-    return youlost;
-  }
-
-  PImage hudLantern() 
+  PImage cursorImage() 
   {
-    return hudlantern;
-  }
-
-  PImage soundMenuButtonOff() 
-  {
-    return soundMenuButtonOff;
+    return cursorImage;
   }
 
   PImage backgroundMenu() 
@@ -109,24 +94,18 @@ class AssetManager
     return title;
   }
 
-  PImage return2menu() 
-  {
-    return return2menu;
-  }
-
   PImage help() {
     return helpButton;
   }
 
-  PImage soundButton() 
-  {
+  PImage youlost() {
 
-    return soundMenuButton;
+    return skullAndCup;
   }
 
-  PImage helpCurrent() 
+  PImage return2menu() 
   {
-    return helpCurrent;
+    return return2menu;
   }
 
   PImage exitSys()
@@ -134,14 +113,16 @@ class AssetManager
     return exitSys;
   }
 
+
   PImage play() 
   {
-    return play;
+    return playButton;
   }
 
-  PImage cursorImage() 
+
+  PImage helpCurrent() 
   {
-    return cursorImage;
+    return showHelp;
   }
 
   PImage transcursor() 
@@ -154,24 +135,9 @@ class AssetManager
     return playerImage;
   }
 
-  int playerHeight() 
-  {
-    return playerImage.width;
-  }
-
-  int playerWidth() 
-  {
-    return playerImage.height;
-  }
-
   PImage enemyImage() 
   {
     return enemyImage;
-  }
-
-  PImage ghostBullet() 
-  {
-    return ghostBullet;
   }
 
   PImage lowBateryImage() 
@@ -179,14 +145,19 @@ class AssetManager
     return lowBateryImage;
   }
 
+  PImage highBateryImage() 
+  {
+    return highBateryImage;
+  }
+
   PImage flashlightImage() 
   {
     return flashlightImage;
   }
 
-  PImage highBateryImage() 
+  PImage hudLantern() 
   {
-    return highBateryImage;
+    return hudlantern;
   }
 
   PImage scarygirlImage() 
@@ -194,9 +165,9 @@ class AssetManager
     return scarygirlImage;
   }
 
-  PImage packfiveImage() 
+  PImage ghostBullet() 
   {
-    return packfiveImage;
+    return ghostBullet;
   }
 
   PImage bullethud() 
@@ -204,67 +175,40 @@ class AssetManager
     return bullethudImage;
   }
 
-  void soundEquipLantern() 
+  PImage packfiveImage() 
   {
-    if (soundActivated) 
+    return packfiveImage;
+  }
+
+  PImage soundButton() 
+  {
+
+    return soundMenuButton;
+  }
+
+  PImage soundMenuButtonOff() 
+  {
+    return soundMenuButtonOff;
+  }
+
+
+  void animatePlayerSides() {
+    if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right &&(jumpActivated) || !controller.left && controller.up && controller.right &&(jumpActivated) ||  controller.left && controller.up && controller.right &&(jumpActivated) || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right &&(jumpActivated))
+      image(assetManager.images[3], 0, 0);
+    else   
+    image(assetManager.images[counter], 0, 0);
+    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) 
     {
-      lightson.rewind();
-      lightson.play();
-    }
+
+      if (controlsEnabled && !gamePaused)
+        counter ++;
+      if (counter > 37)
+        counter=0;
+    } else image(assetManager.images[counter], 0, 0);
   }
 
-  void soundCatchBattery() 
-  {
-    if (soundActivated) {
-      catchBattery.rewind();
-      catchBattery.play();
-    }
-  }
 
-  void soundCatchLantern() 
-  {
-    if (soundActivated) {
-      catchlantern.rewind();
-      catchlantern.play();
-    }
-  }
 
-  void soundVannish() 
-  {
-    if (soundActivated) 
-    {
-      vannish.rewind();
-      vannish.play();
-    }
-  }
-
-  void  soundMaleLaugh() 
-  {
-    if (soundActivated) 
-    {
-      malelaugh.rewind();
-      malelaugh.play();
-    }
-  }
-
-  void soundGirlaugh() 
-  {
-
-    if (soundActivated) 
-    {
-      scarygirlLaugh.rewind();
-      scarygirlLaugh.play();
-    }
-  }
-
-  void soundGhostBullet() 
-  {
-    if (soundActivated) 
-    {
-      ghostbullet.rewind();
-      ghostbullet.play();
-    }
-  }
 
 
   void stopAudio() {
@@ -288,20 +232,6 @@ class AssetManager
   }
 
 
-  void animatePlayerSides() {
-    if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
-      image(assetManager.images[3], 0, 0);
-    else   
-    image(assetManager.images[counter], 0, 0);
-    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) 
-    {
-
-      if (controlsEnabled && !gamePaused)
-        counter ++;
-      if (counter > 37)
-        counter=0;
-    } else image(assetManager.images[counter], 0, 0);
-  }
 
 
   void WalkingAnimationSIdes() 
@@ -328,6 +258,75 @@ class AssetManager
     else 
     {
       cursor((assetManager.cursorImage.copy()));
+    }
+  }
+
+  void PlayBackgroundMusic() 
+  {
+    backgroundmusic.loop();
+  }
+
+  void soundCatchBattery() 
+  {
+    if (soundActivated) {
+      catchBattery.rewind();
+      catchBattery.play();
+    }
+  }
+
+  void soundGirlaugh() 
+  {
+
+    if (soundActivated) 
+    {
+      scarygirlLaugh.rewind();
+      scarygirlLaugh.play();
+    }
+  }
+
+  void soundCatchLantern() 
+  {
+    if (soundActivated) {
+      catchlantern.rewind();
+      catchlantern.play();
+    }
+  }
+
+  void soundVannish() 
+  {
+    if (soundActivated) 
+    {
+      vannish.rewind();
+      vannish.play();
+    }
+  }
+
+
+  void soundGhostBullet() 
+  {
+    if (soundActivated) 
+    {
+      ghostbullet.rewind();
+      ghostbullet.play();
+    }
+  }
+
+  void  soundMaleLaugh() 
+  {
+    if (soundActivated) 
+    {
+      malelaugh.rewind();
+      malelaugh.play();
+    }
+  }
+
+
+  void soundEquipLantern() 
+  {
+    if (soundActivated) 
+    {
+      lightson.rewind();
+      lightson.play();
     }
   }
 }
