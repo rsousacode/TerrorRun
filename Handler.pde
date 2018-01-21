@@ -170,7 +170,7 @@ class Handler  //<>//
       entriesRight.add(new Rectangle(entryRightObject));
 
     for (StringDict leftTriggerObject : map.leftTriggerPos)
-      triggersLeft.add(new Rectangle(leftTriggerObject)); 
+      triggersLeft.add(new Rectangle(leftTriggerObject));
   }
 
 
@@ -205,10 +205,8 @@ class Handler  //<>//
       Rectangle rg = obj.RectangleAreaCollision() ; 
       if (rg!=null) {
         jumpActivated =!true;
-      } 
+      }
     }
-
-
   }
 
   void objectsCemitery() 
@@ -272,11 +270,10 @@ class Handler  //<>//
       obj.update(); 
       Ghost en = obj.collisionPlayer(); 
       if (en != null) {
-        assetManager.soundVannish();
+        assetManager.soundMaleLaugh();
         buffer4.add(en);
         //  PVector ghostPos = new PVector( en.position().x, en.position().x);
         dying =true;
-
         dieTime.start();
         controlsEnabled=false;
       } else dying=false;
