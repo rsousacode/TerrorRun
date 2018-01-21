@@ -62,16 +62,17 @@ class Darkning
   void update() 
   {
     if (!turnOffDarkning) { 
-      if (!devmode && controlsEnabled || !gamePaused) 
+      if (!devmode  &&!gamePaused) 
       {
         diameter-=DecreaseRate();
         diameter = constrain(diameter, 0, height*2);
         smoothedDiameter = 0.95 * smoothedDiameter + 0.05 * diameter;
-        if ( smoothedDiameter<=100) 
-        {
-          state=STATE_END;
-        }
       }
+    }
+
+    if ( smoothedDiameter<5) 
+    {
+      state=STATE_END;
     }
   }
 

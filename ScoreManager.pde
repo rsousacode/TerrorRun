@@ -3,7 +3,7 @@ class ScoreManager
   private PFont newFont;
   float value, max;
   private float leftMargin, upperMargin, h, barHeight;
-  private  color  bar, backgroundbar;
+  color  bar, backgroundbar;
   private int lanterns = 4; 
   private int bullets = 10;
   private int score=0;
@@ -25,16 +25,33 @@ class ScoreManager
   }
   void display() 
   {
+
+    showBar();
+    textFont(newFont);
+    showLanterns();
+    equipLanternTxt();
+    showScore();
+    imageMode(CORNER);
+    image(assetManager.bullethud(), leftMargin, height/9);
+    textAlign(LEFT);
+    textSize(30);
+    if (height < 1000)
+      fill(0, 255, 0);
+    text(+ bullets, leftMargin +assetManager.bullethud().width+width/100, height/7.5);
+    developerMode();
+    showPause();
+  }
+
+  void showBar() {
     stroke(0);
     resetMatrix();
     rectMode(CORNER);
-    fill(backgroundbar);
     fill(bar);
     if (!turnOffDarkning)
       rect(leftMargin, upperMargin-h/3.4, darkning.smoothedDiameter/6, barHeight/1.89);
-    textFont(newFont, 16);
-    fill(255);
-    textAlign(LEFT);
+  }
+
+  void showLanterns() {
     if (!turnOffDarkning) 
     {
       if (lanterns==2) // actually it's 1 lanterns
@@ -80,25 +97,26 @@ class ScoreManager
         image(image, width-marginLantern-image.height*6, upperMargin, 32, 32);
       }
     }
+  }
 
+  void equipLanternTxt() {
     if (darkning.diameter < 700 && scoreManager.lanterns!=1) 
     {
       textSize(32);
       textAlign(CENTER);
-      if (!devmode)
+      if (!devmode && controlsEnabled)
         text("Press 'Q' to equip a new lantern", width/2, height-height/15);
     }
+  }
+
+  void showScore() {
     textAlign(LEFT);
-    textSize(30);
+    textSize(40);
     fill(bar);
     text("Score: " + score, leftMargin, height/1.05);
-    imageMode(CORNER);
-    image(assetManager.bullethud(), leftMargin, height/9);
-    textAlign(LEFT);
-    textSize(30);
-    if (height < 1000)
-      fill(0, 255, 0);
-    text(+ bullets, leftMargin +assetManager.bullethud().width+width/100, height/7.5);
+  }
+
+  void developerMode() {
     if (devmode) 
     {
       textAlign(LEFT);
@@ -140,11 +158,13 @@ class ScoreManager
       text("Press 'Y' to increase Y velocity", width- width/50, height-height/6);
       text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
+  }
 
+  void showPause() {
     if (gamePaused) {
-      textSize(32);
-      textAlign(LEFT);
-      text("Paused", leftMargin, height/7);
+      textSize(66);
+      textAlign(CENTER);
+      text("Paused", width/2, height/2);
     }
   }
 

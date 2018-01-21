@@ -80,7 +80,7 @@ class Controller
 
         if (key =='r' || key =='R') 
         {
-          player.setPositionTo(624, 1184);
+          player.setPositionTo(5536, 3040);
         }
         if (key == 'X' || key == 'x')
           player.WalkSpeed++;

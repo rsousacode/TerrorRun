@@ -23,6 +23,7 @@ class Handler
   private  ArrayList<Flashlight>[] flashlightss = (ArrayList<Flashlight>[])new ArrayList[homesGenerated];
   private  ArrayList<Scarygirl>[] scarygirlss = (ArrayList<Scarygirl>[])new ArrayList[homesGenerated];
   private ArrayList<BulletsPackFive>[] packfives = (ArrayList<BulletsPackFive>[])new ArrayList[homesGenerated];
+  boolean dying=false;
 
   Handler() 
   {
@@ -173,7 +174,6 @@ class Handler
     for (Rectangle obj : exitsRight) 
     {
       Rectangle rec = obj.collision(); 
-
       if (rec != null) 
       {
         playerIsAt++; 
@@ -185,11 +185,9 @@ class Handler
     for (Rectangle obj : entriesLeft) 
     {
       Rectangle rec = obj.collision(); 
-
       if (rec != null) 
       {
         playerIsAt--; 
-
         player.setPositionTo(exitsLeft.get(casas[playerIsAt]).x+64+16, exitsLeft.get(casas[playerIsAt]).y+exitsLeft.get(0).h/2); 
         camera.telleportCamera();
       }
@@ -260,9 +258,11 @@ class Handler
         assetManager.soundVannish();
         buffer4.add(en);
         //  PVector ghostPos = new PVector( en.position().x, en.position().x);
+        dying =true;
+
         dieTime.start();
         controlsEnabled=false;
-      }
+      } else dying=false;
       Ghost aw = obj.cullisionBullets(); 
       if  (aw!=null) {
         scoreManager.killGhosts();
@@ -280,8 +280,9 @@ class Handler
         controlsEnabled=!controlsEnabled;
         assetManager.soundGirlaugh();
         buffer11.add(sg);
+        dying =true;
         dieTime.start();
-      }
+      } else dying=false;
 
       Scarygirl bs = obj.collisionBullets();
       if (bs!=null) {
@@ -380,7 +381,10 @@ class Handler
 
   void dieAction() 
   {
-    if (dieTime.second()>2.5)
+
+    if (dieTime.second()>0.1)
+      darkning.diameter=-3;
+    if (dieTime.second()>3.8)
       state = STATE_END;
   }
 
