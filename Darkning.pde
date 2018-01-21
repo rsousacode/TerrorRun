@@ -62,7 +62,7 @@ class Darkning
   void update() 
   {
     if (!turnOffDarkning) { 
-      if (!devmode  &&!gamePaused) 
+      if (!devmode  && !gamePaused) 
       {
         diameter-=DecreaseRate();
         diameter = constrain(diameter, 0, height*2);

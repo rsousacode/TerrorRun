@@ -57,8 +57,8 @@ Map map;
 void settings() 
 {
   smooth(33);
-  fullScreen(P2D);
-  //size(800, 600); //Tested
+ fullScreen(P2D); // Tested
+//size(800,600, P2D); //Tested, player is more fast but still playable
 }
 
 void setup()
