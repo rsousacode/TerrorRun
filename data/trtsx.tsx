@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="TiledMixTR" tilewidth="64" tileheight="64" tilecount="20" columns="0">
+<tileset name="TiledMixTR" tilewidth="64" tileheight="64" tilecount="21" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="64" height="64" source="../data/images/sprites/slice03_03.png"/>
@@ -69,5 +69,8 @@
  </tile>
     <tile id="20">
   <image width="254" height="128" source="../data/images/sprites/Lightl.png"/>
+ </tile>
+    <tile id="21">
+  <image width="64" height="64" source="../data/images/sprites/invspikes.png"/>
  </tile>
 </tileset>

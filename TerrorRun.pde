@@ -7,7 +7,7 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-boolean allowDevMode = false;
+boolean allowDevMode = true;
 private boolean devmode = false;
 private boolean turnOffDarkning = false;
 private boolean controlsEnabled=true;

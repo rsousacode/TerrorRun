@@ -272,7 +272,7 @@ class Handler  //<>//
         assetManager.soundMaleLaugh() ;
         dieTime.start();
         controlsEnabled=false;
-        // buffer4.add(en);
+        buffer4.add(en);
         //  PVector ghostPos = new PVector( en.position().x, en.position().x);
       }
       Ghost aw = obj.cullisionBullets(); 
