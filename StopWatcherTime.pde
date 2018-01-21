@@ -17,8 +17,7 @@ class StopWatchTimer
     int elapsed;
     if (running) {
       elapsed = (millis() - startTime);
-    }
-    else {
+    } else {
       elapsed = (stopTime - startTime);
     }
     return elapsed;

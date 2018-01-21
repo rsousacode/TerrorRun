@@ -39,24 +39,29 @@ class Menu
     image(assetManager.creditsButton(), creditsVector.x, creditsVector.y, width/9, width/9);
   }
 
-  void checkMouseOverButtons() {
+  void checkMouseOverButtons() 
+  {
     PVector mouseVector2 = new PVector(mouseX, mouseY);
-    if (playVector.dist(mouseVector2) <= pixelRadius) {
+    if (playVector.dist(mouseVector2) <= pixelRadius) 
+    {
       overCredits=false; 
       OverHelp=false; 
       OverPlay=true;
-    } else if (helpVector.dist(mouseVector2) <= pixelRadius) {
+    } else if (helpVector.dist(mouseVector2) <= pixelRadius) 
+    {
       overCredits=false; 
       OverPlay=false;
       OverTitle=false;
 
       OverHelp=true;
-    } else if (titleVector.dist(mouseVector2) <= pixelRadius) {
+    } else if (titleVector.dist(mouseVector2) <= pixelRadius) 
+    {
       OverTitle=true;
       OverPlay=false;
       OverHelp=false;
       overCredits=false;
-    } else if (creditsVector.dist(mouseVector2) <=pixelRadius) {
+    } else if (creditsVector.dist(mouseVector2) <=pixelRadius) 
+    {
       OverTitle=false;
       OverPlay=false;
       OverHelp=false;
@@ -67,7 +72,7 @@ class Menu
       OverPlay=false;
       overCredits=false;
     }
-   
+
     if ( OverHelp!=false) 
     {
       image(assetManager.helpButton(), helpVector.x, helpVector.y, width/6, width/6);
@@ -87,32 +92,36 @@ class Menu
   }
 
 
-String checkButtons()
-{
-  String result = "";
-  PVector mouseVector = new PVector(mouseX, mouseY);
+  String checkButtons()
+  {
+    String result = "";
+    PVector mouseVector = new PVector(mouseX, mouseY);
 
-  if (playVector.dist(mouseVector) <= pixelRadius) {
-    result = "play";
+    if (playVector.dist(mouseVector) <= pixelRadius) 
+    {
+      result = "play";
+    }
+    if (helpVector.dist(mouseVector) <= pixelRadius) 
+    {
+      result = "help";
+    }
+    if (exitVector.dist(mouseVector) <= pixelRadius/2) 
+    {
+      result = "exit";
+    }
+    if (soundVector.dist(mouseVector) <= pixelRadius) 
+    {
+      result = "sound";
+    }
+    if (creditsVector.dist(mouseVector) <= pixelRadius) 
+    {
+      result = "credits";
+    }
+    return result;
   }
-  if (helpVector.dist(mouseVector) <= pixelRadius) {
-    result = "help";
-  }
-  if (exitVector.dist(mouseVector) <= pixelRadius/2) {
-    result = "exit";
-  }
-  if (soundVector.dist(mouseVector) <= pixelRadius) {
-    result = "sound";
-  }
-  if(creditsVector.dist(mouseVector) <= pixelRadius) {
-    result = "credits"; 
-    
-  }
-  return result;
-}
 
-void update() 
-{
-  checkMouseOverButtons();
-}
+  void update() 
+  {
+    checkMouseOverButtons();
+  }
 }

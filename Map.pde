@@ -34,7 +34,6 @@ class Map {
     pack5bulletsPos = map.getObjects(13);
     leftTriggerPos= map.getObjects(14);
     rightTriggerPos = map.getObjects(15);
-    
   }
   void display() 
   {

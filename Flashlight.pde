@@ -17,7 +17,7 @@ class Flashlight  extends GameObject
   {
   }
 
-  Flashlight collision2() 
+  Flashlight collisionPlayer() 
   {
     Flashlight fl = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)

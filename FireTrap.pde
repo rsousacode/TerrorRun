@@ -14,7 +14,7 @@ class FireTrap extends GameObject
   {
   }
 
-  FireTrap  PlayerColidingTraps()
+  FireTrap  collisionPlayer()
   {
     FireTrap fa=null;
     float objX =0;

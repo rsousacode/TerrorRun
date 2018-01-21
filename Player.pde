@@ -10,7 +10,8 @@ class Player  extends GameObject
   int WalkSpeed;
   int direction;
 
-  Player(int x, int y, PVector velocity, ID id) {
+  Player(int x, int y, PVector velocity, ID id) 
+  {
     super(x, y, assetManager.skeleton().width, assetManager.skeleton().height, 1, 1, id);
     WalkSpeed = (int)3.8;
 
@@ -23,12 +24,14 @@ class Player  extends GameObject
     assetManager.WalkingAnimationSIdes();
   }
 
-  int pwidth() {
+  int pwidth() 
+  {
 
     return Pwidth;
   }
 
-  int pheight() {
+  int pheight() 
+  {
 
     return Pheight;
   }
@@ -39,7 +42,8 @@ class Player  extends GameObject
   }
 
 
-  void draw() { 
+  void draw() 
+  { 
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
@@ -67,7 +71,8 @@ class Player  extends GameObject
       float hi = Math.min ((position().y-Pheight/2)+ Pheight, objY + objHeight) - yi;
       if (wi >= 0 && hi >= 0)
       {
-        if (wi > hi) {
+        if (wi > hi) 
+        {
 
 
           CheckVertical(objY, yi, objHeight);
@@ -80,7 +85,8 @@ class Player  extends GameObject
     }
   }
 
-  void checkColliders() { 
+  void checkColliders() 
+  { 
     if (controlsEnabled && !gamePaused) 
     {
       velocity.add( new PVector(0, .5).mult(0.999)); 

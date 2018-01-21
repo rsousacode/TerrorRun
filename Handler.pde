@@ -214,7 +214,7 @@ class Handler  //<>//
     for (LowBattery obj : lowbatteries[playerIsAt]) 
     {           
       obj.update(); 
-      LowBattery bg = obj.collision(); 
+      LowBattery bg = obj.collisionPlayer(); 
       if (bg != null) {
         scoreManager.catchLowBattery();
         buffer.add(bg);
@@ -226,7 +226,7 @@ class Handler  //<>//
     for (HighBattery obj : highbatteries[playerIsAt]) 
     {
       obj.update(); 
-      HighBattery bg2 = obj.collision2(); 
+      HighBattery bg2 = obj.collisionPlayer(); 
       if (bg2 != null) {
         scoreManager.catchHighBattery();
         buffer2.add(bg2);
@@ -239,7 +239,7 @@ class Handler  //<>//
     for (Flashlight obj : flashlightss[playerIsAt]) 
     {
       obj.update(); 
-      Flashlight fl = obj.collision2(); 
+      Flashlight fl = obj.collisionPlayer(); 
       if (fl != null) {
         assetManager.soundCatchLantern();
 
@@ -307,7 +307,7 @@ class Handler  //<>//
     for (FireTrap obj : firetraps) 
     {
       obj.update(); 
-      FireTrap fa = obj.PlayerColidingTraps(); 
+      FireTrap fa = obj.collisionPlayer(); 
       if (fa != null) {
         controlsEnabled=false;
         assetManager.soundMaleLaugh();
