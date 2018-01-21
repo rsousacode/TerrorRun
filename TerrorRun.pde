@@ -7,6 +7,7 @@ import ddf.minim.ugens.*;
 boolean turnOffDarkning = false;
 boolean devmode = false;
 boolean controlsEnabled=true;
+boolean soundActivated = true;
 
 int state;
 final int STATE_MENU=1;
@@ -25,7 +26,7 @@ AudioPlayer malelaugh;
 AudioPlayer lightson;
 AudioPlayer backgroundmusic;
 AudioPlayer jumpEffect;
-AudioPlayer coinEffect;
+AudioPlayer catchBattery;
 AudioPlayer scarygirlLaugh;
 AudioPlayer catchlantern;
 AudioPlayer vannish;
@@ -48,8 +49,8 @@ Map map;
 
 void settings() {
   smooth(33);
-  //fullScreen(P2D);
-  size(800, 600, P2D);
+  fullScreen(P2D);
+ // size(800, 600, P2D);
   //size(400,300);
 }
 
@@ -90,6 +91,7 @@ void draw()
   if (state== STATE_MENU ) {
     menu.display();
     menu.update();
+    controller.apply();
   } else if (state== STATE_HELP ) {
     help.display();
   } else if ( state== STATE_GAME) {
@@ -141,12 +143,16 @@ void StatesInter() {
     switch(result)
     {
     case "help":
-      setState(STATE_HELP);
+      //setState(STATE_HELP);
+      soundActivated=!soundActivated;
+      assetManager.stopAndPlay();
+
       break;
     }
     switch(result)
     {
     case "exit":
+      assetManager.stopAudio();
       exit();
       break;
     }
@@ -170,6 +176,7 @@ void StatesInter() {
     }
   }
 }
+
 
 void keyPressed() {
   controller.keyPressed(key);

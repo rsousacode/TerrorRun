@@ -2,6 +2,7 @@ class Menu
 {
   PVector playVector, titleVector, helpVector, exitVector;
   int pixelRadius;
+  
   boolean   OverHelp=false;
   boolean   OverPlay=false;
   boolean   OverTitle=false;
@@ -33,6 +34,7 @@ class Menu
     }
     if (helpVector.dist(mouseVector) <= pixelRadius) {
       result = "help";
+     // soundActivated=!soundActivated;
     }
     if (exitVector.dist(mouseVector) <= pixelRadius/2) {
       result = "exit";

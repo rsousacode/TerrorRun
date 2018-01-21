@@ -22,8 +22,8 @@ class BulletsPackFive  extends GameObject
     BulletsPackFive bp = null;
     if (dist(player.position().x, player.position().y, position().x, position().y + player.image.height/2)< player.image.width/2+player.image.height/2)
     { 
-      coinEffect.rewind();
-      coinEffect.play();
+      catchBattery.rewind();
+      catchBattery.play();
       bp = this;
       hud.setBullets(hud.bullets()+5);
     }

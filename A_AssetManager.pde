@@ -1,6 +1,8 @@
 class AssetManager {
   int numFrames = 38;  // The number of frames in the animation
   long currentFrame;
+  int counter;
+
   boolean removeCursor = false;
   //***//MENU's IMAGES//***//
   private PImage cursorImage;
@@ -21,7 +23,8 @@ class AssetManager {
   private PImage ghostBullet;
   private PImage bullethudImage;
   private PImage packfiveImage;
-  
+  boolean musicPlaying=false;
+
   PImage[] images = new PImage[numFrames];
 
 
@@ -48,13 +51,13 @@ class AssetManager {
     bullethudImage = loadImage("data/images/bullhd.png");
     packfiveImage = loadImage("data/images/packfive.png");
     backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
-    coinEffect=audio.loadFile("data/sounds/pop.wav");
+    catchBattery=audio.loadFile("data/sounds/pop.wav");
     scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
     catchlantern = audio.loadFile("data/sounds/catchlantern.wav");
     vannish = audio.loadFile("data/sounds/vannish.wav");
     vannishgirl = audio.loadFile (  "data/sounds/vannishgirl.wav");
     backgroundmusic=audio.loadFile(  "data/sounds/sample.mp3");
-    coinEffect=audio.loadFile(  "data/sounds/pop.wav");
+    catchBattery=audio.loadFile(  "data/sounds/pop.wav");
     scarygirlLaugh = audio.loadFile(  "data/sounds/scgl.wav");
     catchlantern = audio.loadFile(  "data/sounds/catchlantern.wav");
     vannish = audio.loadFile(  "data/sounds/vannish.wav");
@@ -62,7 +65,13 @@ class AssetManager {
     ghostbullet = audio.loadFile(  "data/sounds/ghostbullet.wav");
     malelaugh = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
     lightson = audio.loadFile(  "data/sounds/lightson.wav"); 
+    playMusic();
+  }
+
+  void playMusic() {
     backgroundmusic.loop();
+
+    musicPlaying=true;
   }
 
 
@@ -146,37 +155,123 @@ class AssetManager {
     return bullethudImage;
   }
 
-
-  void WalkingAnimationSIdes() {
-    for (int i = 0; i < numFrames; i++) {
-      images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
+  void soundEquipLantern() {
+    if (soundActivated) {
+      lightson.rewind();
+      lightson.play();
     }
   }
 
-
-  void Cursordisplay() {
-    if (state==STATE_GAME) {
-      removeCursor =true;
-    } else {
-      removeCursor =false;
-    }
-
-    if (removeCursor)
-      cursor((assetManager.transcursor.copy()));
-    else {
-      cursor((assetManager.cursorImage.copy()));
+  void soundCatchBattery() {
+    if (soundActivated) {
+      catchBattery.rewind();
+      catchBattery.play();
     }
   }
 
-  void removeCursor() {
-    noCursor();
+  void soundCatchLantern() {
+    if (soundActivated) {
+      catchlantern.rewind();
+      catchlantern.play();
+    }
+  }
+
+  void soundVannish() {
+    if (soundActivated) {
+      vannish.rewind();
+      vannish.play();
+    }
+  }
+
+  void  soundMaleLaugh() {
+    if (soundActivated) {
+      malelaugh.rewind();
+      malelaugh.play();
+    }
+  }
+
+  void soundGirlaugh() {
+
+    if (soundActivated) {
+      scarygirlLaugh.rewind();
+      scarygirlLaugh.play();
+    }
+  }
+
+  void soundGhostBullet() {
+    if (soundActivated) {
+      ghostbullet.rewind();
+      ghostbullet.play();
+    }
+  }
+  
+  
+void stopAudio() {
+  
+  backgroundmusic.close();
+  ghostbullet.close();
+  malelaugh.close();
+  vannish.close();
+  catchlantern.close();
+  catchBattery.close();
+  lightson.close();
+  
+}
+
+  void stopAndPlay() {
+    if (backgroundmusic.isPlaying()) 
+    {
+      backgroundmusic.pause();
+    } else 
+    backgroundmusic.loop();
   }
 
 
-  //void stop() {
+void animatePlayerSides() {
 
-  //  backgroundmusic.close();
-  //  coinEffect.close();
-  //  audio.stop();
-  //}
+  if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
+    image(assetManager.images[3], 0, 0);
+  else   
+  image(assetManager.images[counter], 0, 0);
+  if (System.currentTimeMillis() - assetManager.currentFrame >= 5) {
+    if (controlsEnabled)
+      counter ++;
+    if (counter > 37)
+      counter=0;
+  } else image(assetManager.images[counter], 0, 0);
+}
+
+
+void WalkingAnimationSIdes() {
+  for (int i = 0; i < numFrames; i++) {
+    images[i] = loadImage("data/images/animation/pl " + (i + 1) + ".png");
+  }
+}
+
+
+void Cursordisplay() {
+  if (state==STATE_GAME) {
+    removeCursor =true;
+  } else {
+    removeCursor =false;
+  }
+
+  if (removeCursor)
+    cursor((assetManager.transcursor.copy()));
+  else {
+    cursor((assetManager.cursorImage.copy()));
+  }
+}
+
+void removeCursor() {
+  noCursor();
+}
+
+
+//void stop() {
+
+//  backgroundmusic.close();
+//  coinEffect.close();
+//  audio.stop();
+//}
 }

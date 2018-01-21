@@ -38,7 +38,7 @@ class Bullet {
     popMatrix();
   }
 
-  Bullet collision1() {
+  Bullet removeBullets() {
     Bullet bl = null;
     if ( position.y > camera.position.y+height/2)
     {

@@ -1,5 +1,5 @@
 class Handler {
-  StopWatchTimer sw;
+  StopWatchTimer dieTime;
   ArrayList<Ghost> ghosts;
   ArrayList<Scarygirl> scarygirls;
   ArrayList<FireTrap> firetraps;
@@ -28,8 +28,7 @@ class Handler {
   Handler() {
 
     randomFunction();
-    sw = new StopWatchTimer();
-
+    dieTime = new StopWatchTimer();
     lowBatteries = new ArrayList<LowBattery>();
     highBatteries = new ArrayList<HighBattery>();
     flashlights = new ArrayList <Flashlight>();
@@ -53,15 +52,15 @@ class Handler {
   void randomFunction() 
   {
 
-  for (int i = 0; i < homes.length; i++) {
+    for (int i = 0; i < homes.length; i++) {
       float r = random(4, 6);
       homes[0]=0;
       if (i < 3)
-      r= random(1,3);
-      else if(i < 6 )
-      r =random(2,4);
+        r= random(1, 3);
+      else if (i < 6 )
+        r =random(2, 4);
       else if (i >= 6)
-      r = random(4,7);
+        r = random(4, 7);
       homes[i] = (int)r;
     }
   }
@@ -200,60 +199,6 @@ class Handler {
     }
   }
 
-  void displayBatteries() {
-
-    for (LowBattery obj : lowbatteries[playerIsAt]) 
-    {
-
-      obj.display();
-    }
-
-    for (HighBattery obj : highbatteries[playerIsAt])
-      obj.display(); 
-
-    for (Flashlight obj : flashlightss[playerIsAt])
-      obj.display(); 
-
-    for (BulletsPackFive obj : packfives[playerIsAt])
-      obj.display();
-  }
-
-  void displayEnemies() {
-
-    for (Ghost obj : ghostss[playerIsAt])
-      obj.display(); 
-    for (Scarygirl obj : scarygirlss[playerIsAt])
-      obj.display(); 
-
-
-
-    for (Bullet obj : bullets) {
-      obj.display();
-    }
-  }
-
-  void displayTraps() 
-  {
-    for (FireTrap obj : firetraps)
-      obj.display();
-  }
-
-
-  void update() 
-  {
-    TimerActions();
-
-    objectsCemitery(); 
-    telleCollision();
-  }
-
-  void display() 
-  {
-    displayBatteries(); 
-    displayEnemies(); 
-    displayTraps();
-  }
-
   void objectsCemitery() 
   {
     ArrayList<LowBattery> buffer = new ArrayList<LowBattery>(); 
@@ -263,6 +208,10 @@ class Handler {
       LowBattery bg = obj.collision(); 
       if (bg != null) {
         buffer.add(bg);
+        if (soundActivated) {
+          catchBattery.rewind();
+          catchBattery.play();
+        }
       }
     }
     lowbatteries[playerIsAt].removeAll(buffer); 
@@ -274,24 +223,21 @@ class Handler {
       HighBattery bg2 = obj.collision2(); 
       if (bg2 != null) {
         buffer2.add(bg2);
+        assetManager.soundCatchBattery();
       }
     }
     highbatteries[playerIsAt].removeAll(buffer2); 
 
-
-
-    //for (FireTrap obj : firetraps) 
-    //{
-    //  obj.update();
-    //}
 
     ArrayList<Flashlight> buffer7 = new ArrayList<Flashlight>(); 
     for (Flashlight obj : flashlightss[playerIsAt]) 
     {
       obj.update(); 
       Flashlight fl = obj.collision2(); 
-      if (fl != null)
+      if (fl != null) {
         buffer7.add(fl);
+        assetManager.soundCatchLantern();
+      }
     }
 
     flashlightss[playerIsAt].removeAll(buffer7); 
@@ -316,18 +262,14 @@ class Handler {
       if (en != null) {
 
         buffer4.add(en);
-        PVector ghostPos = new PVector( en.position().x, en.position().x);
-        sw.start();
+        //  PVector ghostPos = new PVector( en.position().x, en.position().x);
+        dieTime.start();
         controlsEnabled=false;
-        vannish.rewind();
-        vannish.play();
-        // if (sw.second()<4)
-        //state = STATE_END;
+        assetManager.soundVannish();
       }
       Ghost aw = obj.cullisionBullets(); 
       if  (aw!=null) {
         buffer4.add(aw);
-        // sw.start(); //other timer
       }
     }
     ghostss[playerIsAt].removeAll(buffer4); 
@@ -339,12 +281,12 @@ class Handler {
       Scarygirl sg = obj.collisionPlayer(); 
       if (sg != null) {
         controlsEnabled=!controlsEnabled;
-        scarygirlLaugh.play();
+        assetManager.soundGirlaugh();
         buffer11.add(sg);
-        sw.start();
+        dieTime.start();
       }
 
-      Scarygirl bs = obj.collision5();
+      Scarygirl bs = obj.collisionBullets();
       if (bs!=null) {
         buffer11.add(bs);
       }
@@ -355,13 +297,12 @@ class Handler {
     for (FireTrap obj : firetraps) 
     {
       obj.update(); 
-      FireTrap fa = obj.collisionPlayer(); 
+      FireTrap fa = obj.PlayerColidingTraps(); 
       if (fa != null) {
         controlsEnabled=false;
-        malelaugh.play();
-        malelaugh.rewind();
+        assetManager.soundMaleLaugh();
         buffer15.add(fa);
-        sw.start();
+        dieTime.start();
       }
     }
     firetraps.removeAll(buffer15); 
@@ -371,7 +312,7 @@ class Handler {
     {
       obj.update(0.016); 
       obj.applyForce(gravity); 
-      Bullet bl = obj.collision1(); 
+      Bullet bl = obj.removeBullets(); 
       if (bl != null)
         nextMyBullets.add(bl);
     }
@@ -379,12 +320,68 @@ class Handler {
   }
 
 
-
-
-  void TimerActions() 
+  void update() 
   {
-    println(sw.second());
-    if (sw.second()>3)
+    dieAction();
+
+    objectsCemitery(); 
+    telleCollision();
+  }
+
+  void display() 
+  {
+    displayBatteries(); 
+    displayBullets();
+    displayEnemies(); 
+    displayTraps();
+  }
+
+
+
+  void displayBullets() {
+    for (Bullet obj : bullets) {
+      obj.display();
+    }
+  }
+
+  void displayBatteries() {
+
+    for (LowBattery obj : lowbatteries[playerIsAt]) 
+    {
+      obj.display();
+    }
+
+    for (HighBattery obj : highbatteries[playerIsAt])
+      obj.display(); 
+
+    for (Flashlight obj : flashlightss[playerIsAt])
+      obj.display(); 
+
+    for (BulletsPackFive obj : packfives[playerIsAt])
+      obj.display();
+  }
+
+  void displayEnemies() {
+
+    for (Ghost obj : ghostss[playerIsAt])
+      obj.display(); 
+    for (Scarygirl obj : scarygirlss[playerIsAt])
+      obj.display();
+  }
+
+
+
+  void displayTraps() 
+  {
+    for (FireTrap obj : firetraps)
+      obj.display();
+  }
+
+
+
+  void dieAction() 
+  {
+    if (dieTime.second()>2.5)
       state = STATE_END;
   }
 }

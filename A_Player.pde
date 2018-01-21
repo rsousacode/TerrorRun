@@ -1,8 +1,7 @@
 
 class Player  extends GameObject {
   PImage image;
-  int W=assetManager.playerImage().width;
-  int H =assetManager.playerImage().height;
+
   int direction;
   private PVector velocity;
   boolean coliding;
@@ -13,7 +12,6 @@ class Player  extends GameObject {
   boolean collidingHorizontal;
   boolean colidingVertical =false;
 
-  int counter;
 
   Player(int x, int y, PVector velocity, ID id) {
     super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
@@ -45,22 +43,9 @@ class Player  extends GameObject {
     scale(player.direction, 1);
     imageMode(CENTER);
     scale(-1, 1);
-    animatePlayerSides();
+    assetManager.animatePlayerSides();
   }
 
-  void animatePlayerSides() {
-
-    if ( !coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right || !controller.left && controller.up && controller.right ||  controller.left && controller.up && controller.right || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right)
-      image(assetManager.images[3], 0, 0);
-    else   
-    image(assetManager.images[counter], 0, 0);
-    if (System.currentTimeMillis() - assetManager.currentFrame >= 5) {
-      if (controlsEnabled)
-        counter ++;
-      if (counter > 37)
-        counter=0;
-    } else image(assetManager.images[counter], 0, 0);
-  }
 
   void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)
   {

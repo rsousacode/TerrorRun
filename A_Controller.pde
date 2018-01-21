@@ -20,53 +20,57 @@ class Controller {
         player.coliding = false;
       }
       if (left==true  )
-      { if(controlsEnabled){
-        player.moveBy(-player.WalkSpeed, 0);        
-        player.direction= -1;
-      }
+      { 
+        if (controlsEnabled) {
+          player.moveBy(-player.WalkSpeed, 0);        
+          player.direction= -1;
+        }
       }
       if (right==true  )
       {
-        if(controlsEnabled){
-        player.moveBy(player.WalkSpeed, 0);             
-        player.direction= 1;
-      }
+        if (controlsEnabled) {
+          player.moveBy(player.WalkSpeed, 0);             
+          player.direction= 1;
+        }
       }
     }
   }
 
 
   void keyPressed(char key) {
-    
-    if(key=='p' || key =='P' && key =='A' )
-    player.resetpos();
+
+    if (key=='p' || key =='P' && key =='A' )
+      player.resetpos();
 
     if (key=='P' || key =='p' ) {
       controlsEnabled=!controlsEnabled;
     }
+
     if (controlsEnabled) {
-      if (key == 'W' || key == 'w'  ) {
-          up = true;
-      } else if (key == 'S' || key == 's') {
+      if (key == 'W' || key == 'w'  ) 
+      {
+        up = true;
+      } else if (key == 'S' || key == 's') 
+      {
         down = true;
       } else if (key == 'D' && controlsEnabled|| key == 'd' && controlsEnabled  ) {
-          right = true;
+        right = true;
       } else if (key == 'A'&& controlsEnabled || key == 'a'&& controlsEnabled) {
-          left = true;
+        left = true;
+        if (state==STATE_MENU)
+          menu.OverPlay=true;
       } else  if (key == 'Q' || key == 'q' ) {
-          if ( hud.lanterns!=1) {
-            hud.setLanterns(hud.lanterns()-1);
-            darkning.diameter = 2 * height;
-            lightson.rewind();
-            lightson.play();
-          }
+        if ( hud.lanterns!=1) {
+          hud.setLanterns(hud.lanterns()-1);
+          darkning.diameter = 2 * height;
+          assetManager.soundEquipLantern();
+        }
       } else if (key == ' ') {
-          if (hud.bullets() > 0) {
-            hud.setBullets(hud.bullets()-1);
-            canon.fire();
-            ghostbullet.rewind();
-            ghostbullet.play();
-          }
+        if (hud.bullets() > 0) {
+          hud.setBullets(hud.bullets()-1);
+          canon.fire();
+          assetManager.soundGhostBullet();
+        }
       } else if (key =='o' || key == 'O') {
         if (turnOffDarkning) {
           turnOffDarkning=!turnOffDarkning;
@@ -78,29 +82,40 @@ class Controller {
       }
       if (devmode) {
 
-        if (key =='r' || key =='R') {
+        if (key =='r' || key =='R') 
+        {
           player.setPositionTo(624, 1184);
         }
         if (key == 'X' || key == 'x')
           player.WalkSpeed++;
         if (key == 'Y' || key == 'y')
           player.jumpSpeed--;
-        if (key == 'M' || key == 'm') {
+        if (key == 'M' || key == 'm') 
+        {
           player.jumpSpeed=-13;
           player.WalkSpeed=(int)3.8;
         }
       }
+    }
+    if (key == 'S' || key == 's') 
+    {
+
+      soundActivated=!soundActivated;
+      assetManager.stopAndPlay();
     }
   }
   void keyReleased(char key)
   {  
     if (key == 'W' || key == 'w' ) {
       up = false;
-    } else if (key == 'S' || key == 's' ) {
+    } else if (key == 'S' || key == 's' ) 
+    {
       down = false;
-    } else if (key == 'D' || key == 'd') {
+    } else if (key == 'D' || key == 'd') 
+    {
       right = false;
-    } else if (key == 'A' || key == 'a'  ) {
+    } else if (key == 'A' || key == 'a'  ) 
+    {
       left = false;
     }
   }

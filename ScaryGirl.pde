@@ -42,7 +42,7 @@ class Scarygirl extends GameObject
     return sg;
   }
 
-  Scarygirl collision5() {
+  Scarygirl collisionBullets() {
     Scarygirl bs = null;
 
 
