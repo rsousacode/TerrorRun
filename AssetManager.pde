@@ -301,6 +301,14 @@ class AssetManager {
     }
   }
 
+  void soundGirlDie() {
+
+    if (soundActivated) {
+      girlDieSound.rewind();
+      girlDieSound.play();
+    }
+  }
+
   void soundCatchLantern() 
   {
     if (soundActivated) {
@@ -316,6 +324,15 @@ class AssetManager {
       EnemieDiesSound.rewind();
       EnemieDiesSound.play();
     }
+  }
+  
+  void ghostDieSound() {
+    
+    if(soundActivated){
+      ghostDieSound.rewind();
+      ghostDieSound.play();
+    }
+    
   }
 
 

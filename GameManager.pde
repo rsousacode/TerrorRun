@@ -210,13 +210,13 @@ class GameManager
 
   void killHorrorGirl() {
     scoreManager.setScore(scoreManager.score()+1909);
-    assetManager.soundVannish();
+    assetManager.soundGirlDie();
   }
 
   void killGhosts() {
 
     scoreManager.setScore(scoreManager.score()+998);
-    assetManager.soundVannish();
+    assetManager.ghostDieSound();
   }
 
   void useLantern() 
