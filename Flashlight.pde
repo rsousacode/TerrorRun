@@ -4,8 +4,8 @@ class Flashlight  extends GameObject
 
   Flashlight (int x, int y) 
   {
-    super(x, y, assetManager.flashlightImage().width, assetManager.flashlightImage().height, 0, 0, ID.Flashlight);
-    image = assetManager.flashlightImage();
+    super(x, y, assetManager.flashLight().width, assetManager.flashLight().height, 0, 0, ID.Flashlight);
+    image = assetManager.flashLight();
   }
 
   void draw() { 

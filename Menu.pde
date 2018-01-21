@@ -33,7 +33,7 @@ class Menu
   void showButtons() 
   {
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
-    image(assetManager.exitSys(), exitVector.x, exitVector.y);
+    image(assetManager.exitSysButton(), exitVector.x, exitVector.y);
   }
 
   void checkMouseOverButtons() {
@@ -56,11 +56,11 @@ class Menu
       OverPlay=false;
     }
     if ( OverHelp!=false) {
-      image(assetManager.help(), helpVector.x, helpVector.y, width/6, width/6);
-    } else image(assetManager.help(), helpVector.x, helpVector.y, width/9, width/9);
+      image(assetManager.helpButton(), helpVector.x, helpVector.y, width/6, width/6);
+    } else image(assetManager.helpButton(), helpVector.x, helpVector.y, width/9, width/9);
     if ( OverPlay!=false) {
-      image(assetManager.play(), playVector.x, playVector.y, width/6, width/6);
-    } else image(assetManager.play(), playVector.x, playVector.y, width/9, width/9);
+      image(assetManager.playButton(), playVector.x, playVector.y, width/6, width/6);
+    } else image(assetManager.playButton(), playVector.x, playVector.y, width/9, width/9);
     if ( OverTitle!=false) {
       image(assetManager.title(), titleVector.x, titleVector.y, width/1.2, width/2.8);
     } else image(assetManager.title(), titleVector.x, titleVector.y, width/1.5, width/3.6);

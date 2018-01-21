@@ -4,8 +4,8 @@ class Ghost extends GameObject
   private float minx, maxx;
   Ghost (Rectangle livingSpace) 
   {
-    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemyImage().height, assetManager.enemyImage().width, assetManager.enemyImage().height, 1, 0, ID.Ghost);
-    image = assetManager.enemyImage();
+    super(livingSpace.x, livingSpace.y + livingSpace.h - assetManager.enemy().height, assetManager.enemy().width, assetManager.enemy().height, 1, 0, ID.Ghost);
+    image = assetManager.enemy();
     minx = livingSpace.x;
     maxx = livingSpace.x + livingSpace.w - image.width;
   }
@@ -18,7 +18,7 @@ class Ghost extends GameObject
 
   void update() 
   {
-    if (controlsEnabled) 
+    if (controlsEnabled && !gamePaused) 
     {
       moveBy(velocity());
       if (position().x <= minx )

@@ -11,15 +11,15 @@ class Player  extends GameObject
   int direction;
 
   Player(int x, int y, PVector velocity, ID id) {
-    super(x, y, assetManager.playerImage().width, assetManager.playerImage().height, 1, 1, id);
+    super(x, y, assetManager.skeleton().width, assetManager.skeleton().height, 1, 1, id);
     WalkSpeed = (int)3.8;
-    
+
     jumpSpeed= -13;
     this.velocity = velocity.copy();
-    image = assetManager.playerImage();
+    image = assetManager.skeleton();
     direction = 1;
-    this.Pheight = assetManager.playerImage().height;
-    this.Pwidth=assetManager.playerImage().width;
+    this.Pheight = assetManager.skeleton().height;
+    this.Pwidth=assetManager.skeleton().width;
     assetManager.WalkingAnimationSIdes();
   }
 
@@ -44,10 +44,11 @@ class Player  extends GameObject
     imageMode(CENTER);
     scale(-1, 1);
     assetManager.animatePlayerSides();
-    if (!jumpActivated)
-     jumpSpeed= 0;
-     else  jumpSpeed= -13;
-    
+    if (!devmode) {
+      if (!jumpActivated)
+        jumpSpeed= 0;
+      else jumpSpeed = -13;
+    }
   }
 
   void CheckCollisionWorld(int objX, int objY, float objHeight, float objWidth)

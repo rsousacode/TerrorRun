@@ -1,4 +1,4 @@
-class ScoreManager 
+class GameManager 
 {
   private PFont newFont;
   float value, max;
@@ -10,7 +10,7 @@ class ScoreManager
   private final int marginLantern = width/50;
   private PImage image;
 
-  ScoreManager() 
+  GameManager() 
   {
     value = 50;
     barHeight= height/30;
@@ -20,7 +20,7 @@ class ScoreManager
     h = height/24;
     bar = color(255, 255, 0, 99);
     backgroundbar=color(255, 255, 0, 50);
-    image=assetManager.hudLantern();
+    image=assetManager.lanternHUD();
     newFont= assetManager.font();
   }
   
@@ -144,7 +144,7 @@ class ScoreManager
       text("Press 'L' to turn Off Lights", width-width/50, height-height/12);
       text("Press 'R' to respawn", width- width/50, height-height/4);
       text("Press 'X' to increase X velocity", width- width/50, height-height/8);
-      text("Press 'Y' to increase Y velocity", width- width/50, height-height/6);
+      text("Press 'i' to increase Y velocity", width- width/50, height-height/6);
       text("Press 'M' to reset X and Y velocities", width- width/50, height-height/5);
     }
   }

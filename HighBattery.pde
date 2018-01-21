@@ -2,8 +2,8 @@ class HighBattery  extends GameObject
 {
   private PImage image;
   HighBattery (int x, int y) {
-    super(x, y, assetManager.highBateryImage().width, assetManager.highBateryImage().height, 0, 0, ID.HighBattery);
-    image = assetManager.highBateryImage();
+    super(x, y, assetManager.highBattery().width, assetManager.highBattery().height, 0, 0, ID.HighBattery);
+    image = assetManager.highBattery();
   }
 
   void update() 

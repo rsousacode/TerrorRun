@@ -5,24 +5,24 @@ class AssetManager {
   private long currentFrame;
   private int counter;
   private PFont font;
-  private PImage cursorImage;
+  private PImage cursor;
   private PImage backgroundMenu;
   private PImage title;
   private PImage helpButton;
-  private PImage skullAndCup;
-  private PImage return2menu;
-  private PImage exitSys;
+  private PImage SkullandCupEnd;
+  private PImage return2menuButton;
+  private PImage exitSysButton;
   private PImage playButton;
-  private PImage showHelp;
+  private PImage helpScript;
   private PImage transcursor;
-  private PImage playerImage;
-  private PImage enemyImage;
-  private PImage lowBateryImage;
-  private PImage highBateryImage;
-  private PImage flashlightImage;
-  private PImage hudlantern;
-  private PImage scarygirlImage;
-  private PImage ghostBullet;
+  private PImage skeleton;
+  private PImage enemy;
+  private PImage lowBatery;
+  private PImage highBatery;
+  private PImage flashLight;
+  private PImage lanternHUD;
+  private PImage scaryGirl;
+  private PImage bullet;
   private PImage bullethudImage;
   private PImage packfiveImage;
   private PImage soundMenuButton;
@@ -32,43 +32,43 @@ class AssetManager {
   AssetManager() 
   {    
     font = createFont("data/Lycanthrope.ttf", 14, true);
-    cursorImage= loadImage("data/images/cursor.png");
+    cursor= loadImage("data/images/cursor.png");
     backgroundMenu =   loadImage("data/images/menu/background4.jpg");
     title = loadImage("data/images/menu/title.png");
     helpButton = loadImage("data/images/menu/help21.png");
-    skullAndCup = loadImage("data/images/menu/you_lost.png");
-    return2menu = loadImage("data/images/menu/return.png");
+    SkullandCupEnd = loadImage("data/images/menu/you_lost.png");
+    return2menuButton = loadImage("data/images/menu/return.png");
     playButton=loadImage("data/images/menu/play2.png");
-    exitSys=loadImage("data/images/menu/exit.png");
-    showHelp = loadImage("data/images/menu/help.png");
+    exitSysButton=loadImage("data/images/menu/exit.png");
+    helpScript = loadImage("data/images/menu/help.png");
     transcursor= loadImage("data/images/transcursor.png");
-    playerImage =    loadImage("data/images/skeleton.png");
-    enemyImage = loadImage("data/images/ghost.png");
-    lowBateryImage =   loadImage("data/images/battery.png");
-    highBateryImage= loadImage("data/images/battery2.png");
-    flashlightImage= loadImage("data/images/flashlight.png");
-    hudlantern = loadImage("data/images/hud-flash.png");
-    scarygirlImage= loadImage("data/images/scarygirl.png");
-    ghostBullet = loadImage("data/images/bone.png");
+    skeleton =    loadImage("data/images/skeleton.png");
+    enemy = loadImage("data/images/ghost.png");
+    lowBatery =   loadImage("data/images/battery.png");
+    highBatery= loadImage("data/images/battery2.png");
+    flashLight= loadImage("data/images/flashlight.png");
+    lanternHUD = loadImage("data/images/hud-flash.png");
+    scaryGirl= loadImage("data/images/scarygirl.png");
+    bullet = loadImage("data/images/bone.png");
     bullethudImage = loadImage("data/images/bullhd.png");
     packfiveImage = loadImage("data/images/packfive.png");
     soundMenuButton = loadImage("data/images/menu/sound.png");
     soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
-    backgroundmusic=audio.loadFile("data/sounds/sample.mp3");
-    catchBattery=audio.loadFile("data/sounds/pop.wav");
-    scarygirlLaugh = audio.loadFile("data/sounds/scgl.wav");
-    catchlantern = audio.loadFile("data/sounds/catchlantern.wav");
-    vannish = audio.loadFile("data/sounds/vannish.wav");
-    vannishgirl = audio.loadFile (  "data/sounds/vannishgirl.wav");
-    backgroundmusic=audio.loadFile(  "data/sounds/sample.mp3");
-    catchBattery=audio.loadFile(  "data/sounds/pop.wav");
-    scarygirlLaugh = audio.loadFile(  "data/sounds/scgl.wav");
-    catchlantern = audio.loadFile(  "data/sounds/catchlantern.wav");
-    vannish = audio.loadFile(  "data/sounds/vannish.wav");
-    dieghost = audio.loadFile(  "data/sounds/dieghost.wav");
-    ghostbullet = audio.loadFile(  "data/sounds/ghostbullet.wav");
-    malelaugh = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
-    lightson = audio.loadFile(  "data/sounds/lightson.wav"); 
+    backgroundMusic=audio.loadFile("data/sounds/sample.mp3");
+    getBatterySound=audio.loadFile("data/sounds/pop.wav");
+    girlLoughSound = audio.loadFile("data/sounds/scgl.wav");
+    getLanternSound = audio.loadFile("data/sounds/catchlantern.wav");
+    EnemieDiesSound = audio.loadFile("data/sounds/vannish.wav");
+    girlDieSound = audio.loadFile (  "data/sounds/vannishgirl.wav");
+    backgroundMusic=audio.loadFile(  "data/sounds/sample.mp3");
+    getBatterySound=audio.loadFile(  "data/sounds/pop.wav");
+    girlLoughSound = audio.loadFile(  "data/sounds/scgl.wav");
+    getLanternSound = audio.loadFile(  "data/sounds/catchlantern.wav");
+    EnemieDiesSound = audio.loadFile(  "data/sounds/vannish.wav");
+    ghostDieSound = audio.loadFile(  "data/sounds/dieghost.wav");
+    bulletSound = audio.loadFile(  "data/sounds/ghostbullet.wav");
+    maleLaughSound = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
+    useLanternSound = audio.loadFile(  "data/sounds/lightson.wav"); 
     PlayBackgroundMusic();
   }
 
@@ -81,7 +81,7 @@ class AssetManager {
 
   PImage cursorImage() 
   {
-    return cursorImage;
+    return cursor;
   }
 
   PImage backgroundMenu() 
@@ -94,35 +94,35 @@ class AssetManager {
     return title;
   }
 
-  PImage help() {
+  PImage helpButton() {
     return helpButton;
   }
 
-  PImage youlost() {
+  PImage SkullandCupEnd() {
 
-    return skullAndCup;
+    return SkullandCupEnd;
   }
 
-  PImage return2menu() 
+  PImage return2menuButton() 
   {
-    return return2menu;
+    return return2menuButton;
   }
 
-  PImage exitSys()
+  PImage exitSysButton()
   {
-    return exitSys;
+    return exitSysButton;
   }
 
 
-  PImage play() 
+  PImage playButton() 
   {
     return playButton;
   }
 
 
-  PImage helpCurrent() 
+  PImage helpscript() 
   {
-    return showHelp;
+    return helpScript;
   }
 
   PImage transcursor() 
@@ -130,44 +130,44 @@ class AssetManager {
     return transcursor;
   }
 
-  PImage playerImage() 
+  PImage skeleton() 
   {
-    return playerImage;
+    return skeleton;
   }
 
-  PImage enemyImage() 
+  PImage enemy() 
   {
-    return enemyImage;
+    return enemy;
   }
 
-  PImage lowBateryImage() 
+  PImage lowBattery() 
   {
-    return lowBateryImage;
+    return lowBatery;
   }
 
-  PImage highBateryImage() 
+  PImage highBattery() 
   {
-    return highBateryImage;
+    return highBatery;
   }
 
-  PImage flashlightImage() 
+  PImage flashLight() 
   {
-    return flashlightImage;
+    return flashLight;
   }
 
-  PImage hudLantern() 
+  PImage lanternHUD() 
   {
-    return hudlantern;
+    return lanternHUD;
   }
 
-  PImage scarygirlImage() 
+  PImage scaryGirl() 
   {
-    return scarygirlImage;
+    return scaryGirl;
   }
 
   PImage ghostBullet() 
   {
-    return ghostBullet;
+    return bullet;
   }
 
   PImage bullethud() 
@@ -193,7 +193,7 @@ class AssetManager {
 
 
   void animatePlayerSides() {
-    if ( !player.coliding || !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right &&(jumpActivated) || !controller.left && controller.up && controller.right &&(jumpActivated) ||  controller.left && controller.up && controller.right &&(jumpActivated) || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right &&(jumpActivated))
+    if ( !player.coliding|| !controller.right && !controller.left && !controller.up || controller.left && controller.up && !controller.right &&(jumpActivated) || !controller.left && controller.up && controller.right &&(jumpActivated) ||  controller.left && controller.up && controller.right &&(jumpActivated) || controller.left && controller.right && !controller.up || controller.up && !controller.left && !controller.right &&(jumpActivated))
       image(assetManager.images[3], 0, 0);
     else   
     image(assetManager.images[counter], 0, 0);
@@ -213,22 +213,22 @@ class AssetManager {
 
   void stopAudio() {
 
-    backgroundmusic.close();
-    ghostbullet.close();
-    malelaugh.close();
-    vannish.close();
-    catchlantern.close();
-    catchBattery.close();
-    lightson.close();
+    backgroundMusic.close();
+    bulletSound.close();
+    maleLaughSound.close();
+    EnemieDiesSound.close();
+    getLanternSound.close();
+    getBatterySound.close();
+    useLanternSound.close();
   }
 
   void stopAndPlay() 
   {
-    if (backgroundmusic.isPlaying()) 
+    if (backgroundMusic.isPlaying()) 
     {
-      backgroundmusic.pause();
+      backgroundMusic.pause();
     } else 
-    backgroundmusic.loop();
+    backgroundMusic.loop();
   }
 
 
@@ -257,20 +257,20 @@ class AssetManager {
       cursor((assetManager.transcursor.copy()));
     else 
     {
-      cursor((assetManager.cursorImage.copy()));
+      cursor((assetManager.cursor.copy()));
     }
   }
 
   void PlayBackgroundMusic() 
   {
-    backgroundmusic.loop();
+    backgroundMusic.loop();
   }
 
   void soundCatchBattery() 
   {
     if (soundActivated) {
-      catchBattery.rewind();
-      catchBattery.play();
+      getBatterySound.rewind();
+      getBatterySound.play();
     }
   }
 
@@ -279,16 +279,16 @@ class AssetManager {
 
     if (soundActivated) 
     {
-      scarygirlLaugh.rewind();
-      scarygirlLaugh.play();
+      girlLoughSound.rewind();
+      girlLoughSound.play();
     }
   }
 
   void soundCatchLantern() 
   {
     if (soundActivated) {
-      catchlantern.rewind();
-      catchlantern.play();
+      getLanternSound.rewind();
+      getLanternSound.play();
     }
   }
 
@@ -296,8 +296,8 @@ class AssetManager {
   {
     if (soundActivated) 
     {
-      vannish.rewind();
-      vannish.play();
+      EnemieDiesSound.rewind();
+      EnemieDiesSound.play();
     }
   }
 
@@ -306,8 +306,8 @@ class AssetManager {
   {
     if (soundActivated) 
     {
-      ghostbullet.rewind();
-      ghostbullet.play();
+      bulletSound.rewind();
+      bulletSound.play();
     }
   }
 
@@ -315,8 +315,8 @@ class AssetManager {
   {
     if (soundActivated) 
     {
-      malelaugh.rewind();
-      malelaugh.play();
+      maleLaughSound.rewind();
+      maleLaughSound.play();
     }
   }
 
@@ -325,8 +325,8 @@ class AssetManager {
   {
     if (soundActivated) 
     {
-      lightson.rewind();
-      lightson.play();
+      useLanternSound.rewind();
+      useLanternSound.play();
     }
   }
 }

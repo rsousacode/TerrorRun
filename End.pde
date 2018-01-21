@@ -18,8 +18,8 @@ class End
     imageMode(CENTER);
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     image(assetManager.title(), titleTitle.x, titleTitle.y, width/1.5, width/3.6);
-    image(assetManager.return2menu(), return2menuShow.x, return2menuShow.y);
-    image(assetManager.youlost(), width/2, height/1.9);
+    image(assetManager.return2menuButton(), return2menuShow.x, return2menuShow.y);
+    image(assetManager.SkullandCupEnd(), width/2, height/1.9);
   }
 
   void  displayScore() {

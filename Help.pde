@@ -14,8 +14,8 @@ class Help
     imageMode(CENTER);  
     image(assetManager.backgroundMenu(), width/2, height/2, width, height);
     image(assetManager.title(), titlePos.x, titlePos.y, width/1.5, width/3.6);
-    image(assetManager.return2menu(), return2menuPos.x, return2menuPos.y);
-    image(assetManager.helpCurrent(), helpPos.x, helpPos.y, width/3, height/1.5);
+    image(assetManager.return2menuButton(), return2menuPos.x, return2menuPos.y);
+    image(assetManager.helpscript(), helpPos.x, helpPos.y, width/3, height/1.5);
   }
   void display()
   {
