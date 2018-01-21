@@ -20,6 +20,7 @@ final int STATE_MENU=1;
 final int STATE_GAMEOVER=2;
 final int STATE_HELP=3;
 final int STATE_END=4;
+final int STATE_CREDITS=5;
 final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
@@ -46,6 +47,7 @@ Canon canon;
 Menu menu;
 Ghost ghost;
 Help help;
+Credits credits;
 Darkning darkning;
 GameManager scoreManager;
 Rectangle rectangle;
@@ -91,6 +93,8 @@ void setState(int state)
     menu = new Menu();
   case STATE_HELP:
     help = new Help();
+  case STATE_CREDITS:
+    credits = new Credits();
   }
 }
 
@@ -104,6 +108,9 @@ void draw()
   } else if (state== STATE_HELP ) 
   {
     help.display();
+  } else if (state==STATE_CREDITS) 
+  {
+    credits.display();
   } else if ( state== STATE_GAME) 
   {
     background(0);
@@ -125,12 +132,13 @@ void draw()
     {
       darkning.apply();
     }
-    if(controlsEnabled)
-    scoreManager.display();
+    if (controlsEnabled)
+      scoreManager.display();
   } else if (state== STATE_END ) 
   {
     end.display();
   }
+
   assetManager.Cursordisplay();
 }
 
@@ -159,6 +167,11 @@ void StatesInter() {
       break;
     }
     switch(result) {
+    case "credits":
+      setState(STATE_CREDITS);
+      break;
+    }
+    switch(result) {
     case "sound":
       soundActivated=!soundActivated;
       assetManager.stopAndPlay();
@@ -173,6 +186,8 @@ void StatesInter() {
       break;
     }
   } 
+  
+  
   if (state == STATE_HELP ) 
   {
     String result = help.checkButtons();
@@ -185,6 +200,16 @@ void StatesInter() {
   } else if (state == STATE_END ) 
   {
     String result = end.checkButtons();
+    switch(result)
+    {
+    case "gomenu":
+      setState(STATE_MENU);
+
+      break;
+    }
+  } else if (state == STATE_CREDITS ) 
+  {
+    String result = credits.checkButtons();
     switch(result)
     {
     case "gomenu":

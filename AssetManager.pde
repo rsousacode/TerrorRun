@@ -13,7 +13,9 @@ class AssetManager {
   private PImage return2menuButton;
   private PImage exitSysButton;
   private PImage playButton;
+  private PImage creditsButton;
   private PImage helpScript;
+  private PImage creditsScript;
   private PImage transcursor;
   private PImage skeleton;
   private PImage enemy;
@@ -39,8 +41,10 @@ class AssetManager {
     SkullandCupEnd = loadImage("data/images/menu/you_lost.png");
     return2menuButton = loadImage("data/images/menu/return.png");
     playButton=loadImage("data/images/menu/play2.png");
+    creditsButton = loadImage("data/images/menu/creditsButton.png");
     exitSysButton=loadImage("data/images/menu/exit.png");
     helpScript = loadImage("data/images/menu/help.png");
+    creditsScript = loadImage("data/images/menu/credits.png");
     transcursor= loadImage("data/images/transcursor.png");
     skeleton =    loadImage("data/images/skeleton.png");
     enemy = loadImage("data/images/ghost.png");
@@ -94,11 +98,13 @@ class AssetManager {
     return title;
   }
 
-  PImage helpButton() {
+  PImage helpButton() 
+  {
     return helpButton;
   }
 
-  PImage SkullandCupEnd() {
+  PImage SkullandCupEnd() 
+  {
 
     return SkullandCupEnd;
   }
@@ -119,10 +125,21 @@ class AssetManager {
     return playButton;
   }
 
+  PImage creditsButton() 
+  {
+    return creditsButton;
+  }
+
 
   PImage helpscript() 
   {
     return helpScript;
+  }
+
+  PImage creditsScript() 
+  {
+
+    return creditsScript;
   }
 
   PImage transcursor() 
