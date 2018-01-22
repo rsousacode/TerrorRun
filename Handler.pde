@@ -52,13 +52,13 @@ class Handler  //<>//
   void randomFunction() 
   {
     for (int i = 0; i < casas.length; i++) {
-      float r = random(4, 6);
+      float r = random(1, 6);
       casas[0]=0;
       if (i < 3)
         r= random(1, 3);
       else if (i < 6 )
         r =random(2, 4);
-      else if (i >= 6)
+      else if (i < 8)
         r = random(4, 7);
       casas[i] = (int)r;
     }
