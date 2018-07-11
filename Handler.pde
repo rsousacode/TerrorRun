@@ -241,7 +241,6 @@ class Handler  //<>//
       obj.update(); 
       Flashlight fl = obj.collisionPlayer(); 
       if (fl != null) {
-        assetManager.soundCatchLantern();
 
         buffer7.add(fl);
       }
@@ -256,7 +255,6 @@ class Handler  //<>//
       BulletsPackFive bp = obj.collision2(); 
       if (bp != null) {
         buffer13.add(bp);
-        assetManager.soundCatchBattery();
       }
     }
 
@@ -269,7 +267,6 @@ class Handler  //<>//
       obj.update(); 
       Ghost en = obj.collisionPlayer(); 
       if (en != null) {
-        assetManager.soundMaleLaugh() ;
         dieTime.start();
         controlsEnabled=false;
         buffer4.add(en);
@@ -290,7 +287,6 @@ class Handler  //<>//
       Scarygirl sg = obj.collisionPlayer(); 
       if (sg != null) {
         controlsEnabled=!controlsEnabled;
-        assetManager.soundGirlaugh();
         dieTime.start();
         buffer11.add(sg);
       } 
@@ -310,7 +306,6 @@ class Handler  //<>//
       FireTrap fa = obj.collisionPlayer(); 
       if (fa != null) {
         controlsEnabled=false;
-        assetManager.soundMaleLaugh();
         buffer15.add(fa);
         dieTime.start();
       }

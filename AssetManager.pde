@@ -58,22 +58,7 @@ class AssetManager {
     packfiveImage = loadImage("data/images/packfive.png");
     soundMenuButton = loadImage("data/images/menu/sound.png");
     soundMenuButtonOff = loadImage("data/images/menu/soundOff.png");
-    backgroundMusic=audio.loadFile("data/sounds/sample.mp3");
-    getBatterySound=audio.loadFile("data/sounds/pop.wav");
-    girlLoughSound = audio.loadFile("data/sounds/scgl.wav");
-    getLanternSound = audio.loadFile("data/sounds/catchlantern.wav");
-    EnemieDiesSound = audio.loadFile("data/sounds/vannish.wav");
-    girlDieSound = audio.loadFile (  "data/sounds/vannishgirl.wav");
-    backgroundMusic=audio.loadFile(  "data/sounds/sample.mp3");
-    getBatterySound=audio.loadFile(  "data/sounds/pop.wav");
-    girlLoughSound = audio.loadFile(  "data/sounds/scgl.wav");
-    getLanternSound = audio.loadFile(  "data/sounds/catchlantern.wav");
-    EnemieDiesSound = audio.loadFile(  "data/sounds/vannish.wav");
-    ghostDieSound = audio.loadFile(  "data/sounds/dieghost.wav");
-    bulletSound = audio.loadFile(  "data/sounds/ghostbullet.wav");
-    maleLaughSound = audio.loadFile(  "data/sounds/malelaughsc.wav"); 
-    useLanternSound = audio.loadFile(  "data/sounds/lightson.wav"); 
-    PlayBackgroundMusic();
+
   }
 
 
@@ -228,29 +213,7 @@ class AssetManager {
 
 
 
-  void stopAudio() {
-
-    backgroundMusic.close();
-    bulletSound.close();
-    maleLaughSound.close();
-    EnemieDiesSound.close();
-    getLanternSound.close();
-    getBatterySound.close();
-    useLanternSound.close();
-  }
-
-  void stopAndPlay() 
-  {
-    if (backgroundMusic.isPlaying()) 
-    {
-      backgroundMusic.pause();
-    } else 
-    backgroundMusic.loop();
-  }
-
-
-
-
+  
   void WalkingAnimationSIdes() 
   {
     for (int i = 0; i < numFrames; i++) 
@@ -278,89 +241,5 @@ class AssetManager {
     }
   }
 
-  void PlayBackgroundMusic() 
-  {
-    backgroundMusic.loop();
+
   }
-
-  void soundCatchBattery() 
-  {
-    if (soundActivated) {
-      getBatterySound.rewind();
-      getBatterySound.play();
-    }
-  }
-
-  void soundGirlaugh() 
-  {
-
-    if (soundActivated) 
-    {
-      girlLoughSound.rewind();
-      girlLoughSound.play();
-    }
-  }
-
-  void soundGirlDie() {
-
-    if (soundActivated) {
-      girlDieSound.rewind();
-      girlDieSound.play();
-    }
-  }
-
-  void soundCatchLantern() 
-  {
-    if (soundActivated) {
-      getLanternSound.rewind();
-      getLanternSound.play();
-    }
-  }
-
-  void soundVannish() 
-  {
-    if (soundActivated) 
-    {
-      EnemieDiesSound.rewind();
-      EnemieDiesSound.play();
-    }
-  }
-  
-  void ghostDieSound() {
-    
-    if(soundActivated){
-      ghostDieSound.rewind();
-      ghostDieSound.play();
-    }
-    
-  }
-
-
-  void soundGhostBullet() 
-  {
-    if (soundActivated) 
-    {
-      bulletSound.rewind();
-      bulletSound.play();
-    }
-  }
-
-  void  soundMaleLaugh() 
-  {
-    if (soundActivated) 
-    {
-      maleLaughSound.rewind();
-      maleLaughSound.play();
-    }
-  }
-
-
-  void soundEquipLantern() 
-  {
-    if (soundActivated) 
-    {
-      useLanternSound.rewind();
-      useLanternSound.play();
-    }
-  }
-}

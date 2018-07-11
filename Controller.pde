@@ -96,11 +96,6 @@ class Controller
           }
         }
     }
-    if (key == 'Y' || key == 'y') 
-    {
-      soundActivated=!soundActivated;
-      assetManager.stopAndPlay();
-    }
   }
   void keyReleased(char key)
   {  

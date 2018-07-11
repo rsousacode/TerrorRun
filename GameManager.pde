@@ -210,13 +210,11 @@ class GameManager
 
   void killHorrorGirl() {
     scoreManager.setScore(scoreManager.score()+1909);
-    assetManager.soundGirlDie();
   }
 
   void killGhosts() {
 
     scoreManager.setScore(scoreManager.score()+998);
-    assetManager.ghostDieSound();
   }
 
   void useLantern() 
@@ -225,18 +223,15 @@ class GameManager
     {
       setLanterns(scoreManager.lanterns()-1);
       darkning.diameter = 2 * height;
-      assetManager.soundEquipLantern();
     }
   }
 
   void catchLowBattery() {
-    assetManager.soundCatchBattery();
     scoreManager.setScore(scoreManager.score()+220);
     darkning.diameter+=250;
   }
 
   void catchHighBattery() {
-    assetManager.soundCatchBattery();
     scoreManager.setScore(scoreManager.score()+110);
     darkning.diameter+=400;
   }
@@ -245,7 +240,6 @@ class GameManager
   {
     if (scoreManager.bullets() > 0) {
       scoreManager.setBullets(scoreManager.bullets()-1);
-      assetManager.soundGhostBullet();
       canon.fire();
     }
   }

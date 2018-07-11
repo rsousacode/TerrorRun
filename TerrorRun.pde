@@ -1,12 +1,7 @@
 //TERROR-RUN---------------// //<>//
 //Use key "O" to use developer-mode
 //Use key "Y" to mute sound
-import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
-import ddf.minim.signals.*;
-import ddf.minim.spi.*;
-import ddf.minim.ugens.*;
+
 boolean allowDevMode = true;
 private boolean devmode = false;
 private boolean turnOffDarkning = false;
@@ -24,18 +19,8 @@ final int STATE_CREDITS=5;
 final int STATE_GAME=0;
 PImage background_menu;
 PImage background_help;
-Minim audio;
-AudioPlayer ghostDieSound;
-AudioPlayer bulletSound;
-AudioPlayer girlDieSound;
-AudioPlayer maleLaughSound;
-AudioPlayer useLanternSound;
-AudioPlayer backgroundMusic;
-AudioPlayer jumpSound;
-AudioPlayer getBatterySound;
-AudioPlayer girlLoughSound;
-AudioPlayer getLanternSound;
-AudioPlayer EnemieDiesSound;
+
+
 
 Bullet bullet;
 Handler handler;
@@ -63,7 +48,6 @@ void settings()
 
 void setup()
 {
-  audio = new Minim(this);
   assetManager = new AssetManager();
   controller = new Controller();
   frameRate(100);
@@ -174,14 +158,12 @@ void StatesInter() {
     switch(result) {
     case "sound":
       soundActivated=!soundActivated;
-      assetManager.stopAndPlay();
       break;
     }
 
     switch(result)
     {
     case "exit":
-      assetManager.stopAudio();
       exit();
       break;
     }
